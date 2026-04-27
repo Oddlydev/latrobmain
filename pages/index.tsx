@@ -2073,7 +2073,9 @@ function ContactSection() {
               <div className="la-contact-ethics-icon">
                 <EthicsIcon />
               </div>
-              <h3 className="la-home-section-title">Ethics & Governance</h3>
+              <h3 className="text-2xl font-bold leading-8 uppercase">
+                Ethics & Governance
+              </h3>
             </div>
             <p className="la-contact-ethics-body">
               This research is conducted in accordance with La Trobe

@@ -9,13 +9,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["DM Sans", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: [
-          "DM Sans",
-          "Inter",
+        sans: [
+          "var(--font-dm-sans)",
+          "var(--font-inter)",
           "ui-sans-serif",
           "system-ui",
           "sans-serif",
+        ],
+        display: [
+          "var(--font-dm-sans)",
         ],
         mono: ["ui-monospace", "SFMono-Regular", "SF Mono", "monospace"],
       },
