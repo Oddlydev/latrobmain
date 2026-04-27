@@ -1189,6 +1189,7 @@ function HowItWorksSection() {
     side: "left" | "right";
     icon: ReactNode;
     desktopWidthClass: string;
+    desktopPaddingClass: string;
     titleWidthClass: string;
     descriptionWidthClass: string;
   };
@@ -1420,6 +1421,7 @@ function HowItWorksSection() {
       side: "left",
       icon: <IconLock />,
       desktopWidthClass: "lg:max-w-[480px]",
+      desktopPaddingClass: "lg:pr-14",
       titleWidthClass: "w-full",
       descriptionWidthClass: "w-[410px] lg:ml-auto",
     },
@@ -1432,6 +1434,7 @@ function HowItWorksSection() {
       side: "right",
       icon: <IconSearch />,
       desktopWidthClass: "lg:w-[440px]",
+      desktopPaddingClass: "lg:pl-16",
       titleWidthClass: "w-full",
       descriptionWidthClass: "w-[410px]",
     },
@@ -1443,7 +1446,8 @@ function HowItWorksSection() {
         "Work through the structured, research-validated assessment form. Guided prompts ensure every clinical indicator is captured.",
       side: "left",
       icon: <IconChecklist />,
-      desktopWidthClass: "lg:w-[410px]",
+      desktopWidthClass: "lg:w-[470px]",
+      desktopPaddingClass: "lg:pr-24",
       titleWidthClass: "w-full",
       descriptionWidthClass: "w-[410px] lg:ml-auto",
     },
@@ -1456,6 +1460,7 @@ function HowItWorksSection() {
       side: "right",
       icon: <IconBell />,
       desktopWidthClass: "lg:w-[440px]",
+      desktopPaddingClass: "lg:pl-16",
       titleWidthClass: "w-full",
       descriptionWidthClass: "w-[410px]",
     },
@@ -1468,6 +1473,7 @@ function HowItWorksSection() {
       side: "left",
       icon: <IconTrend />,
       desktopWidthClass: "lg:w-[560px]",
+      desktopPaddingClass: "lg:pr-14",
       titleWidthClass: "w-full",
       descriptionWidthClass: "w-[410px] lg:ml-auto",
     },
@@ -1480,6 +1486,7 @@ function HowItWorksSection() {
       side: "right",
       icon: <IconNode />,
       desktopWidthClass: "lg:max-w-[360px]",
+      desktopPaddingClass: "lg:pl-16",
       titleWidthClass: "w-full",
       descriptionWidthClass: "max-w-[300px]",
     },
@@ -1600,8 +1607,8 @@ function HowItWorksSection() {
                         ? "origin-right hover:-translate-x-2"
                         : "origin-left hover:translate-x-2",
                       isLeft
-                        ? `lg:col-start-1 lg:ml-auto ${step.desktopWidthClass} lg:pr-14 lg:text-right`
-                        : `lg:col-start-2 ${step.desktopWidthClass} lg:pl-16 lg:text-left`,
+                        ? `lg:col-start-1 lg:ml-auto ${step.desktopWidthClass} ${step.desktopPaddingClass} lg:text-right`
+                        : `lg:col-start-2 ${step.desktopWidthClass} ${step.desktopPaddingClass} lg:text-left`,
                     ].join(" ")}
                   >
                     <div
