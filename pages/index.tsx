@@ -68,7 +68,7 @@ function SectionLead({
   return (
     <p
       className={[
-        "body-base-400 max-w-xl text-gray-500",
+        "body-base-400 text-gray-500",
         centered ? "mx-auto text-center" : "",
         className ?? "",
       ]
@@ -1703,7 +1703,7 @@ function TeamSection() {
           </SectionTitle>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 mt-12">
           {teamMembers.map((member) => (
             <article key={member.title} className="la-team-card">
               <div className="la-team-header">
@@ -1750,14 +1750,14 @@ function SupportSection() {
   ];
 
   return (
-    <section className="border-t border-slate-200 bg-white pt-20">
+    <section className="border-t border-slate-200 border-b py-20">
       <div className="la-container">
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">Funding & Governance</p>
           <h2 className="la-home-section-title mt-2 text-center">
             Supported by
           </h2>
-          <p className="body-base-400 mx-auto mt-4 max-w-xl text-center text-gray-500">
+          <p className="body-base-400 mx-auto mt-4 max-w-[550px] text-center text-gray-500">
             PCAT is supported by La Trobe University, Aged Care Research and
             Industry Innovation Australia (ARIIA) and Monash Health.
           </p>
@@ -2039,7 +2039,7 @@ function ContactSection() {
           <SectionTitle className="text-black">
             Collaborate or Learn More
           </SectionTitle>
-          <SectionLead className="pt-4 text-gray-500">
+          <SectionLead className="pt-4 text-gray-500 max-w-600">
             We welcome enquiries from aged care providers, clinicians,
             researchers, consumer advocates, and organisations interested in
             partnering with the PCAT project.
