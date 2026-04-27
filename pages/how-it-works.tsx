@@ -375,7 +375,7 @@ function HowItWorksSection() {
               return (
                 <div
                   key={step.id}
-                  className="relative grid grid-cols-[auto_1fr] items-start gap-x-4 py-4 lg:grid-cols-2 lg:items-center lg:gap-8 lg:py-5"
+                  className="relative grid grid-cols-[auto_1fr] items-start gap-x-4 lg:grid-cols-2 lg:items-center lg:gap-8"
                 >
                   <div
                     ref={(element) => {
@@ -398,13 +398,13 @@ function HowItWorksSection() {
                         ? "origin-right hover:-translate-x-2"
                         : "origin-left hover:translate-x-2",
                       isLeft
-                        ? "lg:col-start-1 lg:ml-auto lg:max-w-xl lg:pr-16 lg:text-right"
+                        ? "lg:col-start-1 lg:ml-auto lg:max-w-xl lg:pr-14 lg:text-right"
                         : "lg:col-start-2 lg:max-w-xl lg:pl-16 lg:text-left",
                     ].join(" ")}
                   >
                     <div
                       className={[
-                        "flex items-baseline gap-1.5 font-display text-black",
+                        "flex items-baseline gap-3 font-display text-black",
                         isLeft
                           ? "justify-start lg:justify-end"
                           : "justify-start",
@@ -427,8 +427,6 @@ function HowItWorksSection() {
             })}
           </div>
         </div>
-
-        <div className="h-16 sm:h-20" aria-hidden="true" />
       </div>
     </section>
   );

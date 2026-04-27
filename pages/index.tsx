@@ -25,7 +25,7 @@ function SectionEyebrow({
   className?: string;
 }) {
   return (
-    <p className={["eyebrow", className].filter(Boolean).join(" ")}>
+    <p className={["eyebrow", "m-0", className].filter(Boolean).join(" ")}>
       {children}
     </p>
   );
@@ -43,7 +43,8 @@ function SectionTitle({
   return (
     <h2
       className={[
-        "h2 text-black",
+        "la-home-section-title",
+        "mt-2 mb-0",
         centered ? "text-center" : "",
         className ?? "",
       ]
@@ -67,7 +68,7 @@ function SectionLead({
   return (
     <p
       className={[
-        "body-base-400 max-w-lg text-gray-500",
+        "body-base-400 max-w-xl text-gray-500",
         centered ? "mx-auto text-center" : "",
         className ?? "",
       ]
@@ -115,37 +116,37 @@ const HOW_IT_WORKS_FEATURE_CARDS = [
     title: "Research-Validated Assessments",
     description:
       "Complete structured palliative care assessments built on peer-reviewed methodology. Forms are standardised, auto-timestamped, and designed so no critical clinical indicator is ever overlooked.",
-    icon: <ClipboardIcon size={24} />,
+    icon: <AssessmentDocumentIcon />,
   },
   {
     title: "Risk Flagging & Escalation",
     description:
       "Assessment responses automatically surface risk indicators and suggest appropriate clinical actions. Senior nurses and administrators can filter all patients by risk level, ensuring priority cases are always visible.",
-    icon: <AlertTriangleIcon />,
+    icon: <RiskFlagIcon />,
   },
   {
     title: "AI-First Design",
     description:
       "PCAT is architected from the ground up to integrate AI capabilities - enabling future features like predictive risk scoring, clinical trend analysis, and intelligent decision support.",
-    icon: <SparkIcon />,
+    icon: <AiFirstDesignIcon />,
   },
   {
     title: "Trend Monitoring",
     description:
       "Visualise a patient's assessment score history and a model-generated 48-hour forecast - giving nurses an early signal of deterioration before it becomes critical.",
-    icon: <TrendUpIcon />,
+    icon: <TrendMonitoringIcon />,
   },
   {
     title: "Multi-Centre Support",
     description:
       "PCAT supports multiple aged care centres under the same programme. Each nurse sees only the patients assigned to their facility, while coordinators retain a cross-centre overview.",
-    icon: <DocumentIcon size={24} />,
+    icon: <MultiCentreSupportIcon />,
   },
   {
     title: "Secure Access",
     description:
       "Nurses and administrators operate within tailored permission sets. Full audit logging ensures accountability, and all patient data is protected behind authenticated, encrypted access.",
-    icon: <ShieldIcon />,
+    icon: <SecureAccessIcon />,
   },
 ];
 
@@ -354,6 +355,281 @@ function TrendUpIcon() {
   );
 }
 
+function AssessmentDocumentIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M15 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V7L15 2Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M14 2V6C14 6.53043 14.2107 7.03914 14.5858 7.41421C14.9609 7.78929 15.4696 8 16 8H20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10 9H8"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16 13H8"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16 17H8"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function RiskFlagIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M21.73 18L13.73 3.99998C13.5556 3.69218 13.3026 3.43617 12.9969 3.25805C12.6912 3.07993 12.3438 2.98608 11.99 2.98608C11.6362 2.98608 11.2887 3.07993 10.9831 3.25805C10.6774 3.43617 10.4244 3.69218 10.25 3.99998L2.24999 18C2.07367 18.3053 1.98122 18.6519 1.982 19.0045C1.98278 19.3571 2.07677 19.7032 2.25444 20.0078C2.43211 20.3124 2.68714 20.5646 2.99369 20.7388C3.30023 20.9131 3.6474 21.0032 3.99999 21H20C20.3509 20.9996 20.6955 20.9069 20.9993 20.7313C21.303 20.5556 21.5552 20.3031 21.7305 19.9991C21.9058 19.6951 21.998 19.3504 21.9979 18.9995C21.9978 18.6486 21.9054 18.3039 21.73 18Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 9V13"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 17H12.01"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function AiFirstDesignIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 5.00005C12.0011 4.60008 11.9223 4.20391 11.7681 3.83485C11.614 3.46579 11.3876 3.13128 11.1022 2.851C10.8169 2.57072 10.4784 2.35032 10.1066 2.20278C9.73485 2.05524 9.33733 1.98353 8.93745 1.99186C8.53756 2.0002 8.14338 2.08841 7.77809 2.25132C7.4128 2.41422 7.08377 2.64853 6.81035 2.94045C6.53694 3.23238 6.32466 3.57604 6.186 3.9512C6.04735 4.32637 5.98511 4.72548 6.00295 5.12505C5.41515 5.27619 4.86945 5.5591 4.40718 5.95236C3.94491 6.34562 3.57819 6.83892 3.3348 7.3949C3.0914 7.95087 2.97771 8.55494 3.00234 9.16136C3.02697 9.76778 3.18927 10.3606 3.47695 10.8951C2.97113 11.306 2.57338 11.8343 2.31829 12.434C2.0632 13.0337 1.95851 13.6866 2.01332 14.336C2.06812 14.9854 2.28077 15.6116 2.63276 16.1601C2.98475 16.7085 3.46542 17.1627 4.03295 17.4831C3.96287 18.0253 4.00469 18.5761 4.15584 19.1016C4.30699 19.627 4.56425 20.1159 4.91174 20.538C5.25923 20.9601 5.68956 21.3065 6.17617 21.5558C6.66278 21.8051 7.19533 21.952 7.74093 21.9874C8.28653 22.0228 8.83359 21.946 9.34834 21.7617C9.86309 21.5774 10.3346 21.2895 10.7337 20.9158C11.1328 20.5421 11.4511 20.0906 11.6689 19.5891C11.8867 19.0876 11.9994 18.5468 12 18V5.00005Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 13C9.83956 12.7047 10.5727 12.167 11.1067 11.455C11.6407 10.743 11.9515 9.88867 12 9"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6.00305 5.125C6.02283 5.60873 6.15938 6.0805 6.40105 6.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3.47705 10.896C3.65999 10.747 3.85575 10.6145 4.06205 10.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.99996 17.9999C5.31079 18.0002 4.63323 17.8225 4.03296 17.4839"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 13H16"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 18H18C18.5304 18 19.0391 18.2107 19.4142 18.5858C19.7893 18.9609 20 19.4696 20 20V21"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 8H20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16 8V5C16 4.46957 16.2107 3.96086 16.5858 3.58579C16.9609 3.21071 17.4696 3 18 3"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16 13.5C16.2761 13.5 16.5 13.2761 16.5 13C16.5 12.7239 16.2761 12.5 16 12.5C15.7239 12.5 15.5 12.7239 15.5 13C15.5 13.2761 15.7239 13.5 16 13.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M18 3.5C18.2761 3.5 18.5 3.27614 18.5 3C18.5 2.72386 18.2761 2.5 18 2.5C17.7239 2.5 17.5 2.72386 17.5 3C17.5 3.27614 17.7239 3.5 18 3.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M20 21.5C20.2761 21.5 20.5 21.2761 20.5 21C20.5 20.7239 20.2761 20.5 20 20.5C19.7239 20.5 19.5 20.7239 19.5 21C19.5 21.2761 19.7239 21.5 20 21.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M20 8.5C20.2761 8.5 20.5 8.27614 20.5 8C20.5 7.72386 20.2761 7.5 20 7.5C19.7239 7.5 19.5 7.72386 19.5 8C19.5 8.27614 19.7239 8.5 20 8.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function TrendMonitoringIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M22 7L13.5 15.5L8.5 10.5L2 17"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16 7H22V13"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function MultiCentreSupportIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M6 22V4C6 3.46957 6.21071 2.96086 6.58579 2.58579C6.96086 2.21071 7.46957 2 8 2H16C16.5304 2 17.0391 2.21071 17.4142 2.58579C17.7893 2.96086 18 3.46957 18 4V22H6Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6 12H4C3.46957 12 2.96086 12.2107 2.58579 12.5858C2.21071 12.9609 2 13.4696 2 14V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H6"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M18 9H20C20.5304 9 21.0391 9.21071 21.4142 9.58579C21.7893 9.96086 22 10.4696 22 11V20C22 20.5304 21.7893 21.0391 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22H18"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10 6H14"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10 10H14"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10 14H14"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10 18H14"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function ShieldIcon() {
   return (
     <svg
@@ -365,6 +641,33 @@ function ShieldIcon() {
     >
       <path
         d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 12L11 14L15 10"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function SecureAccessIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M20 13C20 18 16.5 20.5 12.34 21.95C12.1222 22.0238 11.8855 22.0202 11.67 21.94C7.5 20.5 4 18 4 13V5.99996C4 5.73474 4.10536 5.48039 4.29289 5.29285C4.48043 5.10532 4.73478 4.99996 5 4.99996C7 4.99996 9.5 3.79996 11.24 2.27996C11.4519 2.09896 11.7214 1.99951 12 1.99951C12.2786 1.99951 12.5481 2.09896 12.76 2.27996C14.51 3.80996 17 4.99996 19 4.99996C19.2652 4.99996 19.5196 5.10532 19.7071 5.29285C19.8946 5.48039 20 5.73474 20 5.99996V13Z"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
@@ -498,7 +801,7 @@ function HomeHeroSection() {
               <Button
                 href="#about"
                 variant="secondary"
-                className="justify-center border-gray-200 bg-gray-50 shadow-sm"
+                className="la-button-home-hero-secondary justify-center"
               >
                 Learn more
               </Button>
@@ -556,49 +859,47 @@ function AboutSection() {
   }
 
   return (
-    <section className="la-container pt-20 pb-20">
+    <section className="la-container pt-20">
       <SectionAnchor id="about" />
-      <div className="space-y-12">
-        <div className="max-w-[695px] space-y-0">
-          <SectionEyebrow className="text-red-600">
-            About the project
-          </SectionEyebrow>
-          <SectionTitle className="mt-2 max-w-[695px] text-black">
-            Identifying palliative care needs - earlier, and with confidence
-          </SectionTitle>
+      <div className="max-w-[695px]">
+        <SectionEyebrow className="text-red-600">
+          About the project
+        </SectionEyebrow>
+        <h2 className="la-about-title">
+          Identifying palliative care needs - earlier, and with confidence
+        </h2>
+      </div>
+
+      <div className="grid gap-12 lg:grid-cols-2 lg:gap-12">
+        <div className="la-about-copy-stack">
+          <SectionLead className="max-w-[695px] text-gray-600">
+            PCAT was developed under Professor Hanan Khalil's initiative at La
+            Trobe University to close a critical gap in aged care nursing: the
+            timely identification of patients who would benefit from palliative
+            care. Where nurses once relied on fragmented paper forms and
+            disconnected processes, PCAT brings everything into one structured,
+            evidence-based digital workflow.
+          </SectionLead>
+
+          <div className="rounded-xl border-4 border-brand-1 bg-white px-4 py-4 shadow-none sm:px-6 sm:py-5 lg:px-6 lg:py-6">
+            <p className="font-display text-lg font-semibold leading-6 tracking-normal text-black lg:text-xl lg:leading-7">
+              PCAT is an evidence based palliative care assessment toolkit that
+              is designed to flag palliative care needs. Nurses can complete
+              assessments, monitor patient health trends over time, review full
+              care histories, and ensure no at-risk patient goes unnoticed — all
+              from a single secure portal, on any device.
+            </p>
+          </div>
         </div>
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-12">
-          <div className="space-y-8">
-            <SectionLead className="max-w-[695px] text-gray-600">
-              PCAT was developed under Professor Hanan Khalil's initiative at La
-              Trobe University to close a critical gap in aged care nursing: the
-              timely identification of patients who would benefit from
-              palliative care. Where nurses once relied on fragmented paper
-              forms and disconnected processes, PCAT brings everything into one
-              structured, evidence-based digital workflow.
-            </SectionLead>
-
-            <div className="rounded-xl border-4 border-brand-1 bg-white px-4 py-4 shadow-none sm:px-6 sm:py-5 lg:px-6 lg:py-6">
-              <p className="font-display text-lg font-semibold leading-6 tracking-normal text-black lg:text-xl lg:leading-7">
-                PCAT is an evidence based palliative care assessment toolkit
-                that is designed to flag palliative care needs. Nurses can
-                complete assessments, monitor patient health trends over time,
-                review full care histories, and ensure no at-risk patient goes
-                unnoticed — all from a single secure portal, on any device.
-              </p>
-            </div>
-          </div>
-
-          <div className="overflow-hidden rounded-[20px] border border-gray-300 bg-white/[0.42] shadow-none backdrop-blur-[2px]">
-            <StatRow label="Project title" value="PCAT for Aged Care" />
-            <StatRow
-              label="Funding"
-              value="The Aged Care Research and Industry Innovation Australia fund (ARIIA)"
-              valueClassName="md:max-w-[420px]"
-            />
-            <StatRow label="Institution" value="La Trobe University" />
-          </div>
+        <div className="overflow-hidden rounded-[20px] border border-gray-300 bg-white/[0.42] shadow-none backdrop-blur-[2px]">
+          <StatRow label="Project title" value="PCAT for Aged Care" />
+          <StatRow
+            label="Funding"
+            value="The Aged Care Research and Industry Innovation Australia fund (ARIIA)"
+            valueClassName="md:max-w-[420px]"
+          />
+          <StatRow label="Institution" value="La Trobe University" />
         </div>
       </div>
     </section>
@@ -607,11 +908,13 @@ function AboutSection() {
 
 function AboutFeatureCardsSection() {
   return (
-    <section className="la-container pb-20">
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-        {ABOUT_FEATURE_CARDS.map((item) => (
-          <AboutFeatureTile key={item.title} {...item} />
-        ))}
+    <section className="border-b border-black/8 pt-12 pb-20">
+      <div className="la-container">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          {ABOUT_FEATURE_CARDS.map((item) => (
+            <AboutFeatureTile key={item.title} {...item} />
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -783,7 +1086,7 @@ function CoreFeaturesSection() {
         <div className="space-y-12">
           <div className="max-w-215 space-y-2">
             <p className="eyebrow text-red-600">Core Features</p>
-            <h2 className="h2 text-black lg:max-w-lg">
+            <h2 className="la-home-section-title lg:max-w-xl">
               Everything nurses need, nothing they don&apos;t
             </h2>
           </div>
@@ -859,17 +1162,19 @@ function CoreFeaturesSection() {
 
 function HowItWorksFeatureCardsSection() {
   return (
-    <section className="la-container pb-20">
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {HOW_IT_WORKS_FEATURE_CARDS.map((item) => (
-          <article key={item.title} className="la-card-type-3 h-full">
-            <div className="la-feature-icon mb-6">{item.icon}</div>
-            <h3 className="body-base-600 text-black">{item.title}</h3>
-            <p className="body-base-400 mt-4 text-gray-500">
-              {item.description}
-            </p>
-          </article>
-        ))}
+    <section className="border-b border-black/8 pb-20">
+      <div className="la-container">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {HOW_IT_WORKS_FEATURE_CARDS.map((item) => (
+            <article key={item.title} className="la-card-type-3 h-full">
+              <div className="la-feature-icon mb-6">{item.icon}</div>
+              <h3 className="body-base-600 text-black">{item.title}</h3>
+              <p className="body-base-400 mt-4 text-gray-500">
+                {item.description}
+              </p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -883,6 +1188,9 @@ function HowItWorksSection() {
     description: string;
     side: "left" | "right";
     icon: ReactNode;
+    desktopWidthClass: string;
+    titleWidthClass: string;
+    descriptionWidthClass: string;
   };
 
   function IconLock() {
@@ -1111,6 +1419,9 @@ function HowItWorksSection() {
         "Use your PCAT credentials to access the portal. Your assigned facility and patient list load automatically upon sign-in.",
       side: "left",
       icon: <IconLock />,
+      desktopWidthClass: "lg:max-w-[480px]",
+      titleWidthClass: "max-w-[260px]",
+      descriptionWidthClass: "max-w-[400px] lg:ml-auto",
     },
     {
       id: "s2",
@@ -1120,6 +1431,9 @@ function HowItWorksSection() {
         "Browse your patient list filtered by risk level, recent activity, or name. High-priority patients are surfaced immediately.",
       side: "right",
       icon: <IconSearch />,
+      desktopWidthClass: "lg:max-w-[330px]",
+      titleWidthClass: "max-w-[170px]",
+      descriptionWidthClass: "max-w-[250px]",
     },
     {
       id: "s3",
@@ -1129,6 +1443,9 @@ function HowItWorksSection() {
         "Work through the structured, research-validated assessment form. Guided prompts ensure every clinical indicator is captured.",
       side: "left",
       icon: <IconChecklist />,
+      desktopWidthClass: "lg:max-w-[430px]",
+      titleWidthClass: "max-w-[270px]",
+      descriptionWidthClass: "max-w-[360px] lg:ml-auto",
     },
     {
       id: "s4",
@@ -1138,6 +1455,9 @@ function HowItWorksSection() {
         "Based on the assessment responses, PCAT surfaces recommended clinical actions and flags risk indicators.",
       side: "right",
       icon: <IconBell />,
+      desktopWidthClass: "lg:max-w-[350px]",
+      titleWidthClass: "max-w-[250px]",
+      descriptionWidthClass: "max-w-[300px]",
     },
     {
       id: "s5",
@@ -1147,6 +1467,9 @@ function HowItWorksSection() {
         "Examine an interactive chart showing the patient's assessment score history over the past 7 days, alongside a model-generated trend forecast.",
       side: "left",
       icon: <IconTrend />,
+      desktopWidthClass: "lg:max-w-[450px]",
+      titleWidthClass: "max-w-[310px]",
+      descriptionWidthClass: "max-w-[380px] lg:ml-auto",
     },
     {
       id: "s6",
@@ -1156,6 +1479,9 @@ function HowItWorksSection() {
         "At the end of each shift, PCAT compiles an up-to-date summary of each patient's status, recent assessments, and outstanding actions.",
       side: "right",
       icon: <IconNode />,
+      desktopWidthClass: "lg:max-w-[360px]",
+      titleWidthClass: "max-w-[240px]",
+      descriptionWidthClass: "max-w-[300px]",
     },
   ];
 
@@ -1217,16 +1543,16 @@ function HowItWorksSection() {
     <section>
       <SectionAnchor id="how-it-works" />
       <div
-        className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white px-6 py-10 sm:p-10"
+        className="relative overflow-hidden bg-white"
         style={{
           backgroundImage:
             "radial-gradient(rgba(226,35,27,0.045) 1px, transparent 1px)",
           backgroundSize: "22px 22px",
         }}
       >
-        <div className="relative z-10 mb-5 text-left sm:mb-7 lg:mb-10 lg:text-center">
+        <div className="relative z-10 mb-5 text-left sm:mb-7 lg:mb-12 lg:text-center">
           <p className="eyebrow text-brand-1">How It Works</p>
-          <h2 className="h2 mt-5 text-black sm:mt-7 lg:mt-2">
+          <h2 className="la-home-section-title mt-5 sm:mt-7 lg:mt-2">
             From login to care record in minutes
           </h2>
         </div>
@@ -1251,7 +1577,7 @@ function HowItWorksSection() {
               return (
                 <div
                   key={step.id}
-                  className="relative grid grid-cols-[auto_1fr] items-start gap-x-4 py-4 lg:grid-cols-2 lg:items-center lg:gap-8 lg:py-5"
+                  className="relative grid grid-cols-[auto_1fr] items-start gap-x-4 lg:grid-cols-2 lg:items-center lg:gap-8"
                 >
                   <div
                     ref={(element) => {
@@ -1274,27 +1600,37 @@ function HowItWorksSection() {
                         ? "origin-right hover:-translate-x-2"
                         : "origin-left hover:translate-x-2",
                       isLeft
-                        ? "lg:col-start-1 lg:ml-auto lg:max-w-xl lg:pr-16 lg:text-right"
-                        : "lg:col-start-2 lg:max-w-xl lg:pl-16 lg:text-left",
+                        ? `lg:col-start-1 lg:ml-auto ${step.desktopWidthClass} lg:pr-14 lg:text-right`
+                        : `lg:col-start-2 ${step.desktopWidthClass} lg:pl-16 lg:text-left`,
                     ].join(" ")}
                   >
                     <div
                       className={[
-                        "flex items-baseline gap-1.5 font-display text-black",
+                        "flex w-full items-baseline gap-3 font-display text-black",
                         isLeft
                           ? "justify-start lg:justify-end"
                           : "justify-start",
                       ].join(" ")}
                     >
-                      <span className="font-display text-xl font-light leading-7 tracking-[-0.8px] text-gray-500">
+                      <span className="shrink-0 font-display text-xl font-light leading-7 tracking-[-0.8px] text-gray-500">
                         {step.number}
                       </span>
-                      <h3 className="wrap-break-word font-display text-xl font-bold leading-7 tracking-[-0.8px] text-black">
+                      <h3
+                        className={[
+                          "wrap-break-word font-display text-2xl font-bold leading-8 tracking-[-0.8px] text-black",
+                          step.titleWidthClass,
+                        ].join(" ")}
+                      >
                         {step.title}
                       </h3>
                     </div>
 
-                    <p className="mt-2 font-display text-lg font-normal leading-6 tracking-normal text-gray-500 lg:mt-3">
+                    <p
+                      className={[
+                        "mt-3 font-display text-lg font-normal leading-6 tracking-normal text-gray-500 lg:mt-3",
+                        step.descriptionWidthClass,
+                      ].join(" ")}
+                    >
                       {step.description}
                     </p>
                   </article>
@@ -1303,8 +1639,6 @@ function HowItWorksSection() {
             })}
           </div>
         </div>
-
-        <div className="h-16 sm:h-20" aria-hidden="true" />
       </div>
     </section>
   );
@@ -1357,19 +1691,19 @@ function TeamSection() {
   ];
 
   return (
-    <section className="la-container py-10 lg:pt-20 pb">
+    <section className="la-container py-10 lg:py-20">
       <SectionAnchor id="team" />
-      <div className="space-y-10 sm:space-y-7 lg:space-y-10">
-        <div className="max-w-2xl space-y-5 sm:space-y-7 lg:space-y-3">
+      <div className="space-y-3">
+        <div className="max-w-2xl">
           <SectionEyebrow className="text-brand-1">
             Research team
           </SectionEyebrow>
-          <SectionTitle className="text-black">
+          <SectionTitle className="mt-2 text-black">
             The people behind PCAT
           </SectionTitle>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {teamMembers.map((member) => (
             <article key={member.title} className="la-team-card">
               <div className="la-team-header">
@@ -1416,12 +1750,14 @@ function SupportSection() {
   ];
 
   return (
-    <section className="border-t border-slate-200 bg-white py-20">
+    <section className="border-t border-slate-200 bg-white pt-20">
       <div className="la-container">
-        <div className="mx-auto max-w-5xl space-y-4 text-center">
+        <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">Funding & Governance</p>
-          <h2 className="h2 text-center text-black">Supported by</h2>
-          <p className="body-base-400 mx-auto max-w-4xl text-center text-gray-500">
+          <h2 className="la-home-section-title mt-2 text-center">
+            Supported by
+          </h2>
+          <p className="body-base-400 mx-auto mt-4 max-w-xl text-center text-gray-500">
             PCAT is supported by La Trobe University, Aged Care Research and
             Industry Innovation Australia (ARIIA) and Monash Health.
           </p>
@@ -1431,7 +1767,7 @@ function SupportSection() {
           {supportCards.map((item) => (
             <article
               key={item.title}
-              className="group flex flex-col items-center justify-between rounded-2xl border border-gray-200 bg-white/70 px-6 py-[47px] text-center"
+              className="group flex flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white/70 px-6 py-[47px] text-center"
             >
               <div className="flex h-20 items-center justify-center">
                 <img
@@ -1492,15 +1828,17 @@ function FaqSection() {
     <section className="la-container py-20">
       <SectionAnchor id="faq" />
       <div className="space-y-12">
-        <div className="mx-auto max-w-5xl space-y-4 text-center">
+        <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">FAQ</p>
-          <h2 className="h2 text-center text-black">Common Questions</h2>
-          <SectionLead centered className="mx-auto max-w-4xl">
+          <h2 className="la-home-section-title mt-2 text-center">
+            Common Questions
+          </h2>
+          <SectionLead centered className="mx-auto mt-4 max-w-4xl">
             Everything you need to know before logging in.
           </SectionLead>
         </div>
 
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-4xl">
           <Accordion items={faqItems} />
         </div>
       </div>
@@ -1521,15 +1859,17 @@ function LoginCtaSection() {
       }}
     >
       <div className="la-container text-center">
-        <div className="space-y-5">
-          <h2 className="h2 text-center text-white">Ready to get started?</h2>
+        <div className="space-y-1">
+          <h2 className="la-home-section-title-inverse text-center">
+            Ready to get started?
+          </h2>
           <p className="body-base-400 text-center text-gray-400">
             Log in to PCAT and take the next step in delivering better
             palliative care.
           </p>
         </div>
 
-        <div className="mt-10 flex justify-center">
+        <div className="mt-8 flex justify-center">
           <a
             href={LOGIN_URL}
             target="_blank"
@@ -1699,7 +2039,7 @@ function ContactSection() {
           <SectionTitle className="text-black">
             Collaborate or Learn More
           </SectionTitle>
-          <SectionLead className="pt-10 text-gray-500">
+          <SectionLead className="pt-4 text-gray-500">
             We welcome enquiries from aged care providers, clinicians,
             researchers, consumer advocates, and organisations interested in
             partnering with the PCAT project.
@@ -1733,7 +2073,7 @@ function ContactSection() {
               <div className="la-contact-ethics-icon">
                 <EthicsIcon />
               </div>
-              <h3 className="la-contact-ethics-title">Ethics & Governance</h3>
+              <h3 className="la-home-section-title">Ethics & Governance</h3>
             </div>
             <p className="la-contact-ethics-body">
               This research is conducted in accordance with La Trobe
@@ -1757,12 +2097,12 @@ export default function Home() {
         <AboutSection />
         <AboutFeatureCardsSection />
         <CoreFeaturesSection />
-        <section className="pb-20">
+        <HowItWorksFeatureCardsSection />
+        <section className="border-b border-black/8 pt-20">
           <div className="la-container">
             <HowItWorksSection />
           </div>
         </section>
-        <HowItWorksFeatureCardsSection />
         <TeamSection />
         <SupportSection />
         <FaqSection />
