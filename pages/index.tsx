@@ -1420,8 +1420,8 @@ function HowItWorksSection() {
       side: "left",
       icon: <IconLock />,
       desktopWidthClass: "lg:max-w-[480px]",
-      titleWidthClass: "max-w-[260px]",
-      descriptionWidthClass: "max-w-[400px] lg:ml-auto",
+      titleWidthClass: "w-full",
+      descriptionWidthClass: "w-[410px] lg:ml-auto",
     },
     {
       id: "s2",
@@ -1431,9 +1431,9 @@ function HowItWorksSection() {
         "Browse your patient list filtered by risk level, recent activity, or name. High-priority patients are surfaced immediately.",
       side: "right",
       icon: <IconSearch />,
-      desktopWidthClass: "lg:max-w-[330px]",
-      titleWidthClass: "max-w-[170px]",
-      descriptionWidthClass: "max-w-[250px]",
+      desktopWidthClass: "lg:w-[440px]",
+      titleWidthClass: "w-full",
+      descriptionWidthClass: "w-[410px]",
     },
     {
       id: "s3",
@@ -1443,9 +1443,9 @@ function HowItWorksSection() {
         "Work through the structured, research-validated assessment form. Guided prompts ensure every clinical indicator is captured.",
       side: "left",
       icon: <IconChecklist />,
-      desktopWidthClass: "lg:max-w-[430px]",
-      titleWidthClass: "max-w-[270px]",
-      descriptionWidthClass: "max-w-[360px] lg:ml-auto",
+      desktopWidthClass: "lg:w-[410px]",
+      titleWidthClass: "w-full",
+      descriptionWidthClass: "w-[410px] lg:ml-auto",
     },
     {
       id: "s4",
@@ -1455,9 +1455,9 @@ function HowItWorksSection() {
         "Based on the assessment responses, PCAT surfaces recommended clinical actions and flags risk indicators.",
       side: "right",
       icon: <IconBell />,
-      desktopWidthClass: "lg:max-w-[350px]",
-      titleWidthClass: "max-w-[250px]",
-      descriptionWidthClass: "max-w-[300px]",
+      desktopWidthClass: "lg:w-[440px]",
+      titleWidthClass: "w-full",
+      descriptionWidthClass: "w-[410px]",
     },
     {
       id: "s5",
@@ -1467,9 +1467,9 @@ function HowItWorksSection() {
         "Examine an interactive chart showing the patient's assessment score history over the past 7 days, alongside a model-generated trend forecast.",
       side: "left",
       icon: <IconTrend />,
-      desktopWidthClass: "lg:max-w-[450px]",
-      titleWidthClass: "max-w-[310px]",
-      descriptionWidthClass: "max-w-[380px] lg:ml-auto",
+      desktopWidthClass: "lg:w-[560px]",
+      titleWidthClass: "w-full",
+      descriptionWidthClass: "w-[410px] lg:ml-auto",
     },
     {
       id: "s6",
@@ -1480,7 +1480,7 @@ function HowItWorksSection() {
       side: "right",
       icon: <IconNode />,
       desktopWidthClass: "lg:max-w-[360px]",
-      titleWidthClass: "max-w-[240px]",
+      titleWidthClass: "w-full",
       descriptionWidthClass: "max-w-[300px]",
     },
   ];
@@ -1617,7 +1617,7 @@ function HowItWorksSection() {
                       </span>
                       <h3
                         className={[
-                          "wrap-break-word font-display text-2xl font-bold leading-8 tracking-[-0.8px] text-black",
+                          "font-display text-2xl font-bold leading-8 tracking-[-0.8px] text-black lg:whitespace-nowrap",
                           step.titleWidthClass,
                         ].join(" ")}
                       >
@@ -2098,7 +2098,7 @@ export default function Home() {
         <AboutFeatureCardsSection />
         <CoreFeaturesSection />
         <HowItWorksFeatureCardsSection />
-        <section className="border-b border-black/8 pt-20">
+        <section className="border-b border-black/8 py-20">
           <div className="la-container">
             <HowItWorksSection />
           </div>

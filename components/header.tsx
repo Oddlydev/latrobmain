@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 import Link from "next/link";
 import { useEffect, useMemo, useState, type MouseEvent } from "react";
+import { useRouter } from "next/router";
 import Button from "./ui/Button";
 import SiteBrand from "./site-brand";
 
@@ -131,17 +132,53 @@ export default function Header({
   siteDescription,
   menuItems,
 }: HeaderProps) {
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navItems = useMemo(() => {
-    const items = (Array.isArray(menuItems) ? menuItems : []).filter(
-      (item) => item?.label,
-    );
-    return (items.length > 0 ? items : fallbackMenu).map((item) => ({
-      ...item,
-      uri: getHomeSectionHref(item),
-    }));
-  }, [menuItems]);
+  const navItems = useMemo(
+    () =>
+      fallbackMenu.map((item) => ({
+        ...item,
+        uri: getHomeSectionHref(item),
+      })),
+    [],
+  );
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return undefined;
+    }
+
+    function scrollToHashTarget() {
+      if (window.location.pathname !== "/" || !window.location.hash) {
+        return;
+      }
+
+      const targetId = window.location.hash.slice(1);
+      const target = document.getElementById(targetId);
+
+      if (!target) {
+        return;
+      }
+
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      window.scrollTo({
+        top: getTargetTop(target),
+        behavior: reduceMotion ? "auto" : "smooth",
+      });
+    }
+
+    const timerId = window.setTimeout(scrollToHashTarget, 0);
+    router.events.on("routeChangeComplete", scrollToHashTarget);
+
+    return () => {
+      window.clearTimeout(timerId);
+      router.events.off("routeChangeComplete", scrollToHashTarget);
+    };
+  }, [router.events]);
 
   function handleNavClick(event: MouseEvent<HTMLAnchorElement>, href: string) {
     if (typeof window === "undefined" || !href.startsWith("/#")) {
@@ -152,6 +189,9 @@ export default function Header({
     const target = document.getElementById(targetId);
 
     if (!target || window.location.pathname !== "/") {
+      event.preventDefault();
+      setMenuOpen(false);
+      void router.push(href, href, { scroll: false });
       return;
     }
 
