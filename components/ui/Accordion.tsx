@@ -59,11 +59,11 @@ export default function Accordion({
           >
             <button
               type="button"
-              className="la-accordion-trigger relative flex w-full items-center justify-start px-6 py-5 text-left md:px-6 md:py-5"
+              className="la-accordion-trigger group relative flex w-full items-center justify-start px-6 py-5 text-left md:px-6 md:py-5"
               onClick={() => toggleItem(item.id)}
               aria-expanded={isOpen}
             >
-              <span className="body-base-500 text-left text-black hover:underline">
+              <span className="body-base-500 text-left text-black group-hover:underline">
                 {item.title}
               </span>
               {isOpen ? (
