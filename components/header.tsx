@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
+import { useEffect, useMemo, useState, type MouseEvent } from "react";
 import { useRouter } from "next/router";
 import Button from "./ui/Button";
 import SiteBrand from "./site-brand";
@@ -59,34 +59,6 @@ function getHomeSectionHref(item: MenuItem) {
   }
 
   return item.uri || "/";
-}
-
-function getTargetTop(target: HTMLElement) {
-  return target.getBoundingClientRect().top + window.scrollY - 16;
-}
-
-function smoothScrollToTop(top: number, duration = 1100) {
-  const startTop = window.scrollY;
-  const distance = top - startTop;
-  const startTime = window.performance.now();
-
-  function easeInOutCubic(t: number) {
-    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-  }
-
-  function step(currentTime: number) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const easedProgress = easeInOutCubic(progress);
-
-    window.scrollTo(0, startTop + distance * easedProgress);
-
-    if (progress < 1) {
-      window.requestAnimationFrame(step);
-    }
-  }
-
-  window.requestAnimationFrame(step);
 }
 
 function MenuIcon() {
@@ -157,8 +129,6 @@ export default function Header({
   menuItems,
 }: HeaderProps) {
   const router = useRouter();
-  const pendingTargetIdRef = useRef<string | null>(null);
-  const pendingScrollFrameRef = useRef<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = useMemo(
@@ -171,109 +141,8 @@ export default function Header({
   );
 
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return undefined;
-    }
-
-    function scrollToPendingTarget() {
-      if (window.location.pathname !== "/") {
-        return;
-      }
-
-      const targetId =
-        pendingTargetIdRef.current ?? window.location.hash.slice(1);
-
-      if (!targetId) {
-        return;
-      }
-
-      const target = document.getElementById(targetId);
-
-      if (!target) {
-        return;
-      }
-
-      pendingTargetIdRef.current = null;
-      window.history.replaceState(null, "", `/#${targetId}`);
-
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-
-      if (reduceMotion) {
-        window.scrollTo(0, getTargetTop(target));
-        return;
-      }
-
-      smoothScrollToTop(getTargetTop(target));
-    }
-
-    const rafId = window.requestAnimationFrame(scrollToPendingTarget);
-    router.events.on("routeChangeComplete", scrollToPendingTarget);
-
-    return () => {
-      window.cancelAnimationFrame(rafId);
-      router.events.off("routeChangeComplete", scrollToPendingTarget);
-    };
-  }, [router.events]);
-
-  useEffect(() => {
     void router.prefetch("/");
   }, [router]);
-
-  useEffect(() => {
-    return () => {
-      if (pendingScrollFrameRef.current !== null) {
-        window.cancelAnimationFrame(pendingScrollFrameRef.current);
-      }
-    };
-  }, []);
-
-  function startPendingScroll(targetId: string) {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    if (pendingScrollFrameRef.current !== null) {
-      window.cancelAnimationFrame(pendingScrollFrameRef.current);
-    }
-
-    let attempts = 0;
-
-    function tryScroll() {
-      attempts += 1;
-
-      if (window.location.pathname === "/") {
-        const target = document.getElementById(targetId);
-
-        if (target) {
-          pendingTargetIdRef.current = null;
-          pendingScrollFrameRef.current = null;
-          window.history.replaceState(null, "", `/#${targetId}`);
-
-          const reduceMotion = window.matchMedia(
-            "(prefers-reduced-motion: reduce)",
-          ).matches;
-
-          if (reduceMotion) {
-            window.scrollTo(0, getTargetTop(target));
-            return;
-          }
-
-          smoothScrollToTop(getTargetTop(target));
-          return;
-        }
-      }
-
-      if (attempts < 180) {
-        pendingScrollFrameRef.current = window.requestAnimationFrame(tryScroll);
-      } else {
-        pendingScrollFrameRef.current = null;
-      }
-    }
-
-    pendingScrollFrameRef.current = window.requestAnimationFrame(tryScroll);
-  }
 
   function handleNavClick(event: MouseEvent<HTMLAnchorElement>, href: string) {
     if (typeof window === "undefined" || !href.startsWith("/#")) {
@@ -284,28 +153,14 @@ export default function Header({
     const target = document.getElementById(targetId);
 
     if (!target || window.location.pathname !== "/") {
-      event.preventDefault();
       setMenuOpen(false);
-      pendingTargetIdRef.current = targetId;
-      startPendingScroll(targetId);
-      void router.push("/", undefined, { scroll: false });
       return;
     }
 
     event.preventDefault();
     setMenuOpen(false);
     window.history.pushState(null, "", href);
-
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    if (reduceMotion) {
-      window.scrollTo(0, getTargetTop(target));
-      return;
-    }
-
-    smoothScrollToTop(getTargetTop(target));
+    target.scrollIntoView({ behavior: "auto", block: "start" });
   }
 
   useEffect(() => {
