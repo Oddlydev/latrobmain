@@ -289,7 +289,7 @@ export default function DesignSystemPage() {
 
         <section className="la-section">
           <h2 className="h2 text-black">Typography System</h2>
-          <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
+          <div className="la-purple-wrap overflow-hidden bg-white shadow-card">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[1100px] border-collapse">
                 <thead className="bg-slate-50">
