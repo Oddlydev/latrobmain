@@ -6,7 +6,6 @@ import heroImage1 from "../assets/images/hero-img-1.png";
 import heroImage2 from "../assets/images/hero-img-2.png";
 import heroImage3 from "../assets/images/hero-img-3.png";
 import heroImage4 from "../assets/images/hero-img-4.png";
-import heroImage5 from "../assets/images/hero-img-5.png";
 import {
   ClipboardIcon,
   DocumentIcon,
@@ -708,7 +707,6 @@ function HomeHeroSection() {
     heroImage2.src,
     heroImage3.src,
     heroImage4.src,
-    heroImage5.src,
   ];
   const heroHighlights = [
     {
@@ -740,33 +738,43 @@ function HomeHeroSection() {
   }, []);
 
   return (
-    <section id="top" className="scroll-mt-24">
-      <div className="relative overflow-hidden border border-gray-800 bg-black text-white shadow-soft">
-        <img
-          src={heroImageSrc}
-          alt="Nurse assisting an elderly patient"
-          className="absolute inset-x-0 bottom-[285px] h-[270px] w-full object-cover sm:inset-0 sm:h-full"
-        />
-        <div className="absolute inset-0 bg-black/10 sm:bg-black/10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#050814] to-black/10 sm:bg-gradient-to-r sm:from-black sm:via-black/90 sm:to-black/20" />
-        <div className="absolute inset-y-0 left-0 hidden w-[58%] bg-gradient-to-r from-black via-[#040816]/95 to-transparent sm:block" />
+      <section id="top" className="scroll-mt-24">
+        <div className="relative overflow-hidden border border-gray-200 bg-white text-black shadow-soft">
+          <img
+            src={heroImageSrc}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover object-[78%_center]"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-y-0 left-0 w-full lg:w-[66%]"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(247,247,247,0.99) 0%, rgba(247,247,247,0.97) 40%, rgba(247,247,247,0.9) 56%, rgba(247,247,247,0.62) 72%, rgba(247,247,247,0) 100%)",
+            }}
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white/35 to-transparent lg:hidden"
+          />
 
         <div className="relative px-6 pt-10 pb-78.75 sm:px-12 sm:pt-12 sm:pb-24 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
           <div className="max-w-155 lg:max-w-154">
-            <p className="body-base-500 inline-flex items-center gap-2 rounded-full border border-gray-700 px-4 py-2 text-white shadow-sm">
+            <p className="body-base-500 inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-black shadow-sm">
               <span className="la-hero-status-dot h-2.5 w-2.5 rounded-full bg-green-500" />
               La Trobe Palliative Care Research Programme
             </p>
 
             <div className="mt-3 space-y-3 sm:mt-3 sm:space-y-3 lg:mt-12 lg:space-y-0">
-              <h1 className="h1 text-white">
+              <h1 className="h1 text-black">
                 <span className="block">Palliative Care</span>
                 <span className="mt-1 block text-brand-1 lg:mt-0">
                   Assessment Tool
                 </span>
               </h1>
 
-              <p className="body-base-400 max-w-160 pt-2 text-gray-100 lg:pt-6">
+              <p className="body-base-400 max-w-160 pt-2 text-gray-600 lg:pt-6">
                 PCAT is a research-backed digital platform developed at La Trobe
                 University to help nursing teams in aged care identify patients
                 who need palliative care earlier, more consistently, and with
@@ -809,7 +817,10 @@ function HomeHeroSection() {
           </div>
         </div>
 
-        <div className="relative bg-gradient-to-r from-black to-gray-900 px-6 py-10 sm:px-10 sm:py-10 lg:px-7 lg:py-7">
+        <div
+          className="relative px-6 py-10 sm:px-10 sm:py-10 lg:px-7 lg:py-7"
+          style={{ background: "var(--Brand---3, #000)" }}
+        >
           <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {heroHighlights.map((item) => (
               <article key={item.title} className="la-card-type-1">
