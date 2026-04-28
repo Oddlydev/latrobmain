@@ -856,7 +856,7 @@ function AboutSection() {
         </p>
         <p
           className={[
-            "body-base-400 justify-self-end text-right text-black md:justify-self-end md:text-right md:text-xl md:leading-8",
+            "body-base-400 w-full justify-self-end text-right text-black md:justify-self-end md:text-right md:text-xl md:leading-8",
             valueClassName ?? "",
           ]
             .filter(Boolean)
@@ -891,7 +891,7 @@ function AboutSection() {
             evidence-based digital workflow.
           </SectionLead>
 
-          <div className="rounded-xl border-4 border-brand-1 bg-white p-6 md:px-6 md:py-6 lg:px-6 lg:py-6">
+          <div className="rounded-xl border border-red-200 bg-white p-6 md:px-6 md:py-6 lg:px-6 lg:py-6">
             <p className="font-display text-lg font-semibold leading-6 tracking-normal text-black lg:text-xl lg:leading-7">
               PCAT is an evidence based palliative care assessment toolkit that
               is designed to flag palliative care needs. Nurses can complete
@@ -1570,7 +1570,7 @@ function HowItWorksSection() {
         <div className="relative z-10">
           <div
             ref={trackRef}
-            className="absolute bottom-6 top-6 left-5 w-0.5 rounded-full bg-red-100 lg:left-1/2 lg:w-1 lg:-translate-x-1/2"
+            className="absolute top-6 bottom-6 left-[39px] w-0.5 rounded-full bg-red-100 lg:left-1/2 lg:w-1 lg:-translate-x-1/2"
             aria-hidden="true"
           >
             <div
@@ -2074,7 +2074,7 @@ function ContactSection() {
             ))}
           </div>
 
-          <article className="la-contact-ethics self-start">
+          <article className="la-contact-ethics self-start rounded-xl border border-red-200">
             <div className="flex items-center gap-3">
               <div className="la-contact-ethics-icon">
                 <EthicsIcon />
@@ -2099,7 +2099,7 @@ function ContactSection() {
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout title="Home">
       <main className="overflow-hidden bg-gray-50 lg:bg-white">
         <HomeHeroSection />
         <AboutSection />

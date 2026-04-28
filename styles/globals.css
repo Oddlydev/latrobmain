@@ -274,7 +274,7 @@
   }
 
   .la-contact-ethics {
-    @apply rounded-xl border-4 border-brand-1 bg-white px-6 py-5 shadow-none;
+    @apply rounded-xl bg-white px-6 py-5 shadow-none;
   }
 
   .la-contact-ethics-icon {

@@ -24,13 +24,17 @@ export default function Layout({
   });
 
   const siteTitle = site?.generalSettings?.title ?? "";
+  const browserSiteTitle =
+    siteTitle === "Faust Example" || !siteTitle ? "La trobe" : siteTitle;
   const siteDescription = site?.generalSettings?.description ?? "";
   const menuItems = menu?.primaryMenuItems?.nodes ?? [];
 
   return (
     <div className="la-page min-h-screen">
       <Head>
-        <title>{title ? `${title} - ${siteTitle}` : siteTitle}</title>
+        <title>
+          {title ? `${title} - ${browserSiteTitle}` : browserSiteTitle}
+        </title>
       </Head>
       <Header
         siteTitle={siteTitle}
