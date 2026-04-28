@@ -42,8 +42,7 @@ function SectionTitle({
   return (
     <h2
       className={[
-        "la-home-section-title",
-        "mt-2 mb-0",
+        "mt-2 mb-0 font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:text-[36px] lg:leading-[110%] lg:tracking-normal",
         centered ? "text-center" : "",
         className ?? "",
       ]
@@ -761,9 +760,9 @@ function HomeHeroSection() {
 
         <div className="relative px-6 pt-10 pb-78.75 md:px-12 md:pt-12 md:pb-24 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
           <div className="max-w-155 lg:max-w-154">
-            <p className="la-hero-pill body-base-500 inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-black shadow-sm">
+            <p className="inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 font-display text-xs font-medium leading-4 tracking-normal text-black shadow-sm md:text-base md:leading-6">
               <span className="la-hero-status-dot h-2.5 w-2.5 rounded-full bg-green-500" />
-              La Trobe Palliative Care Research Programme
+              Palliative Care Research Programme
             </p>
 
             <div className="mt-5 space-y-5 md:mt-3 md:space-y-3 lg:mt-12 lg:space-y-0">
@@ -818,7 +817,7 @@ function HomeHeroSection() {
         </div>
 
         <div
-          className="relative px-6 py-10 md:px-10 md:py-10 lg:px-7 lg:py-7"
+          className="relative p-3.5 md:px-10 md:py-10 lg:px-7 lg:py-7"
           style={{ background: "var(--Brand---3, #000)" }}
         >
           <div className="grid gap-3 md:grid-cols-2 md:gap-5 xl:grid-cols-4">
@@ -876,7 +875,7 @@ function AboutSection() {
         <SectionEyebrow className="text-red-600">
           About the project
         </SectionEyebrow>
-        <h2 className="la-about-title la-mobile-section-title-xl">
+        <h2 className="mt-2 mb-5 block max-w-[695px] font-display text-3xl font-bold leading-[110%] tracking-normal text-black md:mb-[51px] md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-[36px] lg:font-bold lg:leading-[110%] lg:tracking-normal">
           Identifying palliative care needs - earlier, and with confidence
         </h2>
       </div>
@@ -1097,7 +1096,7 @@ function CoreFeaturesSection() {
         <div className="space-y-12">
           <div className="max-w-215 space-y-2">
             <p className="eyebrow text-red-600">Core Features</p>
-            <h2 className="la-home-section-title lg:max-w-xl">
+            <h2 className="font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:max-w-xl lg:text-[36px] lg:leading-[110%] lg:tracking-normal">
               Everything nurses need, nothing they don&apos;t
             </h2>
           </div>
@@ -1560,17 +1559,10 @@ function HowItWorksSection() {
   return (
     <section>
       <SectionAnchor id="how-it-works" />
-      <div
-        className="relative overflow-hidden md:bg-white sm:bg-transparent"
-        style={{
-          backgroundImage:
-            "radial-gradient(rgba(226,35,27,0.045) 1px, transparent 1px)",
-          backgroundSize: "22px 22px",
-        }}
-      >
+      <div className="relative overflow-hidden bg-gray-50 bg-[url('/assets/images/how-it-works-mobile.png')] bg-cover bg-top bg-no-repeat md:bg-white md:[background-image:radial-gradient(rgba(226,35,27,0.045)_1px,transparent_1px)] md:[background-size:22px_22px]">
         <div className="relative z-10 mb-5 text-left sm:mb-7 lg:mb-12 lg:text-center">
           <p className="eyebrow text-brand-1">How It Works</p>
-          <h2 className="la-home-section-title mt-5 sm:mt-7 lg:mt-2">
+          <h2 className="mt-5 font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black sm:mt-7 md:text-[30px] md:font-bold md:leading-9 lg:mt-2 lg:text-[36px] lg:leading-[110%] lg:tracking-normal">
             From login to care record in minutes
           </h2>
         </div>
@@ -1602,7 +1594,7 @@ function HowItWorksSection() {
                       stepRefs.current[stepIndex] = element;
                     }}
                     className={[
-                      "z-20 col-start-1 row-start-1 flex h-10 w-10 items-center justify-center rounded-full border-2 transition-colors duration-200 ease-out lg:absolute lg:left-1/2 lg:top-1/2 lg:h-14 lg:w-14 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:border-[3px]",
+                      "z-20 col-start-1 row-start-1 flex h-20 w-20 items-center justify-center rounded-full border-[3px] transition-colors duration-200 ease-out md:h-10 md:w-10 md:border-2 lg:absolute lg:left-1/2 lg:top-1/2 lg:h-14 lg:w-14 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:border-[3px]",
                       isStepFilled
                         ? "border-red-100 bg-brand-1 text-white"
                         : "border-brand-1 bg-white text-brand-1",
@@ -1630,12 +1622,12 @@ function HowItWorksSection() {
                           : "justify-start",
                       ].join(" ")}
                     >
-                      <span className="shrink-0 font-display text-xl font-light leading-7 tracking-[-0.8px] text-gray-500">
+                      <span className="shrink-0 text-right font-display text-xl font-light leading-7 tracking-[-0.8px] text-gray-500">
                         {step.number}
                       </span>
                       <h3
                         className={[
-                          "font-display text-2xl font-bold leading-8 tracking-[-0.8px] text-black lg:whitespace-nowrap",
+                          "font-display text-xl font-bold leading-7 tracking-[-0.8px] text-black md:text-2xl md:leading-8 lg:whitespace-nowrap",
                           step.titleWidthClass,
                         ].join(" ")}
                       >
@@ -1716,9 +1708,7 @@ function TeamSection() {
           <SectionEyebrow className="text-brand-1">
             Research team
           </SectionEyebrow>
-          <SectionTitle className="la-mobile-section-title-xl mt-2 text-black">
-            The people behind PCAT
-          </SectionTitle>
+          <SectionTitle>The people behind PCAT</SectionTitle>
         </div>
 
         <div className="mt-5 grid gap-5 md:mt-12 md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:gap-6 xl:grid-cols-3">
@@ -1772,7 +1762,7 @@ function SupportSection() {
       <div className="la-container">
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">Funding & Governance</p>
-          <h2 className="la-home-section-title la-mobile-section-title-compact mt-2 text-center">
+          <h2 className="mt-2 text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:text-[36px] lg:leading-[110%] lg:tracking-normal">
             Supported by
           </h2>
           <p className="body-base-400 mx-auto mt-4 max-w-[550px] text-center text-gray-500 md:mt-4">
@@ -1848,7 +1838,7 @@ function FaqSection() {
       <div className="space-y-5 md:space-y-7 lg:space-y-12">
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">FAQ</p>
-          <h2 className="la-home-section-title la-mobile-section-title-compact mt-2 text-center">
+          <h2 className="mt-2 text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:text-[36px] lg:leading-[110%] lg:tracking-normal">
             Common Questions
           </h2>
           <SectionLead centered className="mx-auto mt-4 max-w-4xl">
@@ -1878,7 +1868,7 @@ function LoginCtaSection() {
     >
       <div className="la-container text-center">
         <div className="space-y-4 md:space-y-4 lg:space-y-1">
-          <h2 className="la-home-section-title-inverse text-center">
+          <h2 className="text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-white md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-[36px] lg:font-bold lg:leading-[110%] lg:tracking-normal">
             Ready to get started?
           </h2>
           <p className="body-base-400 text-center text-gray-400">
@@ -2054,9 +2044,7 @@ function ContactSection() {
       <div className="space-y-5 md:space-y-7 lg:space-y-12">
         <div className="max-w-[695px] space-y-0 md:space-y-4 text-left">
           <SectionEyebrow className="text-red-600">Get in touch</SectionEyebrow>
-          <SectionTitle className="la-mobile-section-title-xl text-black">
-            Collaborate or Learn More
-          </SectionTitle>
+          <SectionTitle>Collaborate or Learn More</SectionTitle>
           <SectionLead className="max-w-600 pt-4 text-gray-500 md:pt-0">
             We welcome enquiries from aged care providers, clinicians,
             researchers, consumer advocates, and organisations interested in
@@ -2091,11 +2079,11 @@ function ContactSection() {
               <div className="la-contact-ethics-icon">
                 <EthicsIcon />
               </div>
-              <h3 className="text-2xl font-bold leading-8 uppercase">
+              <h3 className="font-display text-xl font-bold leading-7 tracking-[-0.8px] text-black uppercase">
                 Ethics & Governance
               </h3>
             </div>
-            <p className="la-contact-ethics-body">
+            <p className="mt-5 font-display text-lg font-medium leading-7 tracking-normal text-black md:mt-8 md:text-xl">
               This research is conducted in accordance with La Trobe
               University&apos;s Human Research Ethics framework and relevant
               aged care legislation. All data collection and use is subject to
@@ -2111,7 +2099,7 @@ function ContactSection() {
 
 export default function Home() {
   return (
-    <Layout title="Home">
+    <Layout>
       <main className="overflow-hidden bg-gray-50 lg:bg-white">
         <HomeHeroSection />
         <AboutSection />
