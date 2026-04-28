@@ -738,35 +738,35 @@ function HomeHeroSection() {
   }, []);
 
   return (
-      <section id="top" className="scroll-mt-24">
-        <div className="relative overflow-hidden border border-gray-200 bg-white text-black shadow-soft">
-          <img
-            src={heroImageSrc}
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-[78%_center]"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-y-0 left-0 w-full lg:w-[66%]"
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(247,247,247,0.99) 0%, rgba(247,247,247,0.97) 40%, rgba(247,247,247,0.9) 56%, rgba(247,247,247,0.62) 72%, rgba(247,247,247,0) 100%)",
-            }}
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white/35 to-transparent lg:hidden"
-          />
+    <section id="top" className="scroll-mt-24">
+      <div className="relative overflow-hidden border border-gray-200 bg-white text-black shadow-soft">
+        <img
+          src={heroImageSrc}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover object-[78%_center]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-y-0 left-0 w-full lg:w-[66%]"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(247,247,247,0.99) 0%, rgba(247,247,247,0.97) 40%, rgba(247,247,247,0.9) 56%, rgba(247,247,247,0.62) 72%, rgba(247,247,247,0) 100%)",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white/35 to-transparent lg:hidden"
+        />
 
-        <div className="relative px-6 pt-10 pb-78.75 sm:px-12 sm:pt-12 sm:pb-24 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
+        <div className="relative px-6 pt-10 pb-78.75 md:px-12 md:pt-12 md:pb-24 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
           <div className="max-w-155 lg:max-w-154">
-            <p className="body-base-500 inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-black shadow-sm">
+            <p className="la-hero-pill body-base-500 inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-black shadow-sm">
               <span className="la-hero-status-dot h-2.5 w-2.5 rounded-full bg-green-500" />
               La Trobe Palliative Care Research Programme
             </p>
 
-            <div className="mt-3 space-y-3 sm:mt-3 sm:space-y-3 lg:mt-12 lg:space-y-0">
+            <div className="mt-5 space-y-5 md:mt-3 md:space-y-3 lg:mt-12 lg:space-y-0">
               <h1 className="h1 text-black">
                 <span className="block">Palliative Care</span>
                 <span className="mt-1 block text-brand-1 lg:mt-0">
@@ -783,7 +783,7 @@ function HomeHeroSection() {
               </p>
             </div>
 
-            <div className="mt-3 flex flex-wrap gap-3 sm:mt-3 sm:gap-4 lg:mt-12 lg:gap-4">
+            <div className="mt-5 flex flex-wrap gap-4 md:mt-3 md:gap-4 lg:mt-12 lg:gap-4">
               <a
                 href={LOGIN_URL}
                 className="la-button la-button-primary justify-center shadow-la-shadow-2"
@@ -818,10 +818,10 @@ function HomeHeroSection() {
         </div>
 
         <div
-          className="relative px-6 py-10 sm:px-10 sm:py-10 lg:px-7 lg:py-7"
+          className="relative px-6 py-10 md:px-10 md:py-10 lg:px-7 lg:py-7"
           style={{ background: "var(--Brand---3, #000)" }}
         >
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-3 md:grid-cols-2 md:gap-5 xl:grid-cols-4">
             {heroHighlights.map((item) => (
               <article key={item.title} className="la-card-type-1">
                 <div className="la-feature-icon">{item.icon}</div>
@@ -851,13 +851,13 @@ function AboutSection() {
     valueClassName?: string;
   }) {
     return (
-      <div className="grid grid-cols-1 gap-3 border-b border-gray-200 px-6 py-8 last:border-b-0 md:grid-cols-[180px_minmax(0,1fr)] md:items-center md:gap-6 md:px-8 md:py-10">
-        <p className="body-base-600 text-gray-600 md:text-xl md:uppercase md:leading-8 md:tracking-[-0.8px]">
+      <div className="grid grid-cols-[132px_minmax(0,1fr)] items-center gap-5 border-b border-gray-200 px-6 py-6 last:border-b-0 md:grid-cols-[180px_minmax(0,1fr)] md:gap-6 md:px-6 md:py-6 lg:px-8 lg:py-10">
+        <p className="body-base-600 text-lg uppercase leading-7 tracking-[-0.8px] text-gray-600 md:text-xl md:leading-8">
           {label}
         </p>
         <p
           className={[
-            "body-base-400 text-black md:justify-self-end md:text-right md:text-xl md:leading-8",
+            "body-base-400 justify-self-end text-right text-black md:justify-self-end md:text-right md:text-xl md:leading-8",
             valueClassName ?? "",
           ]
             .filter(Boolean)
@@ -870,18 +870,18 @@ function AboutSection() {
   }
 
   return (
-    <section className="la-container pt-20">
+    <section className="la-container pt-10 md:pt-10 lg:pt-20">
       <SectionAnchor id="about" />
       <div className="max-w-[695px]">
         <SectionEyebrow className="text-red-600">
           About the project
         </SectionEyebrow>
-        <h2 className="la-about-title">
+        <h2 className="la-about-title la-mobile-section-title-xl">
           Identifying palliative care needs - earlier, and with confidence
         </h2>
       </div>
 
-      <div className="grid gap-12 lg:grid-cols-2 lg:gap-12">
+      <div className="grid gap-5 md:gap-7 lg:grid-cols-2 lg:gap-12">
         <div className="la-about-copy-stack">
           <SectionLead className="max-w-[695px] text-gray-600">
             PCAT was developed under Professor Hanan Khalil's initiative at La
@@ -892,7 +892,7 @@ function AboutSection() {
             evidence-based digital workflow.
           </SectionLead>
 
-          <div className="rounded-xl border-4 border-brand-1 bg-white px-4 py-4 shadow-none sm:px-6 sm:py-5 lg:px-6 lg:py-6">
+          <div className="rounded-xl border-4 border-brand-1 bg-white p-6 md:px-6 md:py-6 lg:px-6 lg:py-6">
             <p className="font-display text-lg font-semibold leading-6 tracking-normal text-black lg:text-xl lg:leading-7">
               PCAT is an evidence based palliative care assessment toolkit that
               is designed to flag palliative care needs. Nurses can complete
@@ -919,9 +919,9 @@ function AboutSection() {
 
 function AboutFeatureCardsSection() {
   return (
-    <section className="border-b border-black/8 pt-12 pb-20">
+    <section className="border-b border-black/8 pt-5 pb-10 md:pt-12 md:pb-20">
       <div className="la-container">
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <div className="grid gap-5 md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:grid-cols-4 lg:gap-6">
           {ABOUT_FEATURE_CARDS.map((item) => (
             <AboutFeatureTile key={item.title} {...item} />
           ))}
@@ -1561,7 +1561,7 @@ function HowItWorksSection() {
     <section>
       <SectionAnchor id="how-it-works" />
       <div
-        className="relative overflow-hidden bg-white"
+        className="relative overflow-hidden md:bg-white sm:bg-transparent"
         style={{
           backgroundImage:
             "radial-gradient(rgba(226,35,27,0.045) 1px, transparent 1px)",
@@ -1709,19 +1709,19 @@ function TeamSection() {
   ];
 
   return (
-    <section className="la-container py-10 lg:py-20">
+    <section className="la-container py-10 md:py-10 lg:py-20">
       <SectionAnchor id="team" />
-      <div className="space-y-3">
+      <div className="space-y-5 md:space-y-7 lg:space-y-3">
         <div className="max-w-2xl">
           <SectionEyebrow className="text-brand-1">
             Research team
           </SectionEyebrow>
-          <SectionTitle className="mt-2 text-black">
+          <SectionTitle className="la-mobile-section-title-xl mt-2 text-black">
             The people behind PCAT
           </SectionTitle>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 mt-12">
+        <div className="mt-5 grid gap-5 md:mt-12 md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:gap-6 xl:grid-cols-3">
           {teamMembers.map((member) => (
             <article key={member.title} className="la-team-card">
               <div className="la-team-header">
@@ -1768,26 +1768,26 @@ function SupportSection() {
   ];
 
   return (
-    <section className="border-t border-slate-200 border-b py-20">
+    <section className="border-t border-slate-200 border-b py-10 md:py-10 lg:py-20">
       <div className="la-container">
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">Funding & Governance</p>
-          <h2 className="la-home-section-title mt-2 text-center">
+          <h2 className="la-home-section-title la-mobile-section-title-compact mt-2 text-center">
             Supported by
           </h2>
-          <p className="body-base-400 mx-auto mt-4 max-w-[550px] text-center text-gray-500">
+          <p className="body-base-400 mx-auto mt-4 max-w-[550px] text-center text-gray-500 md:mt-4">
             PCAT is supported by La Trobe University, Aged Care Research and
             Industry Innovation Australia (ARIIA) and Monash Health.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-5 grid gap-5 md:mt-7 md:grid-cols-2 md:gap-x-5 md:gap-y-5 xl:grid-cols-3">
           {supportCards.map((item) => (
             <article
               key={item.title}
-              className="group flex flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white/70 px-6 py-[47px] text-center"
+              className="group flex flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white/70 px-6 py-[47px] text-center md:gap-0"
             >
-              <div className="flex h-20 items-center justify-center">
+              <div className="flex h-20 items-center justify-center md:pb-4">
                 <img
                   src={item.logo}
                   alt={item.logoAlt}
@@ -1843,12 +1843,12 @@ function FaqSection() {
   ];
 
   return (
-    <section className="la-container py-20">
+    <section className="la-container py-10 md:py-10 lg:py-20">
       <SectionAnchor id="faq" />
-      <div className="space-y-12">
+      <div className="space-y-5 md:space-y-7 lg:space-y-12">
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">FAQ</p>
-          <h2 className="la-home-section-title mt-2 text-center">
+          <h2 className="la-home-section-title la-mobile-section-title-compact mt-2 text-center">
             Common Questions
           </h2>
           <SectionLead centered className="mx-auto mt-4 max-w-4xl">
@@ -1867,7 +1867,7 @@ function FaqSection() {
 function LoginCtaSection() {
   return (
     <section
-      className="border-t border-black/8 py-20 text-white"
+      className="border-t border-black/8 py-10 text-white md:py-10 lg:py-20"
       style={{
         backgroundImage:
           "url('/assets/images/black-section-bg.png'), linear-gradient(90deg, #000 0%, #111827 50%, #000 100%)",
@@ -1877,7 +1877,7 @@ function LoginCtaSection() {
       }}
     >
       <div className="la-container text-center">
-        <div className="space-y-1">
+        <div className="space-y-4 md:space-y-4 lg:space-y-1">
           <h2 className="la-home-section-title-inverse text-center">
             Ready to get started?
           </h2>
@@ -1887,7 +1887,7 @@ function LoginCtaSection() {
           </p>
         </div>
 
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 flex justify-center md:mt-7 lg:mt-8">
           <a
             href={LOGIN_URL}
             target="_blank"
@@ -2049,23 +2049,23 @@ function ContactSection() {
   }
 
   return (
-    <section className="la-container py-20">
+    <section className="la-container py-10 md:py-10 lg:py-20">
       <SectionAnchor id="contact" />
-      <div className="space-y-12">
-        <div className="max-w-[695px] space-y-2 text-left">
+      <div className="space-y-5 md:space-y-7 lg:space-y-12">
+        <div className="max-w-[695px] space-y-0 md:space-y-4 text-left">
           <SectionEyebrow className="text-red-600">Get in touch</SectionEyebrow>
-          <SectionTitle className="text-black">
+          <SectionTitle className="la-mobile-section-title-xl text-black">
             Collaborate or Learn More
           </SectionTitle>
-          <SectionLead className="pt-4 text-gray-500 max-w-600">
+          <SectionLead className="max-w-600 pt-4 text-gray-500 md:pt-0">
             We welcome enquiries from aged care providers, clinicians,
             researchers, consumer advocates, and organisations interested in
             partnering with the PCAT project.
           </SectionLead>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.95fr)] lg:items-start lg:gap-12">
-          <div className="space-y-4">
+        <div className="grid gap-5 md:gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.95fr)] lg:items-start lg:gap-12">
+          <div className="space-y-5 md:space-y-4">
             {contactItems.map((item) => (
               <article key={item.label} className="la-contact-item">
                 <div className="la-contact-item-icon">{item.icon}</div>
@@ -2112,7 +2112,7 @@ function ContactSection() {
 export default function Home() {
   return (
     <Layout title="Home">
-      <main className="overflow-hidden bg-white">
+      <main className="overflow-hidden bg-gray-50 lg:bg-white">
         <HomeHeroSection />
         <AboutSection />
         <AboutFeatureCardsSection />
