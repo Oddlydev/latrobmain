@@ -10,13 +10,13 @@ export default function ButtonsSection() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
           <div className="space-y-3 text-center">
             <p className="text-sm font-semibold text-brand-1">Primary Button</p>
-            <Button className="w-30">Lorem ipsum</Button>
+            <Button>Lorem ipsum</Button>
           </div>
           <div className="space-y-3 text-center">
             <p className="text-sm font-semibold text-brand-1">
               Primary Button with Right Icon
             </p>
-            <Button className="w-44">
+            <Button className="la-button-primary-icon gap-2">
               Lorem ipsum <HeartIcon />
             </Button>
           </div>
@@ -24,7 +24,7 @@ export default function ButtonsSection() {
             <p className="text-sm font-semibold text-brand-1">
               Primary Button with Left Icon
             </p>
-            <Button className="w-44">
+            <Button className="la-button-primary-icon gap-2">
               <HeartIcon /> Lorem ipsum
             </Button>
           </div>
@@ -32,7 +32,7 @@ export default function ButtonsSection() {
             <p className="text-sm font-semibold text-brand-1">
               Secondary Button
             </p>
-            <Button variant="secondary" className="w-40">
+            <Button variant="secondary">
               Lorem ipsum
             </Button>
           </div>

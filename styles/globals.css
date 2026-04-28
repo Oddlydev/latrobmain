@@ -492,6 +492,12 @@
 
   .la-button {
     @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-transparent px-8 py-4 font-display text-sm font-semibold leading-5 tracking-normal transition-colors duration-200;
+    font-family: var(--font-dm-sans);
+    font-size: var(--font-size-text-sm, 14px);
+    font-style: normal;
+    font-weight: var(--font-weight-font-semibold, 600);
+    line-height: var(--leading-line-height-leading-5, 20px);
+    letter-spacing: var(--letter-spacing-tracking-normal, 0);
     font-feature-settings: "dlig" on;
   }
 
@@ -509,36 +515,120 @@
 
   .la-button-primary {
     @apply bg-brand-1 text-white shadow-la-shadow-1;
+    color: var(--Brand---2, #fff);
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    background: var(--Brand---1, #e2231b);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-primary:hover {
     @apply bg-white text-black shadow-la-shadow-1;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    background: var(--Brand---2, #fff);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-primary:focus,
   .la-button-primary:focus-visible {
     @apply border-black bg-white text-black shadow-la-shadow-1 outline-none;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    background: var(--Brand---2, #fff);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-primary:active {
-    @apply bg-brand-1 text-white shadow-la-shadow-2;
+    @apply bg-brand-1 text-white shadow-la-shadow-1;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    background: var(--Brand---1, #e2231b);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .la-button-primary-icon {
+    @apply bg-brand-1 text-white;
+    color: var(--Brand---2, #fff);
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    background: var(--Brand---1, #e2231b);
+    box-shadow:
+      0 10px 15px -3px rgba(226, 35, 27, 0.2),
+      0 4px 6px -4px rgba(226, 35, 27, 0.2);
+  }
+
+  .la-button-primary-icon:hover {
+    @apply bg-white text-black;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    background: var(--Brand---2, #fff);
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.2),
+      0 4px 6px -4px rgba(0, 0, 0, 0.2);
+  }
+
+  .la-button-primary-icon:focus,
+  .la-button-primary-icon:focus-visible {
+    @apply border-black bg-white text-black outline-none;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    background: var(--Brand---2, #fff);
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.2),
+      0 4px 6px -4px rgba(0, 0, 0, 0.2);
+  }
+
+  .la-button-primary-icon:active {
+    @apply bg-brand-1 text-white;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    background: var(--Brand---1, #e2231b);
+    box-shadow:
+      0 10px 15px -3px rgba(226, 35, 27, 0.2),
+      0 4px 6px -4px rgba(226, 35, 27, 0.2);
   }
 
   .la-button-secondary {
     @apply border-gray-200 bg-gray-50 text-black shadow-la-shadow-1;
+    color: var(--Brand---3, #000);
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    border-color: var(--gray-200, #e5e7eb);
+    background: var(--gray-50, #f9fafb);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-secondary:hover {
-    @apply border-gray-200 bg-gray-50 text-black shadow-la-shadow-1;
+    @apply border-brand-1 bg-brand-1 text-white shadow-la-shadow-1;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    border-color: var(--Brand---1, #e2231b);
+    background: var(--Brand---1, #e2231b);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-secondary:focus,
   .la-button-secondary:focus-visible {
-    @apply border-gray-200 bg-gray-50 text-black shadow-la-shadow-1 outline-none;
+    @apply border-brand-2 bg-brand-1 text-white shadow-la-shadow-1 outline-none;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    border-color: var(--Brand---2, #fff);
+    background: var(--Brand---1, #e2231b);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-secondary:active {
     @apply border-gray-200 bg-gray-50 text-black shadow-la-shadow-1;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    border-color: var(--gray-200, #e5e7eb);
+    background: var(--gray-50, #f9fafb);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-home-hero-secondary {
@@ -563,35 +653,79 @@
   }
 
   .la-button-primary-state-default {
-    @apply border-transparent bg-brand-1 text-white shadow-la-shadow-2;
+    @apply border-transparent bg-brand-1 text-white shadow-la-shadow-1;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    background: var(--Brand---1, #e2231b);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-primary-state-hover {
-    @apply border-transparent bg-white text-black shadow-la-shadow-3;
+    @apply border-transparent bg-white text-black shadow-la-shadow-1;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    background: var(--Brand---2, #fff);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-primary-state-focus {
-    @apply border-black bg-white text-black shadow-la-shadow-3;
+    @apply border-black bg-white text-black shadow-la-shadow-1;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    background: var(--Brand---2, #fff);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-primary-state-active {
-    @apply border-transparent bg-brand-1 text-white shadow-la-shadow-2;
+    @apply border-transparent bg-brand-1 text-white shadow-la-shadow-1;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    background: var(--Brand---1, #e2231b);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-secondary-state-default {
     @apply border-gray-200 bg-gray-50 text-black shadow-la-shadow-1;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    border-color: var(--gray-200, #e5e7eb);
+    background: var(--gray-50, #f9fafb);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-secondary-state-hover {
     @apply border-brand-1 bg-brand-1 text-white shadow-la-shadow-1;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    border-color: var(--Brand---1, #e2231b);
+    background: var(--Brand---1, #e2231b);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-secondary-state-focus {
     @apply border-brand-2 bg-brand-1 text-white shadow-la-shadow-1;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    border-color: var(--Brand---2, #fff);
+    background: var(--Brand---1, #e2231b);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-secondary-state-active {
     @apply border-gray-200 bg-gray-50 text-black shadow-la-shadow-1;
+    border-radius: var(--border-radius-rounded-xl, 12px);
+    border-color: var(--gray-200, #e5e7eb);
+    background: var(--gray-50, #f9fafb);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-outline {
@@ -633,20 +767,38 @@
 
   .la-card-type-3 {
     @apply flex translate-y-0 flex-col rounded-2xl border border-gray-200 bg-white p-6 transition-[transform,box-shadow,background-color] duration-200 ease-out;
+    border-radius: var(--border-radius-rounded-2xl, 16px);
+    border-color: var(--gray-200, #e5e7eb);
+    background: var(--Brand---2, #fff);
   }
 
   .la-card-type-3:hover {
-    @apply bg-surface-cardHover shadow-la-shadow-1;
-    @apply -translate-y-0.5;
+    border-radius: var(--border-radius-rounded-2xl, 16px);
+    border-color: var(--gray-200, #e5e7eb);
+    background: var(--Brand---2, #fff);
   }
 
   .la-card-type-4 {
     @apply flex w-full min-w-0 translate-y-0 items-center gap-4 rounded-2xl border border-gray-200 bg-white px-4 py-4 transition-[transform,box-shadow,background-color] duration-200 ease-out;
+    border-radius: var(--border-radius-rounded-2xl, 16px);
+    border-color: var(--gray-200, #e5e7eb);
+    background: var(--Brand---2, #fff);
   }
 
   .la-card-type-4:hover {
-    @apply shadow-[0_0_40px_4px_rgba(226,35,27,0.06)];
-    @apply -translate-y-0.5;
+    border-radius: var(--border-radius-rounded-2xl, 16px);
+    border-color: var(--gray-200, #e5e7eb);
+    background: var(--Brand---2, #fff);
+    box-shadow: 0 0 40px 4px rgba(226, 35, 27, 0.06);
+  }
+
+  .la-card-type-4:hover .la-card-type-4-email {
+    color: var(--Brand---1, #e2231b);
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: 8%;
+    text-underline-offset: 25%;
   }
 
   .la-team-card {
@@ -654,11 +806,38 @@
   }
 
   .la-team-card:hover {
-    @apply -translate-y-0.5 bg-white/70 shadow-la-shadow-1;
+    border-radius: var(--border-radius-rounded-2xl, 16px);
+    border-color: var(--gray-200, #e5e7eb);
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow:
+      0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-team-header {
     @apply flex flex-col gap-2;
+  }
+
+  .la-team-card-name {
+    color: var(--Brand---3, #000);
+    font-family: var(--font-dm-sans);
+    font-size: var(--font-size-text-base, 16px);
+    font-style: normal;
+    font-weight: var(--font-weight-font-bold, 700);
+    line-height: var(--leading-line-height-leading-6, 24px);
+    letter-spacing: var(--letter-spacing-tracking-normal, 0);
+    font-feature-settings: "dlig" on;
+  }
+
+  .la-card-type-4-email {
+    color: var(--Brand---3, #000);
+    font-family: var(--font-dm-sans);
+    font-size: var(--font-size-text-base, 16px);
+    font-style: normal;
+    font-weight: var(--font-weight-font-medium, 500);
+    line-height: var(--leading-line-height-leading-6, 24px);
+    letter-spacing: var(--letter-spacing-tracking-normal, 0);
+    font-feature-settings: "dlig" on;
   }
 
   .la-accordion-icon {

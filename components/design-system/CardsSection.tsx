@@ -23,7 +23,7 @@ export default function CardsSection() {
               <IconTile>
                 <ClipboardIcon />
               </IconTile>
-              <div className="space-y-1.5">
+              <div>
                 <p className="body-base-600 text-black">Real-time</p>
                 <p className="body-base-400 text-gray-500">
                   Assessment documentation
@@ -38,7 +38,7 @@ export default function CardsSection() {
               <IconTile>
                 <TargetIcon />
               </IconTile>
-              <div className="mt-1 space-y-2">
+              <div className="mt-4 space-y-2">
                 <p className="body-base-600 text-black">Research Objective</p>
                 <p className="body-base-400 text-gray-500">
                   Develop and validate an AI-powered screening tool that
@@ -55,11 +55,11 @@ export default function CardsSection() {
               <IconTile>
                 <DocumentIcon />
               </IconTile>
-              <div className="mt-3.5">
+              <div className="mt-3.5 space-y-3.5">
                 <p className="body-base-600 text-black group-hover:underline group-hover:decoration-brand-1 group-hover:[text-decoration-thickness:13.5%] group-hover:[text-underline-offset:25%]">
                   Research-Validated Assessments
                 </p>
-                <p className="body-base-400 mt-3.5 text-gray-500">
+                <p className="body-base-400 text-gray-500">
                   Complete structured palliative care assessments built on
                   peer-reviewed methodology. Forms are standardised,
                   auto-timestamped, and designed so no critical clinical
@@ -74,7 +74,7 @@ export default function CardsSection() {
             <article className="la-team-card">
               <div className="la-team-header">
                 <p className="eyebrow text-brand-1">PRINCIPAL INVESTIGATOR</p>
-                <p className="body-base-600 text-black">Prof. Hanan Khalil</p>
+                <p className="la-team-card-name">Prof. Hanan Khalil</p>
               </div>
               <p className="body-base-400 mt-3 text-gray-500">
                 Lead researcher and grant recipient. Professor in the School of
@@ -95,7 +95,7 @@ export default function CardsSection() {
               </IconTile>
               <div className="space-y-1">
                 <p className="eyebrow text-gray-500">EMAIL</p>
-                <p className="body-base-500 text-black">pcat@latrobe.edu.au</p>
+                <p className="la-card-type-4-email">pcat@latrobe.edu.au</p>
               </div>
             </article>
           </div>
