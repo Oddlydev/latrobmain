@@ -1,10 +1,16 @@
 import {
   ClipboardIcon,
   DocumentIcon,
-  IconTile,
   MailIcon,
   TargetIcon,
 } from "./icons";
+import {
+  CardType1,
+  CardType2,
+  CardType3,
+  CardType4,
+  TeamCard,
+} from "../ui/Card";
 
 function CardTitle({ children }: { children: string }) {
   return <h3 className="h4 text-center text-gray-500">{children}</h3>;
@@ -19,85 +25,48 @@ export default function CardsSection() {
         <div className="grid gap-8 md:grid-cols-2">
           <div className="space-y-5">
             <CardTitle>Card Type 1</CardTitle>
-            <article className="la-card-type-1">
-              <IconTile>
-                <ClipboardIcon />
-              </IconTile>
-              <div>
-                <p className="body-base-600 text-black">Real-time</p>
-                <p className="body-base-400 text-gray-500">
-                  Assessment documentation
-                </p>
-              </div>
-            </article>
+            <CardType1
+              icon={<ClipboardIcon />}
+              title="Real-time"
+              description="Assessment documentation"
+            />
           </div>
 
           <div className="space-y-5">
             <CardTitle>Card Type 2</CardTitle>
-            <article className="la-card-type-2">
-              <IconTile>
-                <TargetIcon />
-              </IconTile>
-              <div className="mt-4 space-y-2">
-                <p className="body-base-600 text-black">Research Objective</p>
-                <p className="body-base-400 text-gray-500">
-                  Develop and validate an AI-powered screening tool that
-                  identifies aged care residents with unmet palliative care
-                  needs earlier and more accurately than current practice.
-                </p>
-              </div>
-            </article>
+            <CardType2
+              icon={<TargetIcon />}
+              title="Research Objective"
+              description="Develop and validate an AI-powered screening tool that identifies aged care residents with unmet palliative care needs earlier and more accurately than current practice."
+            />
           </div>
 
           <div className="space-y-5">
             <CardTitle>Card Type 3</CardTitle>
-            <article className="la-card-type-3 group">
-              <IconTile>
-                <DocumentIcon />
-              </IconTile>
-              <div className="mt-3.5 space-y-3.5">
-                <p className="body-base-600 text-black group-hover:underline group-hover:decoration-brand-1 group-hover:[text-decoration-thickness:13.5%] group-hover:[text-underline-offset:25%]">
-                  Research-Validated Assessments
-                </p>
-                <p className="body-base-400 text-gray-500">
-                  Complete structured palliative care assessments built on
-                  peer-reviewed methodology. Forms are standardised,
-                  auto-timestamped, and designed so no critical clinical
-                  indicator is ever overlooked.
-                </p>
-              </div>
-            </article>
+            <CardType3
+              icon={<DocumentIcon />}
+              title="Research-Validated Assessments"
+              description="Complete structured palliative care assessments built on peer-reviewed methodology. Forms are standardised, auto-timestamped, and designed so no critical clinical indicator is ever overlooked."
+            />
           </div>
 
           <div className="space-y-5">
             <CardTitle>Team Card</CardTitle>
-            <article className="la-team-card">
-              <div className="la-team-header">
-                <p className="eyebrow text-brand-1">PRINCIPAL INVESTIGATOR</p>
-                <p className="la-team-card-name">Prof. Hanan Khalil</p>
-              </div>
-              <p className="body-base-400 mt-3 text-gray-500">
-                Lead researcher and grant recipient. Professor in the School of
-                Psychology and Public Health, with expertise in evidence
-                synthesis, aged care, and health services research.
-              </p>
-              <p className="body-sm-400 mt-4 border-l-2 border-brand-1 pl-4 text-gray-500">
-                La Trobe University - School of Psychology and Public Health
-              </p>
-            </article>
+            <TeamCard
+              eyebrow="PRINCIPAL INVESTIGATOR"
+              title="Prof. Hanan Khalil"
+              description="Lead researcher and grant recipient. Professor in the School of Psychology and Public Health, with expertise in evidence synthesis, aged care, and health services research."
+              footer="La Trobe University - School of Psychology and Public Health"
+            />
           </div>
 
           <div className="space-y-5">
             <CardTitle>Card Type 4</CardTitle>
-            <article className="la-card-type-4">
-              <IconTile size="sm">
-                <MailIcon />
-              </IconTile>
-              <div className="space-y-1">
-                <p className="eyebrow text-gray-500">EMAIL</p>
-                <p className="la-card-type-4-email">pcat@latrobe.edu.au</p>
-              </div>
-            </article>
+            <CardType4
+              icon={<MailIcon />}
+              eyebrow="EMAIL"
+              value="pcat@latrobe.edu.au"
+            />
           </div>
         </div>
       </div>

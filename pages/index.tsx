@@ -2,6 +2,13 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import Layout from "../src/components/Layout";
 import Button from "../components/ui/Button";
 import Accordion from "../components/ui/Accordion";
+import {
+  CardType1,
+  CardType2,
+  CardType3,
+  ContactCard,
+  TeamCard,
+} from "../components/ui/Card";
 import heroImage1 from "../assets/images/hero-img-1.png";
 import heroImage2 from "../assets/images/hero-img-2.png";
 import heroImage3 from "../assets/images/hero-img-3.png";
@@ -43,7 +50,7 @@ function SectionTitle({
   return (
     <h2
       className={[
-        "mt-2 mb-0 font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:text-[36px] lg:leading-[110%] lg:tracking-normal",
+        "mt-2 mb-0 font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:leading-[110%] lg:tracking-normal",
         centered ? "text-center" : "",
         className ?? "",
       ]
@@ -693,11 +700,12 @@ function AboutFeatureTile({
   icon: ReactNode;
 }) {
   return (
-    <article className="la-card-type-2 h-full">
-      <div className="la-feature-icon mb-4">{icon}</div>
-      <h3 className="body-base-600 text-black">{title}</h3>
-      <p className="body-base-400 mt-2 text-gray-500">{description}</p>
-    </article>
+    <CardType2
+      icon={icon}
+      title={title}
+      description={description}
+      className="h-full"
+    />
   );
 }
 
@@ -756,6 +764,14 @@ function HomeHeroSection() {
         />
         <div
           aria-hidden="true"
+          className="pointer-events-none absolute left-[-8%] top-[18%] hidden h-[44%] w-[42%] rounded-[33554400px] lg:block"
+          style={{
+            background: "rgba(233, 34, 60, 0.03)",
+            filter: "blur(64px)",
+          }}
+        />
+        <div
+          aria-hidden="true"
           className="absolute inset-y-0 left-0 w-full md:hidden lg:w-[66%] lg:block"
           style={{
             background:
@@ -808,9 +824,9 @@ function HomeHeroSection() {
             </div>
 
             <div className="mt-5 flex flex-wrap gap-4 md:mt-3 md:gap-4 lg:mt-12 lg:gap-4">
-              <a
+              <Button
                 href={LOGIN_URL}
-                className="la-button la-button-primary justify-center shadow-la-shadow-2"
+                className="justify-center shadow-la-shadow-2"
               >
                 Access PCAT Tool
                 <svg
@@ -829,7 +845,7 @@ function HomeHeroSection() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </Button>
               <Button
                 href="#about"
                 variant="secondary"
@@ -847,15 +863,12 @@ function HomeHeroSection() {
         >
           <div className="grid gap-3 md:grid-cols-2 md:gap-5 xl:grid-cols-4">
             {heroHighlights.map((item) => (
-              <article key={item.title} className="la-card-type-1">
-                <div className="la-feature-icon">{item.icon}</div>
-                <div>
-                  <p className="body-base-600 text-black">{item.title}</p>
-                  <p className="body-base-400 text-gray-500">
-                    {item.description}
-                  </p>
-                </div>
-              </article>
+              <CardType1
+                key={item.title}
+                icon={item.icon}
+                title={item.title}
+                description={item.description}
+              />
             ))}
           </div>
         </div>
@@ -900,7 +913,7 @@ function AboutSection() {
         <SectionEyebrow className="text-red-600">
           About the project
         </SectionEyebrow>
-        <h2 className="mt-2 mb-5 block max-w-[695px] font-display text-3xl font-bold leading-[110%] tracking-normal text-black md:mb-[51px] md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-[36px] lg:font-bold lg:leading-[110%] lg:tracking-normal">
+        <h2 className="mt-2 mb-5 block max-w-[695px] font-display text-3xl font-bold leading-[110%] tracking-normal text-black md:mb-[51px] md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:font-bold lg:leading-[110%] lg:tracking-normal">
           Identifying palliative care needs - earlier, and with confidence
         </h2>
       </div>
@@ -1121,7 +1134,7 @@ function CoreFeaturesSection() {
         <div className="space-y-12">
           <div className="max-w-215 space-y-2">
             <p className="eyebrow text-red-600">Core Features</p>
-            <h2 className="font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:max-w-xl lg:text-[36px] lg:leading-[110%] lg:tracking-normal">
+            <h2 className="font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:max-w-xl lg:text-4xl lg:leading-[110%] lg:tracking-normal">
               Everything nurses need, nothing they don&apos;t
             </h2>
           </div>
@@ -1199,15 +1212,15 @@ function HowItWorksFeatureCardsSection() {
   return (
     <section className="border-b border-black/8 pb-20">
       <div className="la-container">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-5 lg:gap-6 md:grid-cols-2 xl:grid-cols-3">
           {HOW_IT_WORKS_FEATURE_CARDS.map((item) => (
-            <article key={item.title} className="la-card-type-3 h-full">
-              <div className="la-feature-icon mb-6">{item.icon}</div>
-              <h3 className="body-base-600 text-black">{item.title}</h3>
-              <p className="body-base-400 mt-4 text-gray-500">
-                {item.description}
-              </p>
-            </article>
+            <CardType3
+              key={item.title}
+              icon={item.icon}
+              title={item.title}
+              description={item.description}
+              className="h-full"
+            />
           ))}
         </div>
       </div>
@@ -1556,10 +1569,10 @@ function HowItWorksSection() {
   return (
     <section>
       <SectionAnchor id="how-it-works" />
-      <div className="relative overflow-hidden bg-transparent bg-[url('/assets/images/how-it-works-mobile.png')] bg-cover bg-top bg-no-repeat md:bg-transparent md:bg-none lg:bg-white lg:[background-image:radial-gradient(rgba(226,35,27,0.045)_1px,transparent_1px)] lg:[background-size:22px_22px]">
+      <div className="relative overflow-hidden">
         <div className="relative z-10 mb-5 text-left sm:mb-7 lg:mb-12 lg:text-center">
           <p className="eyebrow text-brand-1">How It Works</p>
-          <h2 className="mt-5 font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black sm:mt-7 md:text-[30px] md:font-bold md:leading-9 lg:mt-2 lg:text-[36px] lg:leading-[110%] lg:tracking-normal">
+          <h2 className="mt-5 font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black sm:mt-7 md:text-[30px] md:font-bold md:leading-9 lg:mt-2 lg:text-4xl lg:leading-[110%] lg:tracking-normal">
             From login to care record in minutes
           </h2>
         </div>
@@ -1576,7 +1589,7 @@ function HowItWorksSection() {
             />
           </div>
 
-          <div className="space-y-10 lg:space-y-16">
+          <div className="space-y-10 lg:space-y-4">
             {steps.map((step, stepIndex) => {
               const isLeft = step.side === "left";
               const isStepFilled = filledSteps[stepIndex] ?? false;
@@ -1584,7 +1597,7 @@ function HowItWorksSection() {
               return (
                 <div
                   key={step.id}
-                  className="relative grid grid-cols-[auto_1fr] items-start gap-x-4 lg:grid-cols-2 lg:items-center lg:gap-14"
+                  className="relative grid grid-cols-[auto_1fr] items-start gap-x-4 lg:mx-auto lg:w-fit lg:grid-cols-[462px_462px] lg:items-center lg:gap-14"
                 >
                   <div
                     ref={(element) => {
@@ -1602,13 +1615,13 @@ function HowItWorksSection() {
 
                   <article
                     className={[
-                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-1 py-0.5 text-left transition-transform duration-200 ease-out lg:px-2 lg:py-1",
+                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-1 py-0.5 text-left transition-transform duration-200 ease-out lg:p-5",
                       isLeft
                         ? "origin-right hover:-translate-x-2"
                         : "origin-left hover:translate-x-2",
                       isLeft
-                        ? "lg:col-start-1 lg:ml-auto lg:pr-14 lg:text-right"
-                        : "lg:col-start-2 lg:pl-14 lg:text-left",
+                        ? "lg:col-start-1 lg:text-right"
+                        : "lg:col-start-2 lg:text-left",
                     ].join(" ")}
                   >
                     <div
@@ -1629,7 +1642,7 @@ function HowItWorksSection() {
 
                     <p
                       className={[
-                        "mt-3 font-display text-lg font-normal leading-6 tracking-normal text-gray-500 lg:mt-3 lg:w-[410px]",
+                        "mt-3 font-display text-lg font-normal leading-6 tracking-normal text-gray-500 lg:mt-3 lg:w-full",
                         isLeft ? "lg:ml-auto" : "",
                       ].join(" ")}
                     >
@@ -1705,18 +1718,7 @@ function TeamSection() {
 
         <div className="mt-5 grid gap-5 md:mt-12 md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:gap-6 xl:grid-cols-3">
           {teamMembers.map((member) => (
-            <article key={member.title} className="la-team-card">
-              <div className="la-team-header">
-                <p className="eyebrow text-brand-1">{member.eyebrow}</p>
-                <p className="body-base-600 text-black">{member.title}</p>
-              </div>
-              <p className="body-base-400 mt-3 text-gray-500">
-                {member.description}
-              </p>
-              <p className="body-sm-400 mt-4 border-l-2 border-brand-1 pl-4 text-gray-500">
-                {member.footer}
-              </p>
-            </article>
+            <TeamCard key={member.title} {...member} />
           ))}
         </div>
       </div>
@@ -1754,7 +1756,7 @@ function SupportSection() {
       <div className="la-container">
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">Funding & Governance</p>
-          <h2 className="mt-2 text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:text-[36px] lg:leading-[110%] lg:tracking-normal">
+          <h2 className="mt-2 text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:leading-[110%] lg:tracking-normal">
             Supported by
           </h2>
           <p className="body-base-400 mx-auto mt-4 max-w-[550px] text-center text-gray-500 md:mt-4">
@@ -1830,7 +1832,7 @@ function FaqSection() {
       <div className="space-y-5 md:space-y-7 lg:space-y-12">
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">FAQ</p>
-          <h2 className="mt-2 text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:text-[36px] lg:leading-[110%] lg:tracking-normal">
+          <h2 className="mt-2 text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:leading-[110%] lg:tracking-normal">
             Common Questions
           </h2>
           <SectionLead centered className="mx-auto mt-4 max-w-4xl">
@@ -1860,7 +1862,7 @@ function LoginCtaSection() {
     >
       <div className="la-container text-center">
         <div className="space-y-4 md:space-y-4 lg:space-y-1">
-          <h2 className="text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-white md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-[36px] lg:font-bold lg:leading-[110%] lg:tracking-normal">
+          <h2 className="text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-white md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:font-bold lg:leading-[110%] lg:tracking-normal">
             Ready to get started?
           </h2>
           <p className="body-base-400 text-center text-gray-400">
@@ -1870,11 +1872,11 @@ function LoginCtaSection() {
         </div>
 
         <div className="mt-8 flex justify-center md:mt-7 lg:mt-8">
-          <a
+          <Button
             href={LOGIN_URL}
             target="_blank"
             rel="noreferrer"
-            className="la-button la-button-primary shadow-la-shadow-2"
+            className="shadow-la-shadow-2"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -1893,7 +1895,7 @@ function LoginCtaSection() {
               />
             </svg>
             Log in to PCAT
-          </a>
+          </Button>
         </div>
       </div>
     </section>
@@ -2047,22 +2049,13 @@ function ContactSection() {
         <div className="grid gap-5 md:gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.95fr)] lg:items-start lg:gap-12">
           <div className="space-y-5 md:space-y-4">
             {contactItems.map((item) => (
-              <article key={item.label} className="la-contact-item">
-                <div className="la-contact-item-icon">{item.icon}</div>
-                <div>
-                  <p className="eyebrow text-gray-500">{item.label}</p>
-                  {item.value.includes("@") ? (
-                    <a
-                      href={`mailto:${item.value}`}
-                      className="body-base-500 text-black underline-offset-2 hover:underline"
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <p className="body-base-500 text-black">{item.value}</p>
-                  )}
-                </div>
-              </article>
+              <ContactCard
+                key={item.label}
+                label={item.label}
+                value={item.value}
+                icon={item.icon}
+                href={item.value.includes("@") ? `mailto:${item.value}` : undefined}
+              />
             ))}
           </div>
 
@@ -2098,7 +2091,16 @@ export default function Home() {
         <AboutFeatureCardsSection />
         <CoreFeaturesSection />
         <HowItWorksFeatureCardsSection />
-        <section className="border-b border-black/8 py-20">
+        <section
+          className="border-t border-b border-black/8 py-20"
+          style={{
+            backgroundImage:
+              "url('/assets/images/how-it-works-desktop.png')",
+            backgroundPosition: "top center",
+            backgroundSize: "auto",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="la-container">
             <HowItWorksSection />
           </div>

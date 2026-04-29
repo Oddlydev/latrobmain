@@ -76,6 +76,20 @@ export default function Button(props: AnchorButtonProps | NativeButtonProps) {
     > & {
       href: string;
     };
+    const isExternalHref =
+      href.startsWith("http://") ||
+      href.startsWith("https://") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:");
+    const isHashHref = href.startsWith("#");
+
+    if (isExternalHref || isHashHref) {
+      return (
+        <a href={href} className={classes} {...anchorProps}>
+          {children}
+        </a>
+      );
+    }
 
     return (
       <Link href={href} className={classes} {...anchorProps}>
