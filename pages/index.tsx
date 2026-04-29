@@ -6,6 +6,7 @@ import heroImage1 from "../assets/images/hero-img-1.png";
 import heroImage2 from "../assets/images/hero-img-2.png";
 import heroImage3 from "../assets/images/hero-img-3.png";
 import heroImage4 from "../assets/images/hero-img-4.png";
+import heroImageTab1 from "../assets/images/hero-img-tab-1.png";
 import {
   ClipboardIcon,
   DocumentIcon,
@@ -743,11 +744,11 @@ function HomeHeroSection() {
           src={heroImageSrc}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover object-[78%_center]"
+          className="absolute inset-0 h-full w-full object-cover object-[78%_center] md:hidden lg:block"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute right-[-10%] top-1/2 h-[78%] w-[52%] -translate-y-1/2 rounded-[33554400px]"
+          className="pointer-events-none absolute right-[-10%] top-1/2 hidden h-[78%] w-[52%] -translate-y-1/2 rounded-[33554400px] lg:block"
           style={{
             background: "rgba(233, 34, 60, 0.05)",
             filter: "blur(64px)",
@@ -755,7 +756,7 @@ function HomeHeroSection() {
         />
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 left-0 w-full lg:w-[66%]"
+          className="absolute inset-y-0 left-0 w-full md:hidden lg:w-[66%] lg:block"
           style={{
             background:
               "linear-gradient(90deg, rgba(247,247,247,0.99) 0%, rgba(247,247,247,0.97) 40%, rgba(247,247,247,0.9) 56%, rgba(247,247,247,0.62) 72%, rgba(247,247,247,0) 100%)",
@@ -765,8 +766,24 @@ function HomeHeroSection() {
           aria-hidden="true"
           className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white/35 to-transparent lg:hidden"
         />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden -translate-y-20 overflow-hidden md:block lg:hidden">
+          <img
+            src={heroImageTab1.src}
+            alt=""
+            aria-hidden="true"
+            className="block w-full"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 top-0 h-64"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(247,247,247,1) 0%, rgba(247,247,247,0.98) 26%, rgba(247,247,247,0.82) 52%, rgba(247,247,247,0) 100%)",
+            }}
+          />
+        </div>
 
-        <div className="relative px-6 pt-10 pb-78.75 md:px-12 md:pt-12 md:pb-24 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
+        <div className="relative z-10 px-6 pt-10 pb-78.75 md:px-12 md:pt-12 md:pb-[35.5rem] lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
           <div className="max-w-155 lg:max-w-154">
             <p className="inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 font-display text-xs font-medium leading-4 tracking-normal text-black shadow-sm md:text-base md:leading-6">
               <span className="la-hero-status-dot h-2.5 w-2.5 rounded-full bg-green-500" />
@@ -1539,7 +1556,7 @@ function HowItWorksSection() {
   return (
     <section>
       <SectionAnchor id="how-it-works" />
-      <div className="relative overflow-hidden bg-gray-50 bg-[url('/assets/images/how-it-works-mobile.png')] bg-cover bg-top bg-no-repeat md:bg-white md:[background-image:radial-gradient(rgba(226,35,27,0.045)_1px,transparent_1px)] md:[background-size:22px_22px]">
+      <div className="relative overflow-hidden bg-transparent bg-[url('/assets/images/how-it-works-mobile.png')] bg-cover bg-top bg-no-repeat md:bg-transparent md:bg-none lg:bg-white lg:[background-image:radial-gradient(rgba(226,35,27,0.045)_1px,transparent_1px)] lg:[background-size:22px_22px]">
         <div className="relative z-10 mb-5 text-left sm:mb-7 lg:mb-12 lg:text-center">
           <p className="eyebrow text-brand-1">How It Works</p>
           <h2 className="mt-5 font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black sm:mt-7 md:text-[30px] md:font-bold md:leading-9 lg:mt-2 lg:text-[36px] lg:leading-[110%] lg:tracking-normal">
@@ -1550,7 +1567,7 @@ function HowItWorksSection() {
         <div className="relative z-10">
           <div
             ref={trackRef}
-            className="absolute top-6 bottom-6 left-[39px] w-0.5 rounded-full bg-red-100 lg:left-1/2 lg:w-1 lg:-translate-x-1/2"
+            className="absolute top-6 bottom-6 left-6 w-0.5 rounded-full bg-red-100 md:left-5 lg:left-1/2 lg:w-1 lg:-translate-x-1/2"
             aria-hidden="true"
           >
             <div
@@ -1574,7 +1591,7 @@ function HowItWorksSection() {
                       stepRefs.current[stepIndex] = element;
                     }}
                     className={[
-                      "z-20 col-start-1 row-start-1 flex h-20 w-20 items-center justify-center rounded-full border-[3px] transition-colors duration-200 ease-out md:h-10 md:w-10 md:border-2 lg:absolute lg:left-1/2 lg:top-1/2 lg:h-14 lg:w-14 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:border-[3px]",
+                      "z-20 col-start-1 row-start-1 flex h-12 w-12 items-center justify-center rounded-full border-2 transition-colors duration-200 ease-out [&_svg]:h-6 [&_svg]:w-6 md:h-10 md:w-10 md:border-2 md:[&_svg]:h-5 md:[&_svg]:w-5 lg:absolute lg:left-1/2 lg:top-1/2 lg:h-14 lg:w-14 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:border-[3px] lg:[&_svg]:h-[26px] lg:[&_svg]:w-[26px]",
                       isStepFilled
                         ? "border-red-100 bg-brand-1 text-white"
                         : "border-brand-1 bg-white text-brand-1",
