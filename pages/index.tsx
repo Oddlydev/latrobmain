@@ -747,6 +747,14 @@ function HomeHeroSection() {
         />
         <div
           aria-hidden="true"
+          className="pointer-events-none absolute right-[-10%] top-1/2 h-[78%] w-[52%] -translate-y-1/2 rounded-[33554400px]"
+          style={{
+            background: "rgba(233, 34, 60, 0.05)",
+            filter: "blur(64px)",
+          }}
+        />
+        <div
+          aria-hidden="true"
           className="absolute inset-y-0 left-0 w-full lg:w-[66%]"
           style={{
             background:
@@ -762,7 +770,7 @@ function HomeHeroSection() {
           <div className="max-w-155 lg:max-w-154">
             <p className="inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 font-display text-xs font-medium leading-4 tracking-normal text-black shadow-sm md:text-base md:leading-6">
               <span className="la-hero-status-dot h-2.5 w-2.5 rounded-full bg-green-500" />
-              Palliative Care Research Programme
+              La Trobe Palliative Care Research Programme
             </p>
 
             <div className="mt-5 space-y-5 md:mt-3 md:space-y-3 lg:mt-12 lg:space-y-0">
@@ -1198,10 +1206,6 @@ function HowItWorksSection() {
     description: string;
     side: "left" | "right";
     icon: ReactNode;
-    desktopWidthClass: string;
-    desktopPaddingClass: string;
-    titleWidthClass: string;
-    descriptionWidthClass: string;
   };
 
   function IconLock() {
@@ -1430,10 +1434,6 @@ function HowItWorksSection() {
         "Use your PCAT credentials to access the portal. Your assigned facility and patient list load automatically upon sign-in.",
       side: "left",
       icon: <IconLock />,
-      desktopWidthClass: "lg:max-w-[480px]",
-      desktopPaddingClass: "lg:pr-14",
-      titleWidthClass: "w-full",
-      descriptionWidthClass: "w-[410px] lg:ml-auto",
     },
     {
       id: "s2",
@@ -1443,10 +1443,6 @@ function HowItWorksSection() {
         "Browse your patient list filtered by risk level, recent activity, or name. High-priority patients are surfaced immediately.",
       side: "right",
       icon: <IconSearch />,
-      desktopWidthClass: "lg:w-[440px]",
-      desktopPaddingClass: "lg:pl-16",
-      titleWidthClass: "w-full",
-      descriptionWidthClass: "w-[410px]",
     },
     {
       id: "s3",
@@ -1456,10 +1452,6 @@ function HowItWorksSection() {
         "Work through the structured, research-validated assessment form. Guided prompts ensure every clinical indicator is captured.",
       side: "left",
       icon: <IconChecklist />,
-      desktopWidthClass: "lg:w-[470px]",
-      desktopPaddingClass: "lg:pr-24",
-      titleWidthClass: "w-full",
-      descriptionWidthClass: "w-[410px] lg:ml-auto",
     },
     {
       id: "s4",
@@ -1469,10 +1461,6 @@ function HowItWorksSection() {
         "Based on the assessment responses, PCAT surfaces recommended clinical actions and flags risk indicators.",
       side: "right",
       icon: <IconBell />,
-      desktopWidthClass: "lg:w-[440px]",
-      desktopPaddingClass: "lg:pl-16",
-      titleWidthClass: "w-full",
-      descriptionWidthClass: "w-[410px]",
     },
     {
       id: "s5",
@@ -1482,10 +1470,6 @@ function HowItWorksSection() {
         "Examine an interactive chart showing the patient's assessment score history over the past 7 days, alongside a model-generated trend forecast.",
       side: "left",
       icon: <IconTrend />,
-      desktopWidthClass: "lg:w-[560px]",
-      desktopPaddingClass: "lg:pr-14",
-      titleWidthClass: "w-full",
-      descriptionWidthClass: "w-[410px] lg:ml-auto",
     },
     {
       id: "s6",
@@ -1495,10 +1479,6 @@ function HowItWorksSection() {
         "At the end of each shift, PCAT compiles an up-to-date summary of each patient's status, recent assessments, and outstanding actions.",
       side: "right",
       icon: <IconNode />,
-      desktopWidthClass: "lg:max-w-[360px]",
-      desktopPaddingClass: "lg:pl-16",
-      titleWidthClass: "w-full",
-      descriptionWidthClass: "max-w-[300px]",
     },
   ];
 
@@ -1587,7 +1567,7 @@ function HowItWorksSection() {
               return (
                 <div
                   key={step.id}
-                  className="relative grid grid-cols-[auto_1fr] items-start gap-x-4 lg:grid-cols-2 lg:items-center lg:gap-8"
+                  className="relative grid grid-cols-[auto_1fr] items-start gap-x-4 lg:grid-cols-2 lg:items-center lg:gap-14"
                 >
                   <div
                     ref={(element) => {
@@ -1610,35 +1590,30 @@ function HowItWorksSection() {
                         ? "origin-right hover:-translate-x-2"
                         : "origin-left hover:translate-x-2",
                       isLeft
-                        ? `lg:col-start-1 lg:ml-auto ${step.desktopWidthClass} ${step.desktopPaddingClass} lg:text-right`
-                        : `lg:col-start-2 ${step.desktopWidthClass} ${step.desktopPaddingClass} lg:text-left`,
+                        ? "lg:col-start-1 lg:ml-auto lg:pr-14 lg:text-right"
+                        : "lg:col-start-2 lg:pl-14 lg:text-left",
                     ].join(" ")}
                   >
                     <div
                       className={[
-                        "flex w-full items-baseline gap-3 font-display text-black",
+                        "flex w-full items-baseline gap-3 font-display text-black lg:inline-grid lg:w-auto lg:grid-cols-[auto_minmax(0,1fr)] lg:gap-x-3",
                         isLeft
-                          ? "justify-start lg:justify-end"
-                          : "justify-start",
+                          ? "justify-start lg:ml-auto lg:text-right"
+                          : "justify-start lg:text-left",
                       ].join(" ")}
                     >
                       <span className="shrink-0 text-right font-display text-xl font-light leading-7 tracking-[-0.8px] text-gray-500">
                         {step.number}
                       </span>
-                      <h3
-                        className={[
-                          "font-display text-xl font-bold leading-7 tracking-[-0.8px] text-black md:text-2xl md:leading-8 lg:whitespace-nowrap",
-                          step.titleWidthClass,
-                        ].join(" ")}
-                      >
+                      <h3 className="font-display text-xl font-bold leading-7 tracking-[-0.8px] text-black md:text-2xl md:leading-8">
                         {step.title}
                       </h3>
                     </div>
 
                     <p
                       className={[
-                        "mt-3 font-display text-lg font-normal leading-6 tracking-normal text-gray-500 lg:mt-3",
-                        step.descriptionWidthClass,
+                        "mt-3 font-display text-lg font-normal leading-6 tracking-normal text-gray-500 lg:mt-3 lg:w-[410px]",
+                        isLeft ? "lg:ml-auto" : "",
                       ].join(" ")}
                     >
                       {step.description}
