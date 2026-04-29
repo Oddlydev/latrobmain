@@ -1597,7 +1597,7 @@ function HowItWorksSection() {
               return (
                 <div
                   key={step.id}
-                  className="relative grid grid-cols-[auto_1fr] items-start gap-x-4 lg:mx-auto lg:w-fit lg:grid-cols-[462px_462px] lg:items-center lg:gap-14"
+                  className="relative grid grid-cols-[auto_1fr] items-start gap-x-4 lg:mx-auto lg:w-fit lg:grid-cols-[462px_168px_462px] lg:items-center lg:gap-0"
                 >
                   <div
                     ref={(element) => {
@@ -1615,13 +1615,13 @@ function HowItWorksSection() {
 
                   <article
                     className={[
-                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-1 py-0.5 text-left transition-transform duration-200 ease-out lg:p-5",
+                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-1 py-0.5 text-left transition-transform duration-200 ease-out lg:py-5",
                       isLeft
                         ? "origin-right hover:-translate-x-2"
                         : "origin-left hover:translate-x-2",
                       isLeft
-                        ? "lg:col-start-1 lg:text-right"
-                        : "lg:col-start-2 lg:text-left",
+                        ? "lg:col-start-1 lg:pl-5 lg:pr-0 lg:text-right"
+                        : "lg:col-start-3 lg:pl-0 lg:pr-5 lg:text-left",
                     ].join(" ")}
                   >
                     <div
