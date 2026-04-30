@@ -59,11 +59,11 @@ export default function Accordion({
           >
             <button
               type="button"
-              className="la-accordion-trigger group relative flex w-full items-center justify-start px-6 py-5 text-left md:px-6 md:py-5"
+              className="la-accordion-trigger group relative flex w-full items-center justify-start px-6 py-5 text-left md:px-5 md:py-5 lg:px-6 lg:py-5"
               onClick={() => toggleItem(item.id)}
               aria-expanded={isOpen}
             >
-              <span className="body-base-500 text-left text-black group-hover:underline">
+              <span className="body-base-500 text-left text-black group-hover:underline md:font-bold lg:font-medium">
                 {item.title}
               </span>
               {isOpen ? (
@@ -85,7 +85,7 @@ export default function Accordion({
                     />
                   </svg>
                   <svg
-                    className="absolute right-6 top-1/2 hidden h-[5px] w-2 -translate-y-1/2 shrink-0 text-black md:block lg:hidden"
+                    className="absolute top-1/2 hidden h-[5px] w-2 -translate-y-1/2 shrink-0 text-black md:right-5 md:block lg:hidden"
                     xmlns="http://www.w3.org/2000/svg"
                     width="8"
                     height="5"
@@ -120,7 +120,7 @@ export default function Accordion({
                     />
                   </svg>
                   <svg
-                    className="absolute right-6 top-1/2 hidden h-4 w-4 -translate-y-1/2 shrink-0 text-black md:block lg:hidden"
+                    className="absolute top-1/2 hidden h-4 w-4 -translate-y-1/2 shrink-0 text-black md:right-5 md:block lg:hidden"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
@@ -150,7 +150,7 @@ export default function Accordion({
                 .join(" ")}
             >
               <div className="overflow-hidden">
-                <div className="body-base-400 pl-6 pr-10 pb-5 text-left text-gray-600 md:pl-6 md:pr-10 md:pb-5">
+                <div className="body-base-400 pl-6 pr-10 pb-5 text-left text-gray-600 md:pl-5 md:pr-10 md:pb-5 lg:pl-6 lg:pr-10 lg:pb-5">
                   {item.content}
                 </div>
               </div>

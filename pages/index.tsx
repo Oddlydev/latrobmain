@@ -858,10 +858,10 @@ function HomeHeroSection() {
         </div>
 
         <div
-          className="relative p-3.5 md:px-10 md:py-10 lg:px-7 lg:py-7"
+          className="relative p-3.5 md:px-5 md:py-5 lg:px-7 lg:py-7"
           style={{ background: "var(--Brand---3, #000)" }}
         >
-          <div className="grid gap-3 md:grid-cols-2 md:gap-5 xl:grid-cols-4">
+          <div className="grid gap-3 md:inline-grid md:w-full md:grid-cols-2 md:grid-rows-2 md:gap-3 xl:grid-cols-4 xl:grid-rows-1">
             {heroHighlights.map((item) => (
               <CardType1
                 key={item.title}
@@ -913,14 +913,14 @@ function AboutSection() {
         <SectionEyebrow className="text-red-600">
           About the project
         </SectionEyebrow>
-        <h2 className="mt-2 mb-5 block max-w-[695px] font-display text-3xl font-bold leading-[110%] tracking-normal text-black md:mb-[51px] md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:font-bold lg:leading-[110%] lg:tracking-normal">
+        <h2 className="mt-2 mb-5 block max-w-[695px] font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:mb-7 md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:font-bold lg:leading-[110%] lg:tracking-normal">
           Identifying palliative care needs - earlier, and with confidence
         </h2>
       </div>
 
-      <div className="grid gap-5 md:gap-7 lg:grid-cols-2 lg:gap-12">
+      <div className="grid gap-5 md:gap-5 lg:grid-cols-2 lg:gap-12">
         <div className="la-about-copy-stack">
-          <SectionLead className="max-w-[695px] text-gray-600">
+          <SectionLead className="max-w-[695px] text-gray-700 md:text-gray-600">
             PCAT was developed under Professor Hanan Khalil's initiative at La
             Trobe University to close a critical gap in aged care nursing: the
             timely identification of patients who would benefit from palliative
@@ -956,7 +956,7 @@ function AboutSection() {
 
 function AboutFeatureCardsSection() {
   return (
-    <section className="border-b border-black/8 pt-5 pb-10 md:pt-12 md:pb-20">
+    <section className="border-b border-black/8 pt-5 pb-10 md:pt-7 md:pb-10 lg:pt-12 lg:pb-20">
       <div className="la-container">
         <div className="grid gap-5 md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:grid-cols-4 lg:gap-6">
           {ABOUT_FEATURE_CARDS.map((item) => (
@@ -1128,15 +1128,15 @@ function CoreFeaturesSection() {
   const activePhase = phases[cycleStep < 2 ? 0 : 1];
 
   return (
-    <section ref={sectionRef} className="pt-20 pb-12">
+    <section ref={sectionRef} className="pt-10 pb-10 md:pt-20 md:pb-12">
       <SectionAnchor id="features" />
       <div className="la-container">
         <div className="space-y-12">
           <div className="max-w-215 space-y-2">
             <p className="eyebrow text-red-600">Core Features</p>
-            <h2 className="font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:max-w-xl lg:text-4xl lg:leading-[110%] lg:tracking-normal">
-              Everything nurses need, nothing they don&apos;t
-            </h2>
+          <h2 className="font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:max-w-xl lg:text-4xl lg:leading-[110%] lg:tracking-normal">
+            Everything nurses need, nothing they don&apos;t
+          </h2>
           </div>
 
           <div
@@ -1210,7 +1210,7 @@ function CoreFeaturesSection() {
 
 function HowItWorksFeatureCardsSection() {
   return (
-    <section className="border-b border-black/8 pb-20">
+    <section className="border-b border-black/8 pb-10 md:pb-20">
       <div className="la-container">
         <div className="grid gap-5 lg:gap-6 md:grid-cols-2 xl:grid-cols-3">
           {HOW_IT_WORKS_FEATURE_CARDS.map((item) => (
@@ -1572,7 +1572,7 @@ function HowItWorksSection() {
       <div className="relative overflow-hidden">
         <div className="relative z-10 mb-5 text-left sm:mb-7 lg:mb-12 lg:text-center">
           <p className="eyebrow text-brand-1">How It Works</p>
-          <h2 className="mt-5 font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black sm:mt-7 md:text-[30px] md:font-bold md:leading-9 lg:mt-2 lg:text-4xl lg:leading-[110%] lg:tracking-normal">
+          <h2 className="mt-5 font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black sm:mt-7 md:mt-2 md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:mt-2 lg:text-4xl lg:leading-[110%] lg:tracking-normal">
             From login to care record in minutes
           </h2>
         </div>
@@ -1597,7 +1597,7 @@ function HowItWorksSection() {
               return (
                 <div
                   key={step.id}
-                  className="relative grid grid-cols-[auto_1fr] items-start gap-x-4 lg:mx-auto lg:w-fit lg:grid-cols-[462px_168px_462px] lg:items-center lg:gap-0"
+                  className="relative grid grid-cols-[auto_1fr] items-start gap-x-5 lg:mx-auto lg:w-fit lg:grid-cols-[462px_168px_462px] lg:items-center lg:gap-0"
                 >
                   <div
                     ref={(element) => {
@@ -1614,8 +1614,8 @@ function HowItWorksSection() {
                   </div>
 
                   <article
-                    className={[
-                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-1 py-0.5 text-left transition-transform duration-200 ease-out lg:py-5",
+                  className={[
+                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-0 py-0 text-left transition-transform duration-200 ease-out md:px-0 md:py-0 lg:py-5",
                       isLeft
                         ? "origin-right hover:-translate-x-2"
                         : "origin-left hover:translate-x-2",
@@ -1635,7 +1635,7 @@ function HowItWorksSection() {
                       <span className="shrink-0 text-right font-display text-xl font-light leading-7 tracking-[-0.8px] text-gray-500">
                         {step.number}
                       </span>
-                      <h3 className="font-display text-xl font-bold leading-7 tracking-[-0.8px] text-black md:text-2xl md:leading-8">
+                      <h3 className="font-display text-xl font-bold leading-7 tracking-[-0.8px] text-black md:text-xl md:leading-7">
                         {step.title}
                       </h3>
                     </div>
@@ -1708,15 +1708,15 @@ function TeamSection() {
   return (
     <section className="la-container py-10 md:py-10 lg:py-20">
       <SectionAnchor id="team" />
-      <div className="space-y-5 md:space-y-7 lg:space-y-3">
+      <div className="space-y-5 md:space-y-5 lg:space-y-3">
         <div className="max-w-2xl">
           <SectionEyebrow className="text-brand-1">
             Research team
           </SectionEyebrow>
-          <SectionTitle>The people behind PCAT</SectionTitle>
+          <SectionTitle className="max-w-[600px]">The people behind PCAT</SectionTitle>
         </div>
 
-        <div className="mt-5 grid gap-5 md:mt-12 md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:gap-6 xl:grid-cols-3">
+        <div className="mt-5 grid gap-5 md:mt-7 md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:gap-6 xl:grid-cols-3">
           {teamMembers.map((member) => (
             <TeamCard key={member.title} {...member} />
           ))}
@@ -1756,10 +1756,10 @@ function SupportSection() {
       <div className="la-container">
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">Funding & Governance</p>
-          <h2 className="mt-2 text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:leading-[110%] lg:tracking-normal">
+          <h2 className="mt-2 text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:leading-[110%] lg:tracking-normal">
             Supported by
           </h2>
-          <p className="body-base-400 mx-auto mt-4 max-w-[550px] text-center text-gray-500 md:mt-4">
+          <p className="body-base-400 mx-auto mt-4 max-w-[550px] text-center text-gray-600 md:mt-4 md:text-gray-500">
             PCAT is supported by La Trobe University, Aged Care Research and
             Industry Innovation Australia (ARIIA) and Monash Health.
           </p>
@@ -1771,7 +1771,7 @@ function SupportSection() {
               key={item.title}
               className="group flex flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white/70 px-6 py-[47px] text-center md:gap-0"
             >
-              <div className="flex h-20 items-center justify-center md:pb-4">
+              <div className="flex h-20 items-center justify-center md:pb-[30px]">
                 <img
                   src={item.logo}
                   alt={item.logoAlt}
@@ -1829,13 +1829,13 @@ function FaqSection() {
   return (
     <section className="la-container py-10 md:py-10 lg:py-20">
       <SectionAnchor id="faq" />
-      <div className="space-y-5 md:space-y-7 lg:space-y-12">
+      <div className="space-y-5 md:space-y-5 lg:space-y-12">
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">FAQ</p>
-          <h2 className="mt-2 text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:leading-[110%] lg:tracking-normal">
+          <h2 className="mt-2 text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:leading-[110%] lg:tracking-normal">
             Common Questions
           </h2>
-          <SectionLead centered className="mx-auto mt-4 max-w-4xl">
+          <SectionLead centered className="mx-auto mt-4 max-w-4xl text-gray-600 md:mt-4 md:text-gray-500">
             Everything you need to know before logging in.
           </SectionLead>
         </div>
@@ -2035,19 +2035,19 @@ function ContactSection() {
   return (
     <section className="la-container py-10 md:py-10 lg:py-20">
       <SectionAnchor id="contact" />
-      <div className="space-y-5 md:space-y-7 lg:space-y-12">
+      <div className="space-y-5 md:space-y-5 lg:space-y-12">
         <div className="max-w-[695px] space-y-0 md:space-y-4 text-left">
           <SectionEyebrow className="text-red-600">Get in touch</SectionEyebrow>
           <SectionTitle>Collaborate or Learn More</SectionTitle>
-          <SectionLead className="max-w-600 pt-4 text-gray-500 md:pt-0">
+          <SectionLead className="max-w-600 pt-4 text-gray-600 md:pt-0 md:text-gray-500">
             We welcome enquiries from aged care providers, clinicians,
             researchers, consumer advocates, and organisations interested in
             partnering with the PCAT project.
           </SectionLead>
         </div>
 
-        <div className="grid gap-5 md:gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.95fr)] lg:items-start lg:gap-12">
-          <div className="space-y-5 md:space-y-4">
+        <div className="grid gap-5 md:gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.95fr)] lg:items-start lg:gap-12">
+          <div className="space-y-5 md:space-y-5">
             {contactItems.map((item) => (
               <ContactCard
                 key={item.label}
@@ -2064,11 +2064,11 @@ function ContactSection() {
               <div className="la-contact-ethics-icon">
                 <EthicsIcon />
               </div>
-              <h3 className="font-display text-xl font-bold leading-7 tracking-[-0.8px] text-black uppercase">
+              <h3 className="body-base-600 font-display text-xl font-bold leading-7 tracking-[-0.8px] text-black uppercase">
                 Ethics & Governance
               </h3>
             </div>
-            <p className="mt-5 font-display text-lg font-medium leading-7 tracking-normal text-black md:mt-8 md:text-xl">
+            <p className="body-base-400 mt-5 font-display text-lg font-medium leading-7 tracking-normal text-black md:mt-8 lg:text-xl">
               This research is conducted in accordance with La Trobe
               University&apos;s Human Research Ethics framework and relevant
               aged care legislation. All data collection and use is subject to

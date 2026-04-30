@@ -104,7 +104,9 @@ export function CardType2({
       {icon ? <div className="la-feature-icon mb-4">{icon}</div> : null}
       <h3 className="body-base-600 text-black">{title}</h3>
       {description ? (
-        <p className="body-base-400 mt-2 text-gray-500">{description}</p>
+        <p className="body-base-400 mt-2 text-gray-500 leading-[26px] md:leading-6">
+          {description}
+        </p>
       ) : null}
     </article>
   );
@@ -123,7 +125,9 @@ export function CardType3({
         {title}
       </h3>
       {description ? (
-        <p className="body-base-400 mt-3.5 text-gray-500">{description}</p>
+        <p className="body-base-400 mt-3.5 text-gray-500 leading-[26px] md:text-lg md:leading-6 lg:text-base lg:leading-6">
+          {description}
+        </p>
       ) : null}
     </article>
   );
@@ -143,7 +147,7 @@ export function TeamCard({
         <p className="la-team-card-name">{title}</p>
       </div>
       <p className="body-base-400 mt-3 text-gray-500">{description}</p>
-      <p className="body-sm-400 mt-4 border-l-2 border-brand-1 pl-4 text-gray-500">
+      <p className="body-sm-400 mt-4 border-l-2 border-brand-1 pl-4 text-base leading-6 text-gray-500 md:text-base md:leading-6 lg:text-sm lg:leading-5">
         {footer}
       </p>
     </article>
@@ -160,8 +164,8 @@ export function CardType4({
     <article className={joinClassNames("la-card-type-4", className)}>
       <div className="la-feature-icon h-10 w-10">{icon}</div>
       <div className="space-y-1">
-        <p className="eyebrow text-gray-500">{eyebrow}</p>
-        <p className="la-card-type-4-email">{value}</p>
+        <p className="eyebrow text-gray-500 font-semibold uppercase">{eyebrow}</p>
+        <p className="la-card-type-4-email font-medium">{value}</p>
       </div>
     </article>
   );
@@ -189,7 +193,7 @@ export function ContactCard({
     <article className={joinClassNames("la-contact-item", className)}>
       <div className="la-contact-item-icon">{icon}</div>
       <div>
-        <p className="eyebrow text-gray-500">{label}</p>
+        <p className="eyebrow text-gray-500 font-semibold uppercase">{label}</p>
         {content}
       </div>
     </article>
