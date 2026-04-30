@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Layout from "../src/components/Layout";
 import Button from "../components/ui/Button";
 import Accordion from "../components/ui/Accordion";
@@ -183,7 +183,7 @@ const CORE_FEATURE_CARDS = [
     kind: "dashboard",
     motionDelayMs: 620,
     className:
-      "left-[11.1%] top-[36.2%] z-[4] h-[61.4%] w-[29.4%]",
+      "left-[11.4%] top-[36.5%] z-[4] h-[61.4%] w-[29.2%]",
   },
   {
     id: "dashboard-tertiary",
@@ -210,7 +210,7 @@ const CORE_FEATURE_CARDS = [
     kind: "photo",
     motionDelayMs: 1040,
     className:
-      "left-[0.2%] top-[36.0%] z-[5] h-[56.8%] w-[10.0%]",
+      "left-[0.8%] top-[37.2%] z-[5] h-[55.6%] w-[9.6%]",
   },
   {
     id: "photo-exam",
@@ -219,7 +219,7 @@ const CORE_FEATURE_CARDS = [
     kind: "photo",
     motionDelayMs: 320,
     className:
-      "left-[24.4%] top-[7.2%] z-[6] h-[29.4%] w-[18.2%]",
+      "left-[24.8%] top-[4.6%] z-[6] h-[29.8%] w-[16.2%]",
   },
   {
     id: "photo-bench",
@@ -228,7 +228,7 @@ const CORE_FEATURE_CARDS = [
     kind: "photo",
     motionDelayMs: 740,
     className:
-      "left-[39.8%] top-[63.7%] z-[6] h-[30.8%] w-[14.8%]",
+      "left-[41.6%] top-[63.8%] z-[6] h-[30.8%] w-[14.8%]",
   },
   {
     id: "photo-wheelchair",
@@ -237,7 +237,7 @@ const CORE_FEATURE_CARDS = [
     kind: "photo",
     motionDelayMs: 1360,
     className:
-      "left-[55.8%] top-[63.8%] z-[6] h-[27.0%] w-[12.9%]",
+      "left-[58.3%] top-[63.8%] z-[6] h-[27.0%] w-[12.9%]",
   },
   {
     id: "photo-smile",
@@ -258,6 +258,22 @@ const CORE_FEATURE_CARDS = [
       "left-[94.2%] top-[2.6%] z-[7] h-[25.4%] w-[5.6%]",
   },
 ] as const;
+
+const CORE_FEATURE_REVEAL_ORDER = [
+  "photo-hug",
+  "photo-exam",
+  "photo-smile",
+  "photo-hands",
+  "photo-portrait",
+  "dashboard-secondary",
+  "dashboard-tertiary",
+  "photo-bench",
+  "photo-wheelchair",
+] as const;
+
+const CORE_FEATURE_REVEAL_INDEX = new Map(
+  CORE_FEATURE_REVEAL_ORDER.map((id, index) => [id, index]),
+);
 
 function UsersIcon() {
   return (
@@ -1075,6 +1091,8 @@ function CoreFeaturesSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [activeTheme, setActiveTheme] = useState<"warm" | "cool">("warm");
+  const [visibleCardCount, setVisibleCardCount] = useState(0);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -1107,6 +1125,65 @@ function CoreFeaturesSection() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (reduceMotion) {
+      setActiveTheme("warm");
+      setVisibleCardCount(CORE_FEATURE_REVEAL_ORDER.length);
+      return;
+    }
+
+    if (!hasStarted) {
+      setActiveTheme("warm");
+      setVisibleCardCount(0);
+      return;
+    }
+
+    let cancelled = false;
+    const timers: number[] = [];
+    const revealStepMs = 180;
+    const heroOnlyMs = 950;
+    const holdMs = 3400;
+
+    const queueTimeout = (callback: () => void, delay: number) => {
+      const timerId = window.setTimeout(() => {
+        if (!cancelled) {
+          callback();
+        }
+      }, delay);
+
+      timers.push(timerId);
+    };
+
+    const runCycle = (theme: "warm" | "cool") => {
+      if (cancelled) {
+        return;
+      }
+
+      setActiveTheme(theme);
+      setVisibleCardCount(0);
+
+      queueTimeout(() => {
+        for (let index = 0; index < CORE_FEATURE_REVEAL_ORDER.length; index += 1) {
+          queueTimeout(() => {
+            setVisibleCardCount(index + 1);
+          }, index * revealStepMs);
+        }
+
+        const revealDuration = CORE_FEATURE_REVEAL_ORDER.length * revealStepMs;
+        queueTimeout(() => {
+          runCycle(theme === "warm" ? "cool" : "warm");
+        }, revealDuration + holdMs);
+      }, heroOnlyMs);
+    };
+
+    runCycle("warm");
+
+    return () => {
+      cancelled = true;
+      timers.forEach((timerId) => window.clearTimeout(timerId));
+    };
+  }, [hasStarted, reduceMotion]);
+
   return (
     <section ref={sectionRef} className="pt-10 pb-10 md:pt-20 md:pb-12">
       <SectionAnchor id="features" />
@@ -1121,9 +1198,11 @@ function CoreFeaturesSection() {
 
           <div
             className={[
-              "la-core-feature-stage la-gallery-stage relative mx-auto w-full max-w-[1089px] overflow-hidden rounded-[28px] border border-[#F4D8E1]",
+              "la-core-feature-stage la-gallery-stage relative mx-auto w-full max-w-[1089px] overflow-hidden rounded-[28px] border",
               "aspect-[4/3] sm:aspect-[1089/590]",
-              hasStarted && !reduceMotion ? "la-core-feature-stage--active" : "",
+              activeTheme === "warm"
+                ? "la-core-feature-stage--warm"
+                : "la-core-feature-stage--cool",
               reduceMotion ? "la-core-feature-stage--reduced" : "",
             ]
               .filter(Boolean)
@@ -1141,15 +1220,20 @@ function CoreFeaturesSection() {
               aria-hidden="true"
               className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.32),transparent_60%)]"
             />
-            <div
-              aria-hidden="true"
-              className="absolute inset-x-[8%] top-[6%] h-px bg-white/70 blur-[1px]"
-            />
 
             <div className="relative h-full overflow-hidden p-[1.25%]">
               {CORE_FEATURE_CARDS.map((card) => {
                 const isDashboard = card.kind === "dashboard";
                 const isPrimary = card.id === "dashboard-primary";
+                const revealIndex = isPrimary
+                  ? -1
+                  : CORE_FEATURE_REVEAL_INDEX.get(
+                      card.id as (typeof CORE_FEATURE_REVEAL_ORDER)[number],
+                    ) ?? -1;
+                const isVisible =
+                  isPrimary ||
+                  reduceMotion ||
+                  (hasStarted && revealIndex < visibleCardCount);
 
                 return (
                   <article
@@ -1158,19 +1242,16 @@ function CoreFeaturesSection() {
                   >
                     <div
                       className={[
-                        "la-core-feature-shell relative h-full w-full overflow-hidden border border-white/85 bg-white/[0.97] backdrop-blur-[4px]",
-                        !isPrimary ? "la-core-feature-shell--reveal" : "",
+                        "la-core-feature-shell relative h-full w-full overflow-hidden border-[5px] border-white bg-transparent",
+                        isVisible
+                          ? "la-core-feature-shell--visible"
+                          : "la-core-feature-shell--hidden",
                         isPrimary
-                          ? "rounded-[24px] p-[4px] sm:p-[5px]"
+                          ? "rounded-[24px]"
                           : isDashboard
-                            ? "rounded-[20px] p-[4px] sm:p-[5px]"
-                            : "rounded-[18px] p-[4px]",
+                            ? "rounded-[20px]"
+                            : "rounded-[18px]",
                       ].join(" ")}
-                      style={
-                        {
-                          "--reveal-delay": `${card.motionDelayMs}ms`,
-                        } as CSSProperties
-                      }
                     >
                       <div
                         className={[
@@ -1188,13 +1269,9 @@ function CoreFeaturesSection() {
                           className={[
                             "block h-full w-full",
                             isDashboard
-                              ? "rounded-[14px] bg-white object-contain"
-                              : "rounded-[14px] object-cover object-center",
+                              ? "object-fill object-left-top"
+                              : "object-cover object-center",
                           ].join(" ")}
-                        />
-                        <div
-                          aria-hidden="true"
-                          className="la-core-feature-shine absolute inset-0 rounded-[inherit]"
                         />
                       </div>
                     </div>
@@ -1202,7 +1279,6 @@ function CoreFeaturesSection() {
                 );
               })}
 
-              <div className="pointer-events-none absolute inset-0 rounded-[28px] ring-1 ring-black/5" />
             </div>
           </div>
         </div>
