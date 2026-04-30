@@ -228,7 +228,7 @@ const CORE_FEATURE_CARDS = [
     kind: "photo",
     motionDelayMs: 740,
     className:
-      "left-[46.2%] top-[64.0%] z-[6] h-[30.6%] w-[14.2%]",
+      "left-[39.8%] top-[63.7%] z-[6] h-[30.8%] w-[14.8%]",
   },
   {
     id: "photo-wheelchair",
@@ -237,7 +237,7 @@ const CORE_FEATURE_CARDS = [
     kind: "photo",
     motionDelayMs: 1360,
     className:
-      "left-[61.4%] top-[64.0%] z-[6] h-[26.6%] w-[12.4%]",
+      "left-[55.8%] top-[63.8%] z-[6] h-[27.0%] w-[12.9%]",
   },
   {
     id: "photo-smile",
