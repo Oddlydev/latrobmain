@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import Layout from "../src/components/Layout";
 import Button from "../components/ui/Button";
 import Accordion from "../components/ui/Accordion";
@@ -14,6 +14,16 @@ import heroImage2 from "../assets/images/hero-img-2.png";
 import heroImage3 from "../assets/images/hero-img-3.png";
 import heroImage4 from "../assets/images/hero-img-4.png";
 import heroImageTab1 from "../assets/images/hero-img-tab-1.png";
+import coreFeatureDashboard1 from "../assets/images/core-features/1.svg";
+import coreFeatureDashboard2 from "../assets/images/core-features/2.svg";
+import coreFeatureDashboard3 from "../assets/images/core-features/3.svg";
+import coreFeaturePhotoHug from "../assets/images/core-features/4.png";
+import coreFeaturePhotoPortrait from "../assets/images/core-features/5.png";
+import coreFeaturePhotoExam from "../assets/images/core-features/6.png";
+import coreFeaturePhotoBench from "../assets/images/core-features/7.png";
+import coreFeaturePhotoWheelchair from "../assets/images/core-features/8.png";
+import coreFeaturePhotoSmile from "../assets/images/core-features/9.png";
+import coreFeaturePhotoHands from "../assets/images/core-features/10.png";
 import {
   ClipboardIcon,
   DocumentIcon,
@@ -155,6 +165,99 @@ const HOW_IT_WORKS_FEATURE_CARDS = [
     icon: <SecureAccessIcon />,
   },
 ];
+
+const CORE_FEATURE_CARDS = [
+  {
+    id: "dashboard-primary",
+    src: coreFeatureDashboard1.src,
+    alt: "PCAT overview dashboard",
+    kind: "dashboard",
+    motionDelayMs: 0,
+    className:
+      "left-[42.6%] top-[3.1%] z-[8] h-[54.8%] w-[28.2%]",
+  },
+  {
+    id: "dashboard-secondary",
+    src: coreFeatureDashboard2.src,
+    alt: "PCAT patient list dashboard",
+    kind: "dashboard",
+    motionDelayMs: 620,
+    className:
+      "left-[11.1%] top-[36.2%] z-[4] h-[61.4%] w-[29.4%]",
+  },
+  {
+    id: "dashboard-tertiary",
+    src: coreFeatureDashboard3.src,
+    alt: "PCAT patient profile dashboard",
+    kind: "dashboard",
+    motionDelayMs: 1180,
+    className:
+      "left-[72.1%] top-[35.8%] z-[4] h-[61.4%] w-[27.3%]",
+  },
+  {
+    id: "photo-hug",
+    src: coreFeaturePhotoHug.src,
+    alt: "Nurse comforting an older patient",
+    kind: "photo",
+    motionDelayMs: 180,
+    className:
+      "left-[1.5%] top-[3.2%] z-[6] h-[31.8%] w-[21.6%]",
+  },
+  {
+    id: "photo-portrait",
+    src: coreFeaturePhotoPortrait.src,
+    alt: "Portrait of an older patient",
+    kind: "photo",
+    motionDelayMs: 1040,
+    className:
+      "left-[0.2%] top-[36.0%] z-[5] h-[56.8%] w-[10.0%]",
+  },
+  {
+    id: "photo-exam",
+    src: coreFeaturePhotoExam.src,
+    alt: "Nurse checking an older patient",
+    kind: "photo",
+    motionDelayMs: 320,
+    className:
+      "left-[24.4%] top-[7.2%] z-[6] h-[29.4%] w-[18.2%]",
+  },
+  {
+    id: "photo-bench",
+    src: coreFeaturePhotoBench.src,
+    alt: "Nurse sitting with an older patient outdoors",
+    kind: "photo",
+    motionDelayMs: 740,
+    className:
+      "left-[46.2%] top-[64.0%] z-[6] h-[30.6%] w-[14.2%]",
+  },
+  {
+    id: "photo-wheelchair",
+    src: coreFeaturePhotoWheelchair.src,
+    alt: "Care team supporting an older patient in a wheelchair",
+    kind: "photo",
+    motionDelayMs: 1360,
+    className:
+      "left-[61.4%] top-[64.0%] z-[6] h-[26.6%] w-[12.4%]",
+  },
+  {
+    id: "photo-smile",
+    src: coreFeaturePhotoSmile.src,
+    alt: "Nurse smiling with an older patient",
+    kind: "photo",
+    motionDelayMs: 920,
+    className:
+      "left-[73.4%] top-[6.4%] z-[6] h-[28.2%] w-[18.9%]",
+  },
+  {
+    id: "photo-hands",
+    src: coreFeaturePhotoHands.src,
+    alt: "Close-up of hands in care support",
+    kind: "photo",
+    motionDelayMs: 1500,
+    className:
+      "left-[94.2%] top-[2.6%] z-[7] h-[25.4%] w-[5.6%]",
+  },
+] as const;
 
 function UsersIcon() {
   return (
@@ -969,82 +1072,8 @@ function AboutFeatureCardsSection() {
 }
 
 function CoreFeaturesSection() {
-  const cards = [
-    {
-      id: "card-3",
-      src: "https://cdn.prod.website-files.com/6605b12132f6a8b5d23896bd/69a02c8ce316d2d52fb84c99_Pigment%20interface%20with%20agents.avif",
-      alt: "Pigment interface with agents",
-      className:
-        "left-[50%] top-3 h-[260px] w-[246px] -translate-x-1/2 sm:h-[306px] sm:w-[292px] lg:h-[380px] lg:w-[350px]",
-    },
-    {
-      id: "card-1",
-      src: "https://cdn.prod.website-files.com/6605b12132f6a8b5d23896bd/69a02c8c2f60c5e135054b8a_Exec%20summary%20dashboard%20built%20in%20Pigment%20with%20multiple%20avatars.avif",
-      alt: "Pigment executive summary dashboard",
-      className:
-        "left-3 top-4 h-[170px] w-[220px] sm:left-4 sm:top-5 sm:h-[194px] sm:w-[248px] lg:left-5 lg:top-6 lg:h-[206px] lg:w-[264px]",
-    },
-    {
-      id: "card-2",
-      src: "https://cdn.prod.website-files.com/6605b12132f6a8b5d23896bd/68b9466ba40047ddced91d36_The%20Planner.png",
-      alt: "The Planner",
-      className:
-        "left-4 bottom-10 h-[220px] w-[150px] sm:left-5 sm:bottom-11 sm:h-[252px] sm:w-[164px] lg:left-6 lg:bottom-12",
-    },
-    {
-      id: "card-4",
-      src: "https://cdn.prod.website-files.com/6605b12132f6a8b5d23896bd/69a02c8c406f542c573c94d0_Sales%20performance%20dashboard%20with%20dimensions%20widget%20in%20Pigment.avif",
-      alt: "Sales performance dashboard in Pigment",
-      className:
-        "right-3 top-5 h-[174px] w-[260px] sm:right-4 sm:top-6 sm:h-[198px] sm:w-[286px] lg:right-5 lg:top-7 lg:h-[210px] lg:w-[304px]",
-    },
-    {
-      id: "card-7",
-      src: "https://cdn.prod.website-files.com/6605b12132f6a8b5d23896bd/69a02c8c2f60c5e135054b8a_Exec%20summary%20dashboard%20built%20in%20Pigment%20with%20multiple%20avatars.avif",
-      alt: "Pigment executive summary dashboard duplicate",
-      className:
-        "left-[2%] top-[340px] h-[174px] w-[174px] sm:left-[3%] sm:top-[360px] sm:h-[190px] sm:w-[190px] lg:left-[20%] lg:top-[82px] lg:h-[380px] lg:w-[350px]",
-    },
-    {
-      id: "card-8",
-      src: "https://cdn.prod.website-files.com/6605b12132f6a8b5d23896bd/69a02c8ce316d2d52fb84c99_Pigment%20interface%20with%20agents.avif",
-      alt: "Pigment interface with agents duplicate",
-      className:
-        "right-2 bottom-12 h-[178px] w-[214px] sm:right-3 sm:bottom-14 sm:h-[204px] sm:w-[238px] lg:right-5%] lg:bottom-16 lg:h-[380px] lg:w-[350px]",
-    },
-    {
-      id: "card-5",
-      src: "https://cdn.prod.website-files.com/6605b12132f6a8b5d23896bd/69a02f12aeeb5a41944bdddc_Planner%20agent%20in%20Pigment.avif",
-      alt: "Planner agent in Pigment",
-      className:
-        "left-[42%] bottom-16 h-[156px] w-[166px] sm:left-[43%] sm:bottom-18 sm:h-[176px] sm:w-[186px] lg:left-[44%] lg:bottom-20",
-    },
-    {
-      id: "card-6",
-      src: "https://cdn.prod.website-files.com/6605b12132f6a8b5d23896bd/69171b5361f899e57b107f20_Anthropic.jpg",
-      alt: "Anthropic planning visual",
-      className:
-        "right-3 top-[82px] h-[172px] w-[140px] sm:right-4 sm:top-[92px] sm:h-[190px] sm:w-[156px] lg:right-5 lg:top-[100px]",
-    },
-  ];
-
-  const phases = [
-    {
-      overlay: "rgba(255, 233, 233, 0.94)",
-      shadow:
-        "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 9px 122px 22px rgba(226, 35, 27, 0.42)",
-    },
-    {
-      overlay: "rgba(236, 247, 255, 0.94)",
-      shadow:
-        "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 9px 122px 22px rgba(59, 130, 246, 0.30)",
-    },
-  ];
-
   const sectionRef = useRef<HTMLElement | null>(null);
-  const [cycleStep, setCycleStep] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(1);
-  const [isActive, setIsActive] = useState(true);
+  const [hasStarted, setHasStarted] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
@@ -1067,7 +1096,9 @@ function CoreFeaturesSection() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsActive(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setHasStarted(true);
+        }
       },
       { threshold: 0.3 },
     );
@@ -1076,57 +1107,6 @@ function CoreFeaturesSection() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (!isActive || reduceMotion) {
-      return;
-    }
-
-    let intervalId = 0;
-    let timeoutId = 0;
-    const revealIntervalMs = 180;
-    const holdMs = 2200;
-    const stageDurationMs = revealIntervalMs * Math.max(0, cards.length - 1);
-
-    if (cycleStep === 0) {
-      setVisibleCount(1);
-      intervalId = window.setInterval(() => {
-        setVisibleCount((current) => Math.min(cards.length, current + 1));
-      }, revealIntervalMs);
-      timeoutId = window.setTimeout(() => {
-        window.clearInterval(intervalId);
-        setVisibleCount(cards.length);
-        setCycleStep(1);
-      }, stageDurationMs + holdMs);
-    } else if (cycleStep === 1) {
-      setVisibleCount(cards.length);
-      timeoutId = window.setTimeout(() => {
-        setCycleStep(2);
-      }, holdMs);
-    } else if (cycleStep === 2) {
-      setVisibleCount(cards.length);
-      intervalId = window.setInterval(() => {
-        setVisibleCount((current) => Math.max(1, current - 1));
-      }, revealIntervalMs);
-      timeoutId = window.setTimeout(() => {
-        window.clearInterval(intervalId);
-        setVisibleCount(1);
-        setCycleStep(3);
-      }, stageDurationMs);
-    } else {
-      setVisibleCount(1);
-      timeoutId = window.setTimeout(() => {
-        setCycleStep(0);
-      }, holdMs);
-    }
-
-    return () => {
-      window.clearInterval(intervalId);
-      window.clearTimeout(timeoutId);
-    };
-  }, [cycleStep, isActive, reduceMotion]);
-
-  const activePhase = phases[cycleStep < 2 ? 0 : 1];
-
   return (
     <section ref={sectionRef} className="pt-10 pb-10 md:pt-20 md:pb-12">
       <SectionAnchor id="features" />
@@ -1134,72 +1114,95 @@ function CoreFeaturesSection() {
         <div className="space-y-12">
           <div className="max-w-215 space-y-2">
             <p className="eyebrow text-red-600">Core Features</p>
-          <h2 className="font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:max-w-xl lg:text-4xl lg:leading-[110%] lg:tracking-normal">
-            Everything nurses need, nothing they don&apos;t
-          </h2>
+            <h2 className="font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:max-w-xl lg:text-4xl lg:leading-[110%] lg:tracking-normal">
+              Everything nurses need, nothing they don&apos;t
+            </h2>
           </div>
 
           <div
-            className="relative mx-auto h-44.5 w-full max-w-323.75 overflow-hidden rounded-lg border border-[#F1D7D7] shadow-[0_16px_48px_rgba(226,35,27,0.08)] sm:h-[420px] lg:h-[690px]"
+            className={[
+              "la-core-feature-stage la-gallery-stage relative mx-auto w-full max-w-[1089px] overflow-hidden rounded-[28px] border border-[#F4D8E1]",
+              "aspect-[4/3] sm:aspect-[1089/590]",
+              hasStarted && !reduceMotion ? "la-core-feature-stage--active" : "",
+              reduceMotion ? "la-core-feature-stage--reduced" : "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
             style={{
               background:
                 "url('/assets/images/Container.png') lightgray 0% 0% / 100px 100px repeat, #FFF",
             }}
           >
-            <img
-              src="/assets/images/Container.png"
-              alt="PCAT product screens and aged care imagery"
-              className="absolute inset-0 h-full w-full object-cover sm:hidden"
+            <div aria-hidden="true" className="la-core-feature-overlay la-core-feature-overlay--warm" />
+            <div aria-hidden="true" className="la-core-feature-overlay la-core-feature-overlay--cool" />
+            <div aria-hidden="true" className="la-core-feature-orb la-core-feature-orb--warm" />
+            <div aria-hidden="true" className="la-core-feature-orb la-core-feature-orb--cool" />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.32),transparent_60%)]"
             />
             <div
-              className="absolute inset-0 hidden transition-all duration-700 ease-out sm:block"
-              style={{
-                background: activePhase.overlay,
-              }}
+              aria-hidden="true"
+              className="absolute inset-x-[8%] top-[6%] h-px bg-white/70 blur-[1px]"
             />
 
-            <div className="absolute inset-0 hidden bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.16),transparent_52%)] sm:block" />
-
-            <div className="relative h-full overflow-hidden px-3 py-3 sm:px-4 sm:py-4 lg:px-5 lg:py-5">
-              {cards.map((card, index) => {
-                const isPrimary = card.id === "card-3";
-                const isVisible =
-                  cycleStep === 3 ? isPrimary : index < visibleCount;
-                const enterDelay = `${index * 110}ms`;
-                const exitDelay = `${(cards.length - index) * 90}ms`;
-                const transitionDelay =
-                  cycleStep === 0
-                    ? enterDelay
-                    : cycleStep === 2
-                      ? exitDelay
-                      : "0ms";
+            <div className="relative h-full overflow-hidden p-[1.25%]">
+              {CORE_FEATURE_CARDS.map((card) => {
+                const isDashboard = card.kind === "dashboard";
+                const isPrimary = card.id === "dashboard-primary";
 
                 return (
                   <article
                     key={card.id}
-                    aria-label={card.alt}
-                    className={[
-                      "absolute hidden overflow-hidden rounded-sm border-[5px] border-white bg-white transition-all duration-700 ease-out sm:block",
-                      card.className,
-                      isVisible
-                        ? "opacity-100 scale-100"
-                        : "opacity-0 scale-95",
-                    ].join(" ")}
-                    style={{
-                      backgroundColor: "#D3D3D3",
-                      backgroundImage: `url('${card.src}')`,
-                      backgroundPosition: "50%",
-                      backgroundRepeat: "no-repeat",
-                      backgroundSize: "cover",
-                      boxShadow: activePhase.shadow,
-                      transitionDelay,
-                      zIndex: isPrimary ? 4 : index + 1,
-                    }}
-                  ></article>
+                    className={["absolute", card.className].join(" ")}
+                  >
+                    <div
+                      className={[
+                        "la-core-feature-shell relative h-full w-full overflow-hidden border border-white/85 bg-white/[0.97] backdrop-blur-[4px]",
+                        !isPrimary ? "la-core-feature-shell--reveal" : "",
+                        isPrimary
+                          ? "rounded-[24px] p-[4px] sm:p-[5px]"
+                          : isDashboard
+                            ? "rounded-[20px] p-[4px] sm:p-[5px]"
+                            : "rounded-[18px] p-[4px]",
+                      ].join(" ")}
+                      style={
+                        {
+                          "--reveal-delay": `${card.motionDelayMs}ms`,
+                        } as CSSProperties
+                      }
+                    >
+                      <div
+                        className={[
+                          "la-core-feature-motion h-full w-full",
+                          isPrimary
+                            ? "la-core-feature-motion--primary"
+                            : "la-core-feature-motion--secondary",
+                        ].join(" ")}
+                        style={{ animationDelay: `${card.motionDelayMs}ms` }}
+                      >
+                        <img
+                          src={card.src}
+                          alt={card.alt}
+                          loading={isPrimary ? "eager" : "lazy"}
+                          className={[
+                            "block h-full w-full",
+                            isDashboard
+                              ? "rounded-[14px] bg-white object-contain"
+                              : "rounded-[14px] object-cover object-center",
+                          ].join(" ")}
+                        />
+                        <div
+                          aria-hidden="true"
+                          className="la-core-feature-shine absolute inset-0 rounded-[inherit]"
+                        />
+                      </div>
+                    </div>
+                  </article>
                 );
               })}
 
-              <div className="absolute inset-0 rounded-lg ring-1 ring-black/5" />
+              <div className="pointer-events-none absolute inset-0 rounded-[28px] ring-1 ring-black/5" />
             </div>
           </div>
         </div>
