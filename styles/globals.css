@@ -526,27 +526,13 @@
 
   .la-core-feature-shell {
     will-change: opacity, transform, box-shadow;
+    background-color: #fff;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     transition:
       opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
       transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
       box-shadow 180ms linear,
       filter 280ms linear;
-  }
-
-  .la-core-feature-shell::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.26) 0%,
-      rgba(255, 255, 255, 0.1) 100%
-    );
-    opacity: 0;
-    transition: opacity 280ms linear;
   }
 
   .la-core-feature-motion {
@@ -567,10 +553,6 @@
     opacity: 0.15;
     transform: translate3d(0, 14px, 0) scale(0.972);
     filter: saturate(0.7) brightness(1.03);
-  }
-
-  .la-core-feature-shell--hidden::after {
-    opacity: 1;
   }
 
   .la-core-feature-shell--visible {

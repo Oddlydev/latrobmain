@@ -9,11 +9,21 @@ import {
   ContactCard,
   TeamCard,
 } from "../components/ui/Card";
-import heroImage1 from "../assets/images/hero-img-1.png";
-import heroImage2 from "../assets/images/hero-img-2.png";
-import heroImage3 from "../assets/images/hero-img-3.png";
-import heroImage4 from "../assets/images/hero-img-4.png";
-import heroImageTab1 from "../assets/images/hero-img-tab-1.png";
+import heroImage1 from "../assets/images/hero-images/hero-light-1.png";
+import heroImage2 from "../assets/images/hero-images/hero-light-2.png";
+import heroImage3 from "../assets/images/hero-images/hero-light-3.png";
+import heroImage4 from "../assets/images/hero-images/hero-light-4.png";
+import heroImage5 from "../assets/images/hero-images/hero-light-5.png";
+import heroImageMobile1 from "../assets/images/hero-images/mobile/hero-light-1.png";
+import heroImageMobile2 from "../assets/images/hero-images/mobile/hero-light-2.png";
+import heroImageMobile3 from "../assets/images/hero-images/mobile/hero-light-3.png";
+import heroImageMobile4 from "../assets/images/hero-images/mobile/hero-light-4.png";
+import heroImageMobile5 from "../assets/images/hero-images/mobile/hero-light-5.png";
+import heroImageTab1 from "../assets/images/hero-images/tablet/hero-ligh-tab-1.png";
+import heroImageTab2 from "../assets/images/hero-images/tablet/hero-ligh-tab-2.png";
+import heroImageTab3 from "../assets/images/hero-images/tablet/hero-ligh-tab-3.png";
+import heroImageTab4 from "../assets/images/hero-images/tablet/hero-ligh-tab-4.png";
+import heroImageTab5 from "../assets/images/hero-images/tablet/hero-ligh-tab-5.png";
 import coreFeatureDashboard1 from "../assets/images/core-features/1.svg";
 import coreFeatureDashboard2 from "../assets/images/core-features/2.svg";
 import coreFeatureDashboard3 from "../assets/images/core-features/3.svg";
@@ -834,6 +844,21 @@ function HomeHeroSection() {
     heroImage2.src,
     heroImage3.src,
     heroImage4.src,
+    heroImage5.src,
+  ];
+  const heroTabletImages = [
+    heroImageTab1.src,
+    heroImageTab2.src,
+    heroImageTab3.src,
+    heroImageTab4.src,
+    heroImageTab5.src,
+  ];
+  const heroMobileImages = [
+    heroImageMobile1.src,
+    heroImageMobile2.src,
+    heroImageMobile3.src,
+    heroImageMobile4.src,
+    heroImageMobile5.src,
   ];
   const heroHighlights = [
     {
@@ -858,10 +883,54 @@ function HomeHeroSection() {
     },
   ];
   const [heroImageSrc, setHeroImageSrc] = useState(heroImages[0]);
+  const [heroTabletImageSrc, setHeroTabletImageSrc] = useState(
+    heroTabletImages[0],
+  );
+  const [heroMobileImageSrc, setHeroMobileImageSrc] = useState(
+    heroMobileImages[0],
+  );
+  const heroTabletBackground =
+    "linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.8) 12%, rgba(255, 255, 255, 0.34) 24%, rgba(255, 255, 255, 0) 36%)";
 
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * heroImages.length);
-    setHeroImageSrc(heroImages[randomIndex]);
+    const pickRefreshImageIndex = (storageKey: string, total: number) => {
+      if (total <= 1) {
+        return 0;
+      }
+
+      try {
+        const savedValue = window.sessionStorage.getItem(storageKey);
+        const previousIndex =
+          savedValue === null ? -1 : Number.parseInt(savedValue, 10);
+
+        let nextIndex = Math.floor(Math.random() * total);
+        while (nextIndex === previousIndex) {
+          nextIndex = Math.floor(Math.random() * total);
+        }
+
+        window.sessionStorage.setItem(storageKey, String(nextIndex));
+        return nextIndex;
+      } catch {
+        return Math.floor(Math.random() * total);
+      }
+    };
+
+    const desktopIndex = pickRefreshImageIndex(
+      "la-hero-image-desktop",
+      heroImages.length,
+    );
+    const tabletIndex = pickRefreshImageIndex(
+      "la-hero-image-tablet",
+      heroTabletImages.length,
+    );
+    const mobileIndex = pickRefreshImageIndex(
+      "la-hero-image-mobile",
+      heroMobileImages.length,
+    );
+
+    setHeroImageSrc(heroImages[desktopIndex]);
+    setHeroTabletImageSrc(heroTabletImages[tabletIndex]);
+    setHeroMobileImageSrc(heroMobileImages[mobileIndex]);
   }, []);
 
   return (
@@ -871,7 +940,7 @@ function HomeHeroSection() {
           src={heroImageSrc}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover object-[78%_center] md:hidden lg:block"
+          className="absolute inset-0 hidden h-full w-full object-cover object-[78%_center] lg:block"
         />
         <div
           aria-hidden="true"
@@ -891,7 +960,7 @@ function HomeHeroSection() {
         />
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 left-0 w-full md:hidden lg:w-[66%] lg:block"
+          className="absolute inset-y-0 left-0 hidden w-full lg:block lg:w-[66%]"
           style={{
             background:
               "linear-gradient(90deg, rgba(247,247,247,0.99) 0%, rgba(247,247,247,0.97) 40%, rgba(247,247,247,0.9) 56%, rgba(247,247,247,0.62) 72%, rgba(247,247,247,0) 100%)",
@@ -899,41 +968,25 @@ function HomeHeroSection() {
         />
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white/35 to-transparent lg:hidden"
+          className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white/35 to-transparent md:hidden lg:hidden"
         />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden -translate-y-20 overflow-hidden md:block lg:hidden">
-          <img
-            src={heroImageTab1.src}
-            alt=""
-            aria-hidden="true"
-            className="block w-full"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-x-0 top-0 h-64"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(247,247,247,1) 0%, rgba(247,247,247,0.98) 26%, rgba(247,247,247,0.82) 52%, rgba(247,247,247,0) 100%)",
-            }}
-          />
-        </div>
 
-        <div className="relative z-10 px-6 pt-10 pb-78.75 md:px-12 md:pt-12 md:pb-[35.5rem] lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
-          <div className="max-w-155 lg:max-w-154">
-            <p className="inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 font-display text-xs font-medium leading-4 tracking-normal text-black shadow-sm md:text-base md:leading-6">
+        <div className="relative z-10 px-2.5 pt-2.5 pb-0 md:px-8 md:pt-10 md:pb-0 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
+          <div className="w-full lg:max-w-154">
+            <p className="inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 font-display text-xs font-medium leading-4 tracking-normal text-black shadow-sm">
               <span className="la-hero-status-dot h-2.5 w-2.5 rounded-full bg-green-500" />
               La Trobe Palliative Care Research Programme
             </p>
 
-            <div className="mt-5 space-y-5 md:mt-3 md:space-y-3 lg:mt-12 lg:space-y-0">
-              <h1 className="h1 text-black">
+            <div className="mt-5 space-y-5 md:mt-5 md:space-y-5 lg:mt-12 lg:space-y-0">
+              <h1 className="h1 text-black font-bold leading-[110%] tracking-normal md:text-4xl md:font-bold md:leading-[110%] md:tracking-normal">
                 <span className="block">Palliative Care</span>
                 <span className="mt-1 block text-brand-1 lg:mt-0">
                   Assessment Tool
                 </span>
               </h1>
 
-              <p className="body-base-400 max-w-160 pt-2 text-gray-600 lg:pt-6">
+              <p className="body-base-400 max-w-160 pt-0 text-gray-600 md:max-w-none md:pt-0 md:text-base md:font-normal md:leading-6 lg:pt-6">
                 PCAT is a research-backed digital platform developed at La Trobe
                 University to help nursing teams in aged care identify patients
                 who need palliative care earlier, more consistently, and with
@@ -942,7 +995,7 @@ function HomeHeroSection() {
               </p>
             </div>
 
-            <div className="mt-5 flex flex-wrap gap-4 md:mt-3 md:gap-4 lg:mt-12 lg:gap-4">
+            <div className="mt-5 flex flex-wrap gap-4 pb-5 md:mt-5 md:gap-4 md:pb-7 lg:mt-12 lg:gap-4 lg:pb-0">
               <Button
                 href={LOGIN_URL}
                 className="justify-center shadow-la-shadow-2"
@@ -974,6 +1027,50 @@ function HomeHeroSection() {
               </Button>
             </div>
           </div>
+        </div>
+
+        <div className="relative overflow-hidden md:hidden">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-[1]"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.35) 18%, rgba(255, 255, 255, 0) 34%)",
+            }}
+          />
+          <img
+            src={heroMobileImageSrc}
+            alt=""
+            aria-hidden="true"
+            className="block h-auto w-full object-cover object-center"
+          />
+        </div>
+
+        <div className="relative hidden overflow-hidden md:block lg:hidden">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-[1]"
+            style={{ background: heroTabletBackground }}
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute z-0"
+            style={{
+              left: "17%",
+              right: "9%",
+              top: "6%",
+              height: "44%",
+              borderRadius: "16009193px",
+              background: "rgba(233, 34, 60, 0.05)",
+              filter: "blur(30.535140991210938px)",
+            }}
+          />
+          <img
+            src={heroTabletImageSrc}
+            alt=""
+            aria-hidden="true"
+            className="relative z-0 block h-[24rem] w-full object-cover object-[center_10%]"
+          />
         </div>
 
         <div
@@ -1255,7 +1352,7 @@ function CoreFeaturesSection() {
                     >
                       <div
                         className={[
-                          "la-core-feature-motion h-full w-full",
+                          "la-core-feature-motion h-full w-full overflow-hidden rounded-[inherit]",
                           isPrimary
                             ? "la-core-feature-motion--primary"
                             : "la-core-feature-motion--secondary",
@@ -1269,7 +1366,7 @@ function CoreFeaturesSection() {
                           className={[
                             "block h-full w-full",
                             isDashboard
-                              ? "object-fill object-left-top"
+                              ? "origin-center scale-[1.075] object-cover object-center"
                               : "object-cover object-center",
                           ].join(" ")}
                         />
