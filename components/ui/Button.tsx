@@ -1,12 +1,14 @@
 import Link from "next/link";
 import React from "react";
 
-type ButtonVariant = "primary" | "secondary" | "outline" | "dark";
-type ButtonVisualState = "default" | "hover" | "focus" | "active";
+type ButtonVariant =
+  | "primary"
+  | "primaryIconRight"
+  | "primaryIconLeft"
+  | "secondary";
 
 type SharedProps = {
   variant?: ButtonVariant;
-  visualState?: ButtonVisualState;
   className?: string;
   children: React.ReactNode;
 };
@@ -23,51 +25,18 @@ type NativeButtonProps = SharedProps &
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary: "la-button-primary",
+  primaryIconRight: "la-button-primary-icon-right",
+  primaryIconLeft: "la-button-primary-icon-left",
   secondary: "la-button-secondary",
-  outline: "la-button-outline",
-  dark: "la-button-dark",
 };
 
-const primaryStateClasses: Record<ButtonVisualState, string> = {
-  default: "la-button-primary-state-default",
-  hover: "la-button-primary-state-hover",
-  focus: "la-button-primary-state-focus",
-  active: "la-button-primary-state-active",
-};
-
-const secondaryStateClasses: Record<ButtonVisualState, string> = {
-  default: "la-button-secondary-state-default",
-  hover: "la-button-secondary-state-hover",
-  focus: "la-button-secondary-state-focus",
-  active: "la-button-secondary-state-active",
-};
-
-function buttonClassName(
-  variant: ButtonVariant,
-  visualState: ButtonVisualState | undefined,
-  className?: string,
-) {
-  const stateClass =
-    visualState && variant === "secondary"
-      ? secondaryStateClasses[visualState]
-      : visualState
-        ? primaryStateClasses[visualState]
-        : undefined;
-
-  return ["la-button", variantClasses[variant], stateClass, className]
-    .filter(Boolean)
-    .join(" ");
+function buttonClassName(variant: ButtonVariant, className?: string) {
+  return [variantClasses[variant], className].filter(Boolean).join(" ");
 }
 
 export default function Button(props: AnchorButtonProps | NativeButtonProps) {
-  const {
-    variant = "primary",
-    visualState,
-    className,
-    children,
-    ...rest
-  } = props;
-  const classes = buttonClassName(variant, visualState, className);
+  const { variant = "primary", className, children, ...rest } = props;
+  const classes = buttonClassName(variant, className);
 
   if ("href" in props) {
     const { href, ...anchorProps } = rest as Omit<

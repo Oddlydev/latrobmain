@@ -7,11 +7,20 @@
     --Brand---1: #e2231b;
     --Brand---2: #fff;
     --Brand---3: #000;
+    --Brand---8: #abbec2;
+    --BG-Gradient---1: linear-gradient(
+      90deg,
+      var(--Brand---3, #000) 0%,
+      var(--gray-900, #111827) 50%,
+      var(--Brand---3, #000) 100%
+    );
     --gray-100: #f3f4f6;
+    --gray-900: #111827;
     --gray-400: #9ca3af;
     --gray-500: #6b7280;
     --gray-600: #4b5563;
     --gray-700: #374151;
+    --border-radius-rounded-md: 6px;
     --border-radius-rounded-xl: 12px;
     --font-size-text-xs: 12px;
     --font-size-text-sm: 14px;
@@ -45,6 +54,8 @@
       0 4px 6px -4px rgba(226, 35, 27, 0.2);
     --la-shadow-3:
       0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+    --la-shadow-4:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   }
 
   html {
@@ -222,7 +233,7 @@
   }
 
   .la-hero {
-    @apply overflow-hidden rounded-[2rem] bg-brand-gradient-1 text-white shadow-soft;
+    @apply overflow-hidden rounded-[2rem] bg-gradient-1 text-white shadow-soft;
   }
 
   .la-hero-inner {
@@ -394,7 +405,9 @@
     isolation: isolate;
     transform: translate3d(0, 0, 0);
     will-change: box-shadow, border-color;
-    transition: box-shadow 180ms linear, border-color 180ms linear;
+    transition:
+      box-shadow 180ms linear,
+      border-color 180ms linear;
   }
 
   .la-core-feature-stage--reduced {
@@ -513,7 +526,8 @@
       rgba(86, 179, 255, 0.24) 46%,
       rgba(86, 179, 255, 0) 82%
     );
-    animation: la-core-feature-orb-drift-reverse 16s ease-in-out infinite alternate;
+    animation: la-core-feature-orb-drift-reverse 16s ease-in-out infinite
+      alternate;
   }
 
   .la-core-feature-stage--warm .la-core-feature-orb--warm {
@@ -712,253 +726,88 @@
     }
   }
 
-  .la-button {
-    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-transparent px-8 py-4 font-display text-sm font-semibold leading-5 tracking-normal transition-colors duration-200;
-    font-family: var(--font-dm-sans);
-    font-size: var(--font-size-text-sm, 14px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-semibold, 600);
-    line-height: var(--leading-line-height-leading-5, 20px);
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
-    font-feature-settings: "dlig" on;
-  }
-
   .la-button-compact {
-    @apply px-4 py-2.5;
+    padding-inline: calc(var(--spacing) * 4);
+    padding-block: calc(var(--spacing) * 2.5);
   }
 
   .la-button-icon {
-    @apply block h-4 w-4 flex-none fill-none stroke-current;
+    @apply block h-4 w-4 shrink-0 fill-none stroke-current;
   }
 
-  .la-button:disabled {
+  .la-button-primary:disabled,
+  .la-button-primary-icon-right:disabled,
+  .la-button-primary-icon-left:disabled,
+  .la-button-secondary:disabled {
     @apply cursor-not-allowed border-[#dde1e6] bg-[#f1f3f5] text-[#343a40] shadow-none;
   }
 
   .la-button-primary {
-    @apply bg-brand-1 text-white shadow-la-shadow-1;
-    color: var(--Brand---2, #fff);
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    background: var(--Brand---1, #e2231b);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-xl border border-transparent bg-brand-1 px-4 py-2.5 font-display text-sm font-semibold leading-5 tracking-normal text-white shadow-la-shadow-1 transition-[background-color,border-color,color,box-shadow] duration-200;
   }
 
   .la-button-primary:hover {
-    @apply bg-brand-3 text-white shadow-la-shadow-1;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    background: var(--Brand---3, #000);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    @apply border-transparent bg-brand-3 text-white shadow-la-shadow-1;
   }
 
   .la-button-primary:focus,
   .la-button-primary:focus-visible {
-    @apply border-brand-2 bg-brand-3 text-white shadow-la-shadow-1 outline-none;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    border-color: var(--Brand---2, #fff);
-    background: var(--Brand---3, #000);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    @apply border-white bg-brand-3 text-white shadow-la-shadow-1 outline-none;
   }
 
   .la-button-primary:active {
-    @apply bg-brand-1 text-white shadow-la-shadow-1;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    background: var(--Brand---1, #e2231b);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    @apply border-transparent bg-brand-1 text-white shadow-la-shadow-1;
   }
 
-  .la-button-primary-icon {
-    @apply bg-brand-1 text-white;
-    color: var(--Brand---2, #fff);
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    background: var(--Brand---1, #e2231b);
-    box-shadow:
-      0 10px 15px -3px rgba(226, 35, 27, 0.2),
-      0 4px 6px -4px rgba(226, 35, 27, 0.2);
+  .la-button-primary-icon-right {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-transparent bg-brand-1 px-8 py-4 font-display text-sm font-semibold leading-5 tracking-normal text-white shadow-la-shadow-2 transition-[background-color,border-color,color,box-shadow] duration-200;
   }
 
-  .la-button-primary-icon:hover {
-    @apply bg-brand-3 text-white;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    background: var(--Brand---3, #000);
-    box-shadow:
-      0 10px 15px -3px rgba(0, 0, 0, 0.2),
-      0 4px 6px -4px rgba(0, 0, 0, 0.2);
+  .la-button-primary-icon-right:hover {
+    @apply border-transparent bg-brand-3 text-white shadow-la-shadow-3;
   }
 
-  .la-button-primary-icon:focus,
-  .la-button-primary-icon:focus-visible {
-    @apply border-brand-2 bg-brand-3 text-white outline-none;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    border-color: var(--Brand---2, #fff);
-    background: var(--Brand---3, #000);
-    box-shadow:
-      0 10px 15px -3px rgba(0, 0, 0, 0.2),
-      0 4px 6px -4px rgba(0, 0, 0, 0.2);
+  .la-button-primary-icon-right:focus,
+  .la-button-primary-icon-right:focus-visible {
+    @apply border-white bg-brand-3 text-white shadow-la-shadow-3 outline-none;
   }
 
-  .la-button-primary-icon:active {
-    @apply bg-brand-1 text-white;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    background: var(--Brand---1, #e2231b);
-    box-shadow:
-      0 10px 15px -3px rgba(226, 35, 27, 0.2),
-      0 4px 6px -4px rgba(226, 35, 27, 0.2);
+  .la-button-primary-icon-right:active {
+    @apply border-transparent bg-brand-1 text-white shadow-la-shadow-2;
+  }
+
+  .la-button-primary-icon-left {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-transparent bg-brand-1 px-8 py-4 font-display text-sm font-semibold leading-5 tracking-normal text-white shadow-la-shadow-2 transition-[background-color,border-color,color,box-shadow] duration-200;
+  }
+
+  .la-button-primary-icon-left:hover {
+    @apply border-transparent bg-brand-3 text-white shadow-la-shadow-3;
+  }
+
+  .la-button-primary-icon-left:focus,
+  .la-button-primary-icon-left:focus-visible {
+    @apply border-white bg-brand-3 text-white shadow-la-shadow-3 outline-none;
+  }
+
+  .la-button-primary-icon-left:active {
+    @apply border-transparent bg-brand-1 text-white shadow-la-shadow-2;
   }
 
   .la-button-secondary {
-    @apply border-gray-200 bg-gray-50 text-black shadow-la-shadow-1;
-    color: var(--Brand---3, #000);
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    border-color: var(--gray-200, #e5e7eb);
-    background: var(--gray-50, #f9fafb);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-xl border border-gray-200 bg-gray-50 px-8 py-4 font-display text-sm font-semibold leading-5 tracking-normal text-black shadow-la-shadow-1 transition-[background-color,border-color,color,box-shadow] duration-200;
   }
 
   .la-button-secondary:hover {
     @apply border-brand-1 bg-brand-1 text-white shadow-la-shadow-1;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    border-color: var(--Brand---1, #e2231b);
-    background: var(--Brand---1, #e2231b);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
   }
 
   .la-button-secondary:focus,
   .la-button-secondary:focus-visible {
-    @apply border-brand-2 bg-brand-1 text-white shadow-la-shadow-1 outline-none;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    border-color: var(--Brand---2, #fff);
-    background: var(--Brand---1, #e2231b);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    @apply border-white bg-brand-1 text-white shadow-la-shadow-1 outline-none;
   }
 
   .la-button-secondary:active {
     @apply border-gray-200 bg-gray-50 text-black shadow-la-shadow-1;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    border-color: var(--gray-200, #e5e7eb);
-    background: var(--gray-50, #f9fafb);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .la-button-home-hero-secondary {
-    @apply border-gray-200 bg-gray-50 text-black shadow-la-shadow-1;
-  }
-
-  .la-button-home-hero-secondary:hover {
-    @apply border-brand-1 bg-brand-1 text-white shadow-la-shadow-1;
-  }
-
-  .la-button-home-hero-secondary:focus,
-  .la-button-home-hero-secondary:focus-visible {
-    @apply border-white bg-brand-1 text-white shadow-la-shadow-1 outline-none;
-  }
-
-  .la-button-home-hero-secondary:active {
-    @apply border-gray-200 bg-gray-50 text-black shadow-la-shadow-1;
-  }
-
-  .la-button-static-state {
-    pointer-events: none;
-  }
-
-  .la-button-primary-state-default {
-    @apply border-transparent bg-brand-1 text-white shadow-la-shadow-1;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    background: var(--Brand---1, #e2231b);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .la-button-primary-state-hover {
-    @apply border-transparent bg-brand-3 text-white shadow-la-shadow-1;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    background: var(--Brand---3, #000);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .la-button-primary-state-focus {
-    @apply border-brand-2 bg-brand-3 text-white shadow-la-shadow-1;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    border-color: var(--Brand---2, #fff);
-    background: var(--Brand---3, #000);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .la-button-primary-state-active {
-    @apply border-transparent bg-brand-1 text-white shadow-la-shadow-1;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    background: var(--Brand---1, #e2231b);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .la-button-secondary-state-default {
-    @apply border-gray-200 bg-gray-50 text-black shadow-la-shadow-1;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    border-color: var(--gray-200, #e5e7eb);
-    background: var(--gray-50, #f9fafb);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .la-button-secondary-state-hover {
-    @apply border-brand-1 bg-brand-1 text-white shadow-la-shadow-1;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    border-color: var(--Brand---1, #e2231b);
-    background: var(--Brand---1, #e2231b);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .la-button-secondary-state-focus {
-    @apply border-brand-2 bg-brand-1 text-white shadow-la-shadow-1;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    border-color: var(--Brand---2, #fff);
-    background: var(--Brand---1, #e2231b);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .la-button-secondary-state-active {
-    @apply border-gray-200 bg-gray-50 text-black shadow-la-shadow-1;
-    border-radius: var(--border-radius-rounded-xl, 12px);
-    border-color: var(--gray-200, #e5e7eb);
-    background: var(--gray-50, #f9fafb);
-    box-shadow:
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .la-button-outline {
-    @apply border-gray-200 bg-white text-black shadow-la-shadow-1;
-  }
-
-  .la-button-dark {
-    @apply bg-black text-white shadow-la-shadow-1;
   }
 
   .la-input {
@@ -982,12 +831,17 @@
   }
 
   .la-card-type-2 {
-    @apply flex translate-y-0 flex-col rounded-2xl border border-gray-200 bg-white/[0.42] p-6 transition-[transform,box-shadow,background-color] duration-200 ease-out;
+    @apply flex flex-col rounded-2xl border border-gray-200 bg-white/[0.42] p-6 transition-[box-shadow] duration-200 ease-out;
+    border-radius: var(--border-radius-rounded-2xl, 16px);
+    border-color: var(--gray-200, #e5e7eb);
+    background: rgba(255, 255, 255, 0.42);
   }
 
   .la-card-type-2:hover {
-    @apply bg-surface-cardHover shadow-la-shadow-3;
-    @apply -translate-y-0.5;
+    @apply border-gray-200 bg-white/[0.42] shadow-la-shadow-3;
+    border-radius: var(--border-radius-rounded-2xl, 16px);
+    border-color: var(--gray-200, #e5e7eb);
+    background: rgba(255, 255, 255, 0.42);
   }
 
   .la-card-type-3 {
@@ -1132,7 +986,7 @@
   }
 
   .la-footer {
-    @apply border-t border-gray-200 bg-[linear-gradient(90deg,var(--Brand---3,#000)_0%,var(--gray-900,#111827)_50%,var(--Brand---3,#000)_100%)];
+    @apply border-t border-gray-200 bg-gradient-1;
   }
 
   .la-footer-link {

@@ -1,9 +1,9 @@
 import AccordionSection from "../components/design-system/AccordionSection";
 import ButtonsSection from "../components/design-system/ButtonsSection";
 import CardsSection from "../components/design-system/CardsSection";
-import FooterSection from "../components/design-system/FooterSection";
 import IconographySection from "../components/design-system/IconographySection";
 import ShadowsSection from "../components/design-system/ShadowsSection";
+import Image from "next/image";
 import Layout from "../src/components/Layout";
 
 const colorGroups = [
@@ -26,6 +26,16 @@ const colorGroups = [
       { name: "Brand 9", value: "#1C92CC", className: "bg-brand-9" },
     ],
   },
+  {
+    label: "Gradients",
+    items: [
+      {
+        name: "BG Gradient - 1",
+        value: "bg-gradient-1",
+        className: "bg-gradient-1",
+      },
+    ],
+  },
 ];
 
 const typographyRows = [
@@ -37,8 +47,6 @@ const typographyRows = [
     lineHeight: "110%",
     letterSpacing: "tracking-normal",
     usage: "Page Titles",
-    sample: "Page Title",
-    className: "h1 text-black",
   },
   {
     token: "H2",
@@ -48,8 +56,6 @@ const typographyRows = [
     lineHeight: "110%",
     letterSpacing: "tracking-normal",
     usage: "Page Titles",
-    sample: "Page Title",
-    className: "h2 text-black",
   },
   {
     token: "H3",
@@ -59,8 +65,6 @@ const typographyRows = [
     lineHeight: "leading-9",
     letterSpacing: "tracking-tighter",
     usage: "Page Titles",
-    sample: "Section Heading",
-    className: "h3 text-black",
   },
   {
     token: "H4",
@@ -70,8 +74,6 @@ const typographyRows = [
     lineHeight: "leading-8",
     letterSpacing: "tracking-tighter",
     usage: "Page Titles",
-    sample: "Subsection Heading",
-    className: "h4 text-black",
   },
   {
     token: "Eyebrow",
@@ -81,8 +83,6 @@ const typographyRows = [
     lineHeight: "leading-6",
     letterSpacing: "tracking-wider",
     usage: "A Gentle Reminder That You Still Have A Map",
-    sample: "Section Label",
-    className: "eyebrow",
   },
   {
     token: "Body - Base - 600",
@@ -92,8 +92,6 @@ const typographyRows = [
     lineHeight: "leading-6",
     letterSpacing: "tracking-normal",
     usage: "Text Emphasize - L",
-    sample: "Body emphasis large",
-    className: "body-base-600 text-black",
   },
   {
     token: "Body - Base - 500",
@@ -103,8 +101,6 @@ const typographyRows = [
     lineHeight: "leading-6",
     letterSpacing: "tracking-normal",
     usage: "Text Emphasize - M",
-    sample: "Body emphasis medium",
-    className: "body-base-500 text-black",
   },
   {
     token: "Body - Base - 400",
@@ -114,8 +110,6 @@ const typographyRows = [
     lineHeight: "leading-6",
     letterSpacing: "tracking-normal",
     usage: "Main Paragraphs, Tags, Notes, Buttons, Small Elements",
-    sample: "Main paragraph text",
-    className: "body-base-400 text-gray-500",
   },
   {
     token: "Body - Sm - 600",
@@ -125,8 +119,6 @@ const typographyRows = [
     lineHeight: "leading-5",
     letterSpacing: "tracking-normal",
     usage: "Text Emphasize - L",
-    sample: "Small emphasis large",
-    className: "body-sm-600 text-black",
   },
   {
     token: "Body - Sm - 500",
@@ -136,8 +128,6 @@ const typographyRows = [
     lineHeight: "leading-5",
     letterSpacing: "tracking-normal",
     usage: "Text Emphasize - M",
-    sample: "Small emphasis medium",
-    className: "body-sm-500 text-black",
   },
   {
     token: "Body - Sm - 400",
@@ -147,8 +137,6 @@ const typographyRows = [
     lineHeight: "leading-5",
     letterSpacing: "tracking-normal",
     usage: "Main Paragraphs, Tags, Notes, Buttons, Small Elements",
-    sample: "Small paragraph text",
-    className: "body-sm-400 text-gray-500",
   },
   {
     token: "Body - Xs - 600",
@@ -158,8 +146,6 @@ const typographyRows = [
     lineHeight: "leading-4",
     letterSpacing: "tracking-normal",
     usage: "Text Emphasize - L",
-    sample: "Extra small emphasis",
-    className: "body-xs-600 text-black",
   },
   {
     token: "Body - Xs - 500",
@@ -169,8 +155,6 @@ const typographyRows = [
     lineHeight: "leading-4",
     letterSpacing: "tracking-normal",
     usage: "Text Emphasize - M",
-    sample: "Extra small medium",
-    className: "body-xs-500 text-black",
   },
   {
     token: "Body - Xs - 400",
@@ -180,8 +164,6 @@ const typographyRows = [
     lineHeight: "leading-4",
     letterSpacing: "tracking-normal",
     usage: "Main Paragraphs, Tags, Notes, Buttons, Small Elements",
-    sample: "Extra small paragraph",
-    className: "body-xs-400 text-gray-500",
   },
 ];
 
@@ -213,8 +195,6 @@ function TypographicSpec({
   lineHeight,
   letterSpacing,
   usage,
-  sample,
-  className,
 }: {
   token: string;
   font: string;
@@ -223,31 +203,28 @@ function TypographicSpec({
   lineHeight: string;
   letterSpacing: string;
   usage: string;
-  sample: string;
-  className: string;
 }) {
   return (
     <tr className="border-b border-slate-200 last:border-b-0">
-      <td className="body-sm-500 px-4 py-5 text-center text-black">{token}</td>
-      <td className="body-sm-400 px-4 py-5 text-center text-gray-500">
+      <td className="body-sm-500 border-r border-slate-200 px-4 py-5 text-center text-black">
+        {token}
+      </td>
+      <td className="body-sm-400 border-r border-slate-200 px-4 py-5 text-center text-black">
         {font}
       </td>
-      <td className="body-sm-400 px-4 py-5 text-center text-gray-500">
+      <td className="body-sm-400 border-r border-slate-200 px-4 py-5 text-center text-black">
         {weight}
       </td>
-      <td className="px-4 py-5 text-center font-mono text-xs font-semibold text-gray-500">
+      <td className="body-sm-400 border-r border-slate-200 px-4 py-5 text-center text-black">
         {tailwind}
       </td>
-      <td className="px-4 py-5 text-center font-mono text-xs font-semibold text-gray-500">
+      <td className="body-sm-400 border-r border-slate-200 px-4 py-5 text-center text-black">
         {lineHeight}
       </td>
-      <td className="px-4 py-5 text-center font-mono text-xs font-semibold text-gray-500">
+      <td className="body-sm-400 border-r border-slate-200 px-4 py-5 text-center text-black">
         {letterSpacing}
       </td>
       <td className="body-sm-400 px-4 py-5 text-center text-black">{usage}</td>
-      <td className="min-w-[220px] px-4 py-5">
-        <p className={className}>{sample}</p>
-      </td>
     </tr>
   );
 }
@@ -288,10 +265,26 @@ export default function DesignSystemPage() {
         </section>
 
         <section className="la-section">
-          <h2 className="h2 text-black">Typography System</h2>
           <div className="la-purple-wrap overflow-hidden bg-white shadow-card">
+            <div className="flex items-start justify-between gap-6 bg-black px-6 py-5 text-white lg:px-8">
+              <div className="space-y-1">
+                <p className="text-xs font-medium leading-5 text-white/80">
+                  UI KIT for La Trobe University Digital PCAT Web App &amp; Web
+                </p>
+                <h2 className="text-[28px] font-bold leading-9 text-white lg:text-[40px] lg:leading-[48px]">
+                  Typography System for PCAT Web Page
+                </h2>
+              </div>
+              <Image
+                src="/assets/images/la-trobe-university-1.svg"
+                alt="La Trobe University"
+                width={85}
+                height={54}
+                className="h-auto w-[56px] shrink-0 lg:w-[85px]"
+              />
+            </div>
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[1100px] border-collapse">
+              <table className="w-full min-w-[980px] border-collapse">
                 <thead className="bg-slate-50">
                   <tr>
                     {[
@@ -302,11 +295,10 @@ export default function DesignSystemPage() {
                       "Line Height",
                       "Letter Spacing",
                       "Usage",
-                      "Sample",
                     ].map((heading) => (
                       <th
                         key={heading}
-                        className="body-xs-600 border-b border-slate-200 px-4 py-4 text-center text-gray-400"
+                        className="body-xs-600 border-b border-r border-slate-200 px-4 py-4 text-center text-[#94A3B8] last:border-r-0"
                       >
                         {heading}
                       </th>

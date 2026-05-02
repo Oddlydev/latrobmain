@@ -154,17 +154,12 @@ export function TeamCard({
   );
 }
 
-export function CardType4({
-  icon,
-  eyebrow,
-  value,
-  className,
-}: CardType4Props) {
+export function CardType4({ icon, eyebrow, value, className }: CardType4Props) {
   return (
     <article className={joinClassNames("la-card-type-4", className)}>
-      <div className="la-feature-icon h-10 w-10">{icon}</div>
+      <div className="la-feature-icon">{icon}</div>
       <div className="space-y-1">
-        <p className="eyebrow text-gray-500 font-semibold uppercase">{eyebrow}</p>
+        <p className="eyebrow text-gray-500">{eyebrow}</p>
         <p className="la-card-type-4-email font-medium">{value}</p>
       </div>
     </article>
@@ -193,7 +188,7 @@ export function ContactCard({
     <article className={joinClassNames("la-contact-item", className)}>
       <div className="la-contact-item-icon">{icon}</div>
       <div>
-        <p className="eyebrow text-gray-500 font-semibold uppercase">{label}</p>
+        <p className="eyebrow text-gray-500">{label}</p>
         {content}
       </div>
     </article>

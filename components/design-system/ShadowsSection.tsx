@@ -11,8 +11,8 @@ export default function ShadowsSection() {
       <h2 className="h2 text-black">Shadows</h2>
 
       <div className="la-purple-wrap">
-        <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white">
-          <div className="grid grid-cols-[160px_minmax(0,1fr)] border-b border-gray-200 bg-slate-50 px-6 py-4 text-sm font-semibold text-gray-500">
+        <div className="overflow-hidden rounded-[32px] border border-gray-200 bg-white">
+          <div className="grid grid-cols-[160px_minmax(0,1fr)] border-b border-gray-200 bg-slate-50 px-8 py-5 text-sm font-semibold text-slate-500">
             <div>Token</div>
             <div>Sample</div>
           </div>
@@ -21,7 +21,7 @@ export default function ShadowsSection() {
             {shadowRows.map((row) => (
               <div
                 key={row.token}
-                className="grid grid-cols-[160px_minmax(0,1fr)] items-center gap-6 px-6 py-6"
+                className="grid grid-cols-[160px_minmax(0,1fr)] items-center gap-6 px-8 py-8"
               >
                 <p className="body-sm-600 text-black">{row.token}</p>
                 <div className="flex justify-start">

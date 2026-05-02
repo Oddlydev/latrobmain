@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FeaturedImage } from "./FeaturedImage";
+import Button from "./ui/Button";
 
 interface PostListItemProps {
   post: {
@@ -67,13 +68,9 @@ export default function PostListItem({ post }: PostListItemProps) {
       />
 
       <div className="mt-6">
-        <Link
-          href={uri || ""}
-          title="Read more"
-          className="la-button la-button-secondary"
-        >
+        <Button href={uri || ""} title="Read more" variant="secondary">
           Read more
-        </Link>
+        </Button>
       </div>
     </article>
   );

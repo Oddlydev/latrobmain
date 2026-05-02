@@ -175,7 +175,7 @@ export default function Header({
   }, [menuOpen]);
 
   return (
-    <header className="border-b border-gray-200 bg-brand-gradient-1 text-white shadow-md">
+    <header className="border-b border-gray-200 bg-gradient-1 text-white shadow-md">
       <div className="px-4 py-4 lg:px-12">
         <div className="flex items-center justify-between gap-4 lg:hidden">
           <Link

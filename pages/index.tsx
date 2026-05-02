@@ -183,8 +183,7 @@ const CORE_FEATURE_CARDS = [
     alt: "PCAT overview dashboard",
     kind: "dashboard",
     motionDelayMs: 0,
-    className:
-      "left-[42.6%] top-[3.1%] z-[8] h-[54.8%] w-[28.2%]",
+    className: "left-[42.6%] top-[3.1%] z-[8] h-[54.8%] w-[28.2%]",
   },
   {
     id: "dashboard-secondary",
@@ -192,8 +191,7 @@ const CORE_FEATURE_CARDS = [
     alt: "PCAT patient list dashboard",
     kind: "dashboard",
     motionDelayMs: 620,
-    className:
-      "left-[11.4%] top-[36.5%] z-[4] h-[61.4%] w-[29.2%]",
+    className: "left-[11.4%] top-[36.5%] z-[4] h-[61.4%] w-[29.2%]",
   },
   {
     id: "dashboard-tertiary",
@@ -201,8 +199,7 @@ const CORE_FEATURE_CARDS = [
     alt: "PCAT patient profile dashboard",
     kind: "dashboard",
     motionDelayMs: 1180,
-    className:
-      "left-[72.1%] top-[35.8%] z-[4] h-[61.4%] w-[27.3%]",
+    className: "left-[72.1%] top-[35.8%] z-[4] h-[61.4%] w-[27.3%]",
   },
   {
     id: "photo-hug",
@@ -210,8 +207,7 @@ const CORE_FEATURE_CARDS = [
     alt: "Nurse comforting an older patient",
     kind: "photo",
     motionDelayMs: 180,
-    className:
-      "left-[1.5%] top-[3.2%] z-[6] h-[31.8%] w-[21.6%]",
+    className: "left-[1.5%] top-[3.2%] z-[6] h-[31.8%] w-[21.6%]",
   },
   {
     id: "photo-portrait",
@@ -219,8 +215,7 @@ const CORE_FEATURE_CARDS = [
     alt: "Portrait of an older patient",
     kind: "photo",
     motionDelayMs: 1040,
-    className:
-      "left-[0.8%] top-[37.2%] z-[5] h-[55.6%] w-[9.6%]",
+    className: "left-[0.8%] top-[37.2%] z-[5] h-[55.6%] w-[9.6%]",
   },
   {
     id: "photo-exam",
@@ -228,8 +223,7 @@ const CORE_FEATURE_CARDS = [
     alt: "Nurse checking an older patient",
     kind: "photo",
     motionDelayMs: 320,
-    className:
-      "left-[24.8%] top-[4.6%] z-[6] h-[29.8%] w-[16.2%]",
+    className: "left-[24.8%] top-[4.6%] z-[6] h-[29.8%] w-[16.2%]",
   },
   {
     id: "photo-bench",
@@ -237,8 +231,7 @@ const CORE_FEATURE_CARDS = [
     alt: "Nurse sitting with an older patient outdoors",
     kind: "photo",
     motionDelayMs: 740,
-    className:
-      "left-[41.6%] top-[63.8%] z-[6] h-[30.8%] w-[14.8%]",
+    className: "left-[41.6%] top-[63.8%] z-[6] h-[30.8%] w-[14.8%]",
   },
   {
     id: "photo-wheelchair",
@@ -246,8 +239,7 @@ const CORE_FEATURE_CARDS = [
     alt: "Care team supporting an older patient in a wheelchair",
     kind: "photo",
     motionDelayMs: 1360,
-    className:
-      "left-[58.3%] top-[63.8%] z-[6] h-[27.0%] w-[12.9%]",
+    className: "left-[58.3%] top-[63.8%] z-[6] h-[27.0%] w-[12.9%]",
   },
   {
     id: "photo-smile",
@@ -255,8 +247,7 @@ const CORE_FEATURE_CARDS = [
     alt: "Nurse smiling with an older patient",
     kind: "photo",
     motionDelayMs: 920,
-    className:
-      "left-[73.4%] top-[6.4%] z-[6] h-[28.2%] w-[18.9%]",
+    className: "left-[73.4%] top-[6.4%] z-[6] h-[28.2%] w-[18.9%]",
   },
   {
     id: "photo-hands",
@@ -264,8 +255,7 @@ const CORE_FEATURE_CARDS = [
     alt: "Close-up of hands in care support",
     kind: "photo",
     motionDelayMs: 1500,
-    className:
-      "left-[94.2%] top-[2.6%] z-[7] h-[25.4%] w-[5.6%]",
+    className: "left-[94.2%] top-[2.6%] z-[7] h-[25.4%] w-[5.6%]",
   },
 ] as const;
 
@@ -996,10 +986,7 @@ function HomeHeroSection() {
             </div>
 
             <div className="mt-5 flex flex-wrap gap-4 pb-5 md:mt-5 md:gap-4 md:pb-7 lg:mt-12 lg:gap-4 lg:pb-0">
-              <Button
-                href={LOGIN_URL}
-                className="justify-center shadow-la-shadow-2"
-              >
+              <Button href={LOGIN_URL} variant="primaryIconRight">
                 Access PCAT Tool
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1018,11 +1005,7 @@ function HomeHeroSection() {
                   />
                 </svg>
               </Button>
-              <Button
-                href="#about"
-                variant="secondary"
-                className="la-button-home-hero-secondary justify-center"
-              >
+              <Button href="#about" variant="secondary">
                 Learn more
               </Button>
             </div>
@@ -1260,7 +1243,11 @@ function CoreFeaturesSection() {
       setVisibleCardCount(0);
 
       queueTimeout(() => {
-        for (let index = 0; index < CORE_FEATURE_REVEAL_ORDER.length; index += 1) {
+        for (
+          let index = 0;
+          index < CORE_FEATURE_REVEAL_ORDER.length;
+          index += 1
+        ) {
           queueTimeout(() => {
             setVisibleCardCount(index + 1);
           }, index * revealStepMs);
@@ -1309,10 +1296,22 @@ function CoreFeaturesSection() {
                 "url('/assets/images/Container.png') lightgray 0% 0% / 100px 100px repeat, #FFF",
             }}
           >
-            <div aria-hidden="true" className="la-core-feature-overlay la-core-feature-overlay--warm" />
-            <div aria-hidden="true" className="la-core-feature-overlay la-core-feature-overlay--cool" />
-            <div aria-hidden="true" className="la-core-feature-orb la-core-feature-orb--warm" />
-            <div aria-hidden="true" className="la-core-feature-orb la-core-feature-orb--cool" />
+            <div
+              aria-hidden="true"
+              className="la-core-feature-overlay la-core-feature-overlay--warm"
+            />
+            <div
+              aria-hidden="true"
+              className="la-core-feature-overlay la-core-feature-overlay--cool"
+            />
+            <div
+              aria-hidden="true"
+              className="la-core-feature-orb la-core-feature-orb--warm"
+            />
+            <div
+              aria-hidden="true"
+              className="la-core-feature-orb la-core-feature-orb--cool"
+            />
             <div
               aria-hidden="true"
               className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.32),transparent_60%)]"
@@ -1324,9 +1323,9 @@ function CoreFeaturesSection() {
                 const isPrimary = card.id === "dashboard-primary";
                 const revealIndex = isPrimary
                   ? -1
-                  : CORE_FEATURE_REVEAL_INDEX.get(
+                  : (CORE_FEATURE_REVEAL_INDEX.get(
                       card.id as (typeof CORE_FEATURE_REVEAL_ORDER)[number],
-                    ) ?? -1;
+                    ) ?? -1);
                 const isVisible =
                   isPrimary ||
                   reduceMotion ||
@@ -1375,7 +1374,6 @@ function CoreFeaturesSection() {
                   </article>
                 );
               })}
-
             </div>
           </div>
         </div>
@@ -1790,7 +1788,7 @@ function HowItWorksSection() {
                   </div>
 
                   <article
-                  className={[
+                    className={[
                       "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-0 py-0 text-left transition-transform duration-200 ease-out md:px-0 md:py-0 lg:py-5",
                       isLeft
                         ? "origin-right hover:-translate-x-2"
@@ -1889,7 +1887,9 @@ function TeamSection() {
           <SectionEyebrow className="text-brand-1">
             Research team
           </SectionEyebrow>
-          <SectionTitle className="max-w-[600px]">The people behind PCAT</SectionTitle>
+          <SectionTitle className="max-w-[600px]">
+            The people behind PCAT
+          </SectionTitle>
         </div>
 
         <div className="mt-5 grid gap-5 md:mt-7 md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:gap-6 xl:grid-cols-3">
@@ -2011,7 +2011,10 @@ function FaqSection() {
           <h2 className="mt-2 text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:leading-[110%] lg:tracking-normal">
             Common Questions
           </h2>
-          <SectionLead centered className="mx-auto mt-4 max-w-4xl text-gray-600 md:mt-4 md:text-gray-500">
+          <SectionLead
+            centered
+            className="mx-auto mt-4 max-w-4xl text-gray-600 md:mt-4 md:text-gray-500"
+          >
             Everything you need to know before logging in.
           </SectionLead>
         </div>
@@ -2052,7 +2055,7 @@ function LoginCtaSection() {
             href={LOGIN_URL}
             target="_blank"
             rel="noreferrer"
-            className="shadow-la-shadow-2"
+            variant="primaryIconLeft"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -2230,7 +2233,9 @@ function ContactSection() {
                 label={item.label}
                 value={item.value}
                 icon={item.icon}
-                href={item.value.includes("@") ? `mailto:${item.value}` : undefined}
+                href={
+                  item.value.includes("@") ? `mailto:${item.value}` : undefined
+                }
               />
             ))}
           </div>
@@ -2270,8 +2275,7 @@ export default function Home() {
         <section
           className="border-t border-b border-black/8 py-20"
           style={{
-            backgroundImage:
-              "url('/assets/images/how-it-works-desktop.png')",
+            backgroundImage: "url('/assets/images/how-it-works-desktop.png')",
             backgroundPosition: "top center",
             backgroundSize: "auto",
             backgroundRepeat: "repeat",

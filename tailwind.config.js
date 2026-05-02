@@ -15,9 +15,7 @@ module.exports = {
           "system-ui",
           "sans-serif",
         ],
-        display: [
-          "var(--font-dm-sans)",
-        ],
+        display: ["var(--font-dm-sans)"],
         mono: ["ui-monospace", "SFMono-Regular", "SF Mono", "monospace"],
       },
       colors: {
@@ -85,7 +83,7 @@ module.exports = {
         "4xl": "2rem",
       },
       backgroundImage: {
-        "brand-gradient-1":
+        "gradient-1":
           "linear-gradient(90deg, #000000 0%, #111827 50%, #000000 100%)",
         "brand-gradient-2": "linear-gradient(135deg, #E2231B 0%, #1D70B8 100%)",
         "hero-overlay":
@@ -103,14 +101,8 @@ module.exports = {
         tighter2: "-0.05em",
       },
       fontSize: {
-        "15": [
-          "0.9375rem",
-          { lineHeight: "1.5", letterSpacing: "0.01em" },
-        ],
-        xxs: [
-          "0.625rem",
-          { lineHeight: "1.2", letterSpacing: "0.06em" },
-        ],
+        15: ["0.9375rem", { lineHeight: "1.5", letterSpacing: "0.01em" }],
+        xxs: ["0.625rem", { lineHeight: "1.2", letterSpacing: "0.06em" }],
         "display-xl": [
           "3.5rem",
           { lineHeight: "1.05", letterSpacing: "-0.04em" },
