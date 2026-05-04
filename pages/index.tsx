@@ -976,7 +976,7 @@ function HomeHeroSection() {
                 </span>
               </h1>
 
-              <p className="body-base-400 max-w-160 pt-0 text-gray-600 md:max-w-none md:pt-0 lg:pt-6">
+              <p className="body-base-400 max-w-full pt-0 text-gray-600 lg:max-w-[616px] md:max-w-full md:pt-0 lg:pt-6">
                 PCAT is a research-backed digital platform developed at La Trobe
                 University to help nursing teams in aged care identify patients
                 who need palliative care earlier, more consistently, and with
