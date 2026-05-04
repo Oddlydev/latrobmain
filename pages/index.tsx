@@ -1785,7 +1785,7 @@ function HowItWorksSection() {
                     className={[
                       "z-20 col-start-1 row-start-1 flex h-12 w-12 items-center justify-center rounded-full border-2 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [&_svg]:h-6 [&_svg]:w-6 md:h-10 md:w-10 md:border-2 md:[&_svg]:h-5 md:[&_svg]:w-5 lg:absolute lg:left-1/2 lg:top-1/2 lg:h-14 lg:w-14 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:border-[3px] lg:[&_svg]:h-[26px] lg:[&_svg]:w-[26px]",
                       isStepHighlighted
-                        ? "scale-[1.03] border-red-100 bg-brand-1 text-white shadow-[0_8px_24px_rgba(226,35,27,0.22)]"
+                        ? "scale-100 rounded-full border-[3px] border-red-100 bg-brand-1 text-white shadow-none"
                         : "scale-100 border-brand-1 bg-white text-brand-1 shadow-none",
                     ].join(" ")}
                   >
@@ -1887,7 +1887,7 @@ function TeamSection() {
   ];
 
   return (
-    <section className="la-container py-10 md:py-10 lg:py-20">
+    <section className="la-container border-t border-gray-200 py-10 md:py-10 lg:py-20">
       <SectionAnchor id="team" />
       <div className="space-y-5 md:space-y-5 lg:space-y-3">
         <div className="max-w-2xl">
@@ -1899,7 +1899,7 @@ function TeamSection() {
           </SectionTitle>
         </div>
 
-        <div className="mt-5 grid gap-5 md:mt-7 md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:gap-6 xl:grid-cols-3">
+        <div className="mt-5 grid gap-5 md:mt-7 lg:mt-12 md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:gap-6 xl:grid-cols-3">
           {teamMembers.map((member) => (
             <TeamCard key={member.title} {...member} />
           ))}
@@ -1946,11 +1946,11 @@ function SupportSection() {
           </p>
         </div>
 
-        <div className="mt-5 grid gap-5 md:mt-7 md:grid-cols-2 md:gap-x-5 md:gap-y-5 xl:grid-cols-3">
+        <div className="mt-5 grid gap-5 lg:gap-6 md:mt-7 lg:mt-12 md:grid-cols-2 md:gap-x-5 md:gap-y-5 xl:grid-cols-3">
           {supportCards.map((item) => (
             <article
               key={item.title}
-              className="group flex flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white/70 px-6 py-[47px] text-center md:gap-0"
+              className="group flex flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white/70 py-[47px] text-center md:gap-0"
             >
               <div className="flex h-20 items-center justify-center md:pb-[30px]">
                 <img
@@ -2014,7 +2014,7 @@ function FaqSection() {
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">FAQ</p>
           <h2 className="mt-2 text-center text-black">Common Questions</h2>
-          <SectionLead centered className="mx-auto mt-4 max-w-4xl md:mt-4">
+          <SectionLead centered className="mx-auto mt-4 max-w-4xl">
             Everything you need to know before logging in.
           </SectionLead>
         </div>
@@ -2040,7 +2040,7 @@ function LoginCtaSection() {
       }}
     >
       <div className="la-container text-center">
-        <div className="space-y-4 md:space-y-4 lg:space-y-1">
+        <div className="space-y-4">
           <h2 className="text-center text-white">Ready to get started?</h2>
           <p className="body-base-400 text-center text-gray-400">
             Log in to PCAT and take the next step in delivering better
@@ -2216,7 +2216,7 @@ function ContactSection() {
         <div className="max-w-[695px] space-y-0 md:space-y-4 text-left">
           <SectionEyebrow className="text-red-600">Get in touch</SectionEyebrow>
           <SectionTitle>Collaborate or Learn More</SectionTitle>
-          <SectionLead className="max-w-600 pt-4 md:pt-0">
+          <SectionLead className="max-w-600 pt-4">
             We welcome enquiries from aged care providers, clinicians,
             researchers, consumer advocates, and organisations interested in
             partnering with the PCAT project.
@@ -2269,12 +2269,10 @@ export default function Home() {
         <CoreFeaturesSection />
         <HowItWorksFeatureCardsSection />
         <section
-          className="border-t border-b border-black/8 py-20"
+          className="border-t border-gray-200 py-20"
           style={{
-            backgroundImage: "url('/assets/images/how-it-works-desktop.png')",
-            backgroundPosition: "top center",
-            backgroundSize: "auto",
-            backgroundRepeat: "repeat",
+            background:
+              "url('/assets/images/Container.png') lightgray 0% 0% / 100px 100px repeat",
           }}
         >
           <div className="la-container">
