@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client";
 import { GetStaticPropsContext } from "next"; // Import GetStaticPropsContext
 import Layout from "../src/components/Layout";
-import EntryHeader from "../components/EntryHeader";
+import RichTextArticle from "../components/RichTextArticle";
 
 const POST_QUERY = gql`
   query GetPost($databaseId: ID!, $asPreview: Boolean = false) {
@@ -10,11 +10,6 @@ const POST_QUERY = gql`
       title
       content
       date
-      author {
-        node {
-          name
-        }
-      }
     }
   }
 `;
@@ -24,43 +19,59 @@ interface PostData {
     title?: string;
     content?: string;
     date?: string;
-    author?: {
-      node?: {
-        name?: string;
-      };
-    };
   };
 }
 
 interface SinglePageProps {
-  loading?: boolean;
   __SEED_NODE__?: {
     databaseId?: string;
     asPreview?: boolean;
   };
+  loading?: boolean;
 }
 
 export default function Component(props: SinglePageProps) {
-  // Loading state for previews
   if (props.loading) {
     return <>Loading...</>;
   }
 
-  const { data: contentQuery } = useQuery<PostData>(POST_QUERY, {
+  const databaseId = props.__SEED_NODE__?.databaseId;
+  const asPreview = props.__SEED_NODE__?.asPreview;
+
+  const {
+    data,
+    loading = true,
+    error,
+  } = useQuery<PostData>(POST_QUERY, {
+    variables: {
+      databaseId,
+      asPreview,
+    },
+    notifyOnNetworkStatusChange: true,
     fetchPolicy: "cache-first",
   });
 
-  const { title, content, date, author } = contentQuery?.post || {};
+  if (loading && !data) {
+    return (
+      <div className="la-article-shell flex justify-center py-20">
+        Loading...
+      </div>
+    );
+  }
+
+  if (error) {
+    return <p>Error! {error.message}</p>;
+  }
+
+  if (!data?.post) {
+    return <p>No posts have been published</p>;
+  }
+
+  const { title, content, date } = data.post;
 
   return (
     <Layout title={title}>
-      <main className="ds-container py-10">
-        <EntryHeader title={title} date={date} author={author?.node?.name} />
-        <div
-          className="ds-prose"
-          dangerouslySetInnerHTML={{ __html: content || "" }}
-        />
-      </main>
+      <RichTextArticle title={title} content={content} date={date} />
     </Layout>
   );
 }

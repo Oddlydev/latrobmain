@@ -2,7 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 import { getNextStaticProps } from "@faustwp/core";
 import { GetStaticPropsContext } from "next"; // Import GetStaticPropsContext
 import Layout from "../src/components/Layout";
-import EntryHeader from "../components/EntryHeader";
+import RichTextArticle from "../components/RichTextArticle";
 
 const PAGE_QUERY = gql`
   query GetPage($databaseId: ID!, $asPreview: Boolean = false) {
@@ -44,7 +44,9 @@ export default function SinglePage(props: SinglePageProps) {
 
   if (loading && !data)
     return (
-      <div className="ds-container flex justify-center py-20">Loading...</div>
+      <div className="la-article-shell flex justify-center py-20">
+        Loading...
+      </div>
     );
 
   if (error) return <p>Error! {error.message}</p>;
@@ -57,13 +59,7 @@ export default function SinglePage(props: SinglePageProps) {
 
   return (
     <Layout title={title}>
-      <main className="ds-container py-10">
-        <EntryHeader title={title} />
-        <div
-          className="ds-prose"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-      </main>
+      <RichTextArticle title={title} content={content} />
     </Layout>
   );
 }
