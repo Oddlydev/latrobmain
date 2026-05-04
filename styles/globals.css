@@ -4,6 +4,7 @@
 @layer base {
   :root {
     color-scheme: light;
+    --font-dm-sans: "DM Sans", sans-serif;
     --Brand---1: #e2231b;
     --Brand---2: #fff;
     --Brand---3: #000;
@@ -66,12 +67,6 @@
 
   body {
     @apply min-h-screen bg-surface-2 font-sans text-black antialiased;
-    font-family: var(--font-dm-sans);
-    font-feature-settings:
-      "ss11" on,
-      "cv09" on,
-      "liga" off,
-      "calt" off;
   }
 
   a {
@@ -83,43 +78,19 @@
   }
 
   h1 {
-    @apply font-display text-black;
-    font-size: var(--font-size-text-4xl, 36px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-black, 900);
-    line-height: 110%;
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
-    font-feature-settings: normal;
+    @apply font-display text-[36px] font-black leading-[110%] tracking-normal text-black lg:text-[60px];
   }
 
   h2 {
-    @apply font-display text-black;
-    font-size: var(--font-size-text-3xl, 30px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-bold, 700);
-    line-height: 110%;
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
-    font-feature-settings: normal;
+    @apply font-display text-3xl font-bold leading-[110%] tracking-normal text-black lg:text-[36px];
   }
 
   h3 {
-    @apply font-display text-black;
-    font-size: var(--font-size-text-2xl, 24px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-black, 900);
-    line-height: var(--leading-line-height-leading-9, 36px);
-    letter-spacing: var(--letter-spacing-tracking-tighter, -0.8px);
-    font-feature-settings: normal;
+    @apply font-display text-2xl font-black leading-9 tracking-[-0.8px] text-black lg:text-[30px];
   }
 
   h4 {
-    @apply font-display text-black;
-    font-size: var(--font-size-text-xl, 20px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-bold, 700);
-    line-height: var(--leading-line-height-leading-8, 32px);
-    letter-spacing: var(--letter-spacing-tracking-tighter, -0.8px);
-    font-feature-settings: normal;
+    @apply font-display text-xl font-bold leading-8 tracking-[-0.8px] text-black lg:text-2xl;
   }
 
   h5,
@@ -127,73 +98,66 @@
     @apply font-display text-black;
   }
 
-  @media (min-width: 1024px) {
-    h1 {
-      font-size: var(--font-size-text-6xl, 60px);
-    }
+}
 
-    h2 {
-      font-size: var(--font-size-text-4xl, 36px);
-    }
-
-    h3 {
-      font-size: var(--font-size-text-3xl, 30px);
-    }
-
-    h4 {
-      font-size: var(--font-size-text-2xl, 24px);
-    }
-  }
+@utility font-dlig {
+  font-feature-settings: "dlig" on;
 }
 
 @utility eyebrow {
-  @apply font-display text-base font-semibold uppercase leading-6 tracking-[0.8px];
-  font-feature-settings: "dlig" on;
+  @apply font-dlig font-display text-base font-semibold uppercase leading-6 tracking-[0.8px];
 }
 
 @utility body-base-600 {
-  @apply font-display text-base font-semibold leading-6 tracking-normal;
-  font-feature-settings: "dlig" on;
+  @apply font-dlig font-display text-base font-semibold leading-6 tracking-normal;
 }
 
 @utility body-base-500 {
-  @apply font-display text-base font-medium leading-6 tracking-normal;
-  font-feature-settings: "dlig" on;
+  @apply font-dlig font-display text-base font-medium leading-6 tracking-normal;
 }
 
 @utility body-base-400 {
-  @apply font-display text-base font-normal leading-6 tracking-normal;
-  font-feature-settings: "dlig" on;
+  @apply font-dlig font-display text-base font-normal leading-6 tracking-normal;
 }
 
 @utility body-sm-600 {
-  @apply font-display text-sm font-semibold leading-5 tracking-normal;
-  font-feature-settings: "dlig" on;
+  @apply font-dlig font-display text-sm font-semibold leading-5 tracking-normal;
 }
 
 @utility body-sm-500 {
-  @apply font-display text-sm font-medium leading-5 tracking-normal;
-  font-feature-settings: "dlig" on;
+  @apply font-dlig font-display text-sm font-medium leading-5 tracking-normal;
 }
 
 @utility body-sm-400 {
-  @apply font-display text-sm font-normal leading-5 tracking-normal;
-  font-feature-settings: "dlig" on;
+  @apply font-dlig font-display text-sm font-normal leading-5 tracking-normal;
 }
 
 @utility body-xs-600 {
-  @apply font-display text-xs font-semibold leading-4 tracking-normal;
-  font-feature-settings: "dlig" on;
+  @apply font-dlig font-display text-xs font-semibold leading-4 tracking-normal;
 }
 
 @utility body-xs-500 {
-  @apply font-display text-xs font-medium leading-4 tracking-normal;
-  font-feature-settings: "dlig" on;
+  @apply font-dlig font-display text-xs font-medium leading-4 tracking-normal;
 }
 
 @utility body-xs-400 {
-  @apply font-display text-xs font-normal leading-4 tracking-normal;
-  font-feature-settings: "dlig" on;
+  @apply font-dlig font-display text-xs font-normal leading-4 tracking-normal;
+}
+
+@utility body-copy-600 {
+  @apply font-dlig font-display text-base font-semibold leading-7 tracking-normal;
+}
+
+@utility body-copy-500 {
+  @apply font-dlig font-display text-base font-medium leading-7 tracking-normal;
+}
+
+@utility body-copy-400 {
+  @apply font-dlig font-display text-base font-normal leading-7 tracking-normal;
+}
+
+@utility quote-copy-500 {
+  @apply font-display text-[18px] font-medium italic leading-7 tracking-normal;
 }
 
 @layer components {
@@ -797,12 +761,11 @@
   }
 
   .la-article-shell {
-    @apply mx-auto w-full max-w-[808px] px-4 pt-10 pb-20 sm:px-6 md:pt-10 md:pb-20 lg:pt-14 lg:pb-24;
+    @apply mx-auto w-full max-w-[808px] overflow-hidden rounded-xl border border-white bg-transparent px-4 pt-10 pb-20 sm:px-6 md:pt-10 md:pb-20 lg:pt-14 lg:pb-24;
   }
 
   .la-wysiwyg-preview-frame {
-    @apply mx-4 my-6 rounded-xl border border-white sm:mx-auto sm:my-8 sm:w-full sm:max-w-[860px] lg:my-10;
-    background: rgba(0, 0, 0, 0);
+    @apply mx-4 my-6 sm:mx-auto sm:my-8 sm:w-full sm:max-w-[860px] lg:my-10;
   }
 
   .la-wysiwyg-preview-frame .la-article-shell {
@@ -856,7 +819,7 @@
   }
 
   .la-wysiwyg :where(p, li) {
-    @apply body-base-400 text-gray-500;
+    @apply body-copy-400 text-gray-500;
   }
 
   .la-wysiwyg p {
@@ -864,16 +827,12 @@
   }
 
   .la-wysiwyg :where(strong, b) {
-    @apply body-base-600 text-black;
+    @apply body-copy-600 text-black;
   }
 
   .la-wysiwyg a {
-    @apply body-base-500 text-brand-1;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
+    @apply body-copy-500 text-brand-1 underline decoration-solid decoration-[0.095em] underline-offset-[25%];
     text-decoration-skip-ink: none;
-    text-decoration-thickness: 9.5%;
-    text-underline-offset: 25%;
     text-underline-position: from-font;
   }
 
@@ -948,7 +907,7 @@
   }
 
   .la-wysiwyg :where(blockquote, .wp-block-quote, .wp-block-pullquote) p {
-    @apply body-base-500 flex-1 text-lg leading-7 text-black italic;
+    @apply quote-copy-500 flex-1 text-black;
   }
 
   .la-wysiwyg :where(blockquote, .wp-block-quote, .wp-block-pullquote) cite {

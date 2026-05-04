@@ -83,7 +83,7 @@ const previewContent = `
 
 export default function WysiwygPreviewPage() {
   return (
-    <Layout title="WYSIWYG Preview">
+    <Layout title="WYSIWYG Preview" pageClassName="bg-transparent">
       <div className="la-wysiwyg-preview-frame">
         <RichTextArticle
           title="Website Privacy Policy Statement"

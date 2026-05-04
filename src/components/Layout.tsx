@@ -9,12 +9,14 @@ type Props = {
   title?: string;
   children: React.ReactNode;
   showFooter?: boolean;
+  pageClassName?: string;
 };
 
 export default function Layout({
   title,
   children,
   showFooter = true,
+  pageClassName,
 }: Props) {
   const { data: site } = useQuery(SITE_DATA_QUERY, {
     fetchPolicy: "cache-first",
@@ -30,7 +32,11 @@ export default function Layout({
   const menuItems = menu?.primaryMenuItems?.nodes ?? [];
 
   return (
-    <div className="la-page min-h-screen">
+    <div
+      className={["la-page min-h-screen", pageClassName]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <Head>
         <title>
           {title ? `${title} - ${browserSiteTitle}` : browserSiteTitle}
@@ -46,4 +52,3 @@ export default function Layout({
     </div>
   );
 }
-
