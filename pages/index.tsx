@@ -1057,10 +1057,10 @@ function HomeHeroSection() {
         </div>
 
         <div
-          className="relative p-3.5 md:px-5 md:py-5 lg:px-7 lg:py-7"
+          className="relative p-3.5 md:p-5 lg:p-7"
           style={{ background: "var(--Brand---3, #000)" }}
         >
-          <div className="grid gap-3 md:inline-grid md:w-full md:grid-cols-2 md:grid-rows-2 md:gap-3 xl:grid-cols-4 xl:grid-rows-1">
+          <div className="grid gap-3 lg:gap-5 md:inline-grid md:w-full md:grid-cols-2 md:grid-rows-2 md:gap-3 xl:grid-cols-4 xl:grid-rows-1">
             {heroHighlights.map((item) => (
               <CardType1
                 key={item.title}
@@ -1112,7 +1112,7 @@ function AboutSection() {
         <SectionEyebrow className="text-red-600">
           About the project
         </SectionEyebrow>
-        <h2 className="mt-2 mb-5 block max-w-[695px] text-black md:mb-7">
+        <h2 className="mt-2 mb-5 block max-w-[695px] text-black md:mb-7 lg:mb-12">
           Identifying palliative care needs - earlier, and with confidence
         </h2>
       </div>
@@ -1128,7 +1128,7 @@ function AboutSection() {
             evidence-based digital workflow.
           </SectionLead>
 
-          <div className="rounded-xl border border-red-200 bg-white p-6 md:px-6 md:py-6 lg:px-6 lg:py-6">
+          <div className="rounded-xl border border-red-200 bg-white p-6">
             <p className="body-base-600 text-lg text-black lg:text-xl lg:leading-7">
               PCAT is an evidence based palliative care assessment toolkit that
               is designed to flag palliative care needs. Nurses can complete
