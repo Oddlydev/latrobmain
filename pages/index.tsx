@@ -963,7 +963,7 @@ function HomeHeroSection() {
 
         <div className="relative z-10 px-2.5 pt-2.5 pb-0 md:px-8 md:pt-10 md:pb-0 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
           <div className="w-full lg:max-w-154">
-            <p className="body-xs-500 inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 text-black shadow-sm">
+            <p className="lg:body-base-500 md:body-xs-500 body-base-500 inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 text-black shadow-sm">
               <span className="la-hero-status-dot h-2.5 w-2.5 rounded-full bg-green-500" />
               La Trobe Palliative Care Research Programme
             </p>
@@ -976,7 +976,7 @@ function HomeHeroSection() {
                 </span>
               </h1>
 
-              <p className="body-base-400 max-w-160 pt-0 text-gray-600 md:max-w-none md:pt-0 md:text-base md:font-normal md:leading-6 lg:pt-6">
+              <p className="body-base-400 max-w-160 pt-0 text-gray-600 md:max-w-none md:pt-0 lg:pt-6">
                 PCAT is a research-backed digital platform developed at La Trobe
                 University to help nursing teams in aged care identify patients
                 who need palliative care earlier, more consistently, and with
@@ -1119,7 +1119,7 @@ function AboutSection() {
 
       <div className="grid gap-5 md:gap-5 lg:grid-cols-2 lg:gap-12">
         <div className="la-about-copy-stack">
-          <SectionLead className="max-w-[695px] text-gray-700 md:text-gray-600">
+          <SectionLead className="max-w-[695px]">
             PCAT was developed under Professor Hanan Khalil's initiative at La
             Trobe University to close a critical gap in aged care nursing: the
             timely identification of patients who would benefit from palliative
@@ -1931,7 +1931,7 @@ function SupportSection() {
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">Funding & Governance</p>
           <h2 className="mt-2 text-center text-black">Supported by</h2>
-          <p className="body-base-400 mx-auto mt-4 max-w-[550px] text-center text-gray-600 md:mt-4 md:text-gray-500">
+          <p className="body-base-400 mx-auto mt-4 max-w-[550px] text-center text-gray-500 md:mt-4">
             PCAT is supported by La Trobe University, Aged Care Research and
             Industry Innovation Australia (ARIIA) and Monash Health.
           </p>
@@ -2005,10 +2005,7 @@ function FaqSection() {
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">FAQ</p>
           <h2 className="mt-2 text-center text-black">Common Questions</h2>
-          <SectionLead
-            centered
-            className="mx-auto mt-4 max-w-4xl text-gray-600 md:mt-4 md:text-gray-500"
-          >
+          <SectionLead centered className="mx-auto mt-4 max-w-4xl md:mt-4">
             Everything you need to know before logging in.
           </SectionLead>
         </div>
@@ -2210,7 +2207,7 @@ function ContactSection() {
         <div className="max-w-[695px] space-y-0 md:space-y-4 text-left">
           <SectionEyebrow className="text-red-600">Get in touch</SectionEyebrow>
           <SectionTitle>Collaborate or Learn More</SectionTitle>
-          <SectionLead className="max-w-600 pt-4 text-gray-600 md:pt-0 md:text-gray-500">
+          <SectionLead className="max-w-600 pt-4 md:pt-0">
             We welcome enquiries from aged care providers, clinicians,
             researchers, consumer advocates, and organisations interested in
             partnering with the PCAT project.

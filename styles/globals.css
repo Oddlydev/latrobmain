@@ -4,7 +4,8 @@
 @layer base {
   :root {
     color-scheme: light;
-    --font-dm-sans: "DM Sans", sans-serif;
+    --font-dm-sans-body: "DM Sans Variable", "DM Sans", sans-serif;
+    --font-dm-sans-display: "DM Sans", sans-serif;
     --Brand---1: #e2231b;
     --Brand---2: #fff;
     --Brand---3: #000;
@@ -97,7 +98,6 @@
   h6 {
     @apply font-display text-black;
   }
-
 }
 
 @utility font-dlig {
@@ -105,59 +105,59 @@
 }
 
 @utility eyebrow {
-  @apply font-dlig font-display text-base font-semibold uppercase leading-6 tracking-[0.8px];
+  @apply font-dlig font-sans text-base font-semibold uppercase leading-6 tracking-[0.8px];
 }
 
 @utility body-base-600 {
-  @apply font-dlig font-display text-base font-semibold leading-6 tracking-normal;
+  @apply font-dlig font-sans text-base font-semibold leading-6 tracking-normal;
 }
 
 @utility body-base-500 {
-  @apply font-dlig font-display text-base font-medium leading-6 tracking-normal;
+  @apply font-dlig font-sans text-base font-medium leading-6 tracking-normal;
 }
 
 @utility body-base-400 {
-  @apply font-dlig font-display text-base font-normal leading-6 tracking-normal;
+  @apply font-dlig font-sans text-base font-normal leading-6 tracking-normal;
 }
 
 @utility body-sm-600 {
-  @apply font-dlig font-display text-sm font-semibold leading-5 tracking-normal;
+  @apply font-dlig font-sans text-sm font-semibold leading-5 tracking-normal;
 }
 
 @utility body-sm-500 {
-  @apply font-dlig font-display text-sm font-medium leading-5 tracking-normal;
+  @apply font-dlig font-sans text-sm font-medium leading-5 tracking-normal;
 }
 
 @utility body-sm-400 {
-  @apply font-dlig font-display text-sm font-normal leading-5 tracking-normal;
+  @apply font-dlig font-sans text-sm font-normal leading-5 tracking-normal;
 }
 
 @utility body-xs-600 {
-  @apply font-dlig font-display text-xs font-semibold leading-4 tracking-normal;
+  @apply font-dlig font-sans text-xs font-semibold leading-4 tracking-normal;
 }
 
 @utility body-xs-500 {
-  @apply font-dlig font-display text-xs font-medium leading-4 tracking-normal;
+  @apply font-dlig font-sans text-xs font-medium leading-4 tracking-normal;
 }
 
 @utility body-xs-400 {
-  @apply font-dlig font-display text-xs font-normal leading-4 tracking-normal;
+  @apply font-dlig font-sans text-xs font-normal leading-4 tracking-normal;
 }
 
 @utility body-copy-600 {
-  @apply font-dlig font-display text-base font-semibold leading-7 tracking-normal;
+  @apply font-dlig font-sans text-base font-semibold leading-7 tracking-normal;
 }
 
 @utility body-copy-500 {
-  @apply font-dlig font-display text-base font-medium leading-7 tracking-normal;
+  @apply font-dlig font-sans text-base font-medium leading-7 tracking-normal;
 }
 
 @utility body-copy-400 {
-  @apply font-dlig font-display text-base font-normal leading-7 tracking-normal;
+  @apply font-dlig font-sans text-base font-normal leading-7 tracking-normal;
 }
 
 @utility quote-copy-500 {
-  @apply font-display text-[18px] font-medium italic leading-7 tracking-normal;
+  @apply font-sans text-[18px] font-medium italic leading-7 tracking-normal;
 }
 
 @layer components {

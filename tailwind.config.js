@@ -10,12 +10,12 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: [
-          "var(--font-dm-sans)",
+          "var(--font-dm-sans-body)",
           "ui-sans-serif",
           "system-ui",
           "sans-serif",
         ],
-        display: ["var(--font-dm-sans)"],
+        display: ["var(--font-dm-sans-display)"],
         mono: ["ui-monospace", "SFMono-Regular", "SF Mono", "monospace"],
       },
       colors: {
@@ -76,6 +76,12 @@ module.exports = {
       },
       width: {
         30: "7.5rem",
+      },
+      maxWidth: {
+        154: "154px",
+        160: "160px",
+        215: "215px",
+        600: "600px",
       },
       borderRadius: {
         xl2: "1.25rem",
