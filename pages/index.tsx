@@ -962,8 +962,8 @@ function HomeHeroSection() {
         />
 
         <div className="relative z-10 px-2.5 pt-2.5 pb-0 md:px-8 md:pt-10 md:pb-0 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
-          <div className="w-full">
-            <p className="lg:body-base-500 md:body-xs-500 body-base-500 inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 text-black shadow-sm">
+          <div className="w-full lg:max-w-154">
+            <p className="body-base-500 inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 text-black shadow-sm">
               <span className="la-hero-status-dot h-2.5 w-2.5 rounded-full bg-green-500" />
               La Trobe Palliative Care Research Programme
             </p>
@@ -976,7 +976,7 @@ function HomeHeroSection() {
                 </span>
               </h1>
 
-              <p className="body-base-400 max-w-full pt-0 text-gray-600 lg:max-w-[616px] md:max-w-full md:pt-0 lg:pt-6">
+              <p className="body-base-400 max-w-160 pt-0 text-gray-600 md:max-w-none md:pt-0 lg:pt-6">
                 PCAT is a research-backed digital platform developed at La Trobe
                 University to help nursing teams in aged care identify patients
                 who need palliative care earlier, more consistently, and with
@@ -1273,7 +1273,7 @@ function CoreFeaturesSection() {
       <SectionAnchor id="features" />
       <div className="la-container">
         <div className="space-y-12">
-          <div className="max-w-215 space-y-2">
+          <div className="space-y-2">
             <p className="eyebrow text-red-600">Core Features</p>
             <h2 className="text-black lg:max-w-xl">
               Everything nurses need, nothing they don&apos;t
@@ -1689,6 +1689,7 @@ function HowItWorksSection() {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const stepRefs = useRef<Array<HTMLDivElement | null>>([]);
   const [lineFillHeight, setLineFillHeight] = useState(0);
+  const [hoveredStepIndex, setHoveredStepIndex] = useState<number | null>(null);
   const [filledSteps, setFilledSteps] = useState<boolean[]>(() =>
     steps.map(() => false),
   );
@@ -1758,7 +1759,7 @@ function HowItWorksSection() {
             aria-hidden="true"
           >
             <div
-              className="w-full rounded-full bg-brand-1 transition-all duration-200 ease-out"
+              className="w-full rounded-full bg-brand-1 transition-[height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[height]"
               style={{ height: `${lineFillHeight}px` }}
             />
           </div>
@@ -1767,6 +1768,8 @@ function HowItWorksSection() {
             {steps.map((step, stepIndex) => {
               const isLeft = step.side === "left";
               const isStepFilled = filledSteps[stepIndex] ?? false;
+              const isStepHighlighted =
+                hoveredStepIndex === stepIndex || isStepFilled;
 
               return (
                 <div
@@ -1777,22 +1780,28 @@ function HowItWorksSection() {
                     ref={(element) => {
                       stepRefs.current[stepIndex] = element;
                     }}
+                    onMouseEnter={() => setHoveredStepIndex(stepIndex)}
+                    onMouseLeave={() => setHoveredStepIndex(null)}
                     className={[
-                      "z-20 col-start-1 row-start-1 flex h-12 w-12 items-center justify-center rounded-full border-2 transition-colors duration-200 ease-out [&_svg]:h-6 [&_svg]:w-6 md:h-10 md:w-10 md:border-2 md:[&_svg]:h-5 md:[&_svg]:w-5 lg:absolute lg:left-1/2 lg:top-1/2 lg:h-14 lg:w-14 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:border-[3px] lg:[&_svg]:h-[26px] lg:[&_svg]:w-[26px]",
-                      isStepFilled
-                        ? "border-red-100 bg-brand-1 text-white"
-                        : "border-brand-1 bg-white text-brand-1",
+                      "z-20 col-start-1 row-start-1 flex h-12 w-12 items-center justify-center rounded-full border-2 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [&_svg]:h-6 [&_svg]:w-6 md:h-10 md:w-10 md:border-2 md:[&_svg]:h-5 md:[&_svg]:w-5 lg:absolute lg:left-1/2 lg:top-1/2 lg:h-14 lg:w-14 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:border-[3px] lg:[&_svg]:h-[26px] lg:[&_svg]:w-[26px]",
+                      isStepHighlighted
+                        ? "scale-[1.03] border-red-100 bg-brand-1 text-white shadow-[0_8px_24px_rgba(226,35,27,0.22)]"
+                        : "scale-100 border-brand-1 bg-white text-brand-1 shadow-none",
                     ].join(" ")}
                   >
                     {step.icon}
                   </div>
 
                   <article
+                    onMouseEnter={() => setHoveredStepIndex(stepIndex)}
+                    onMouseLeave={() => setHoveredStepIndex(null)}
                     className={[
-                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-0 py-0 text-left transition-transform duration-200 ease-out md:px-0 md:py-0 lg:py-5",
-                      isLeft
-                        ? "origin-right hover:-translate-x-2"
-                        : "origin-left hover:translate-x-2",
+                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-0 py-0 text-left transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform md:px-0 md:py-0 lg:py-5",
+                      isStepHighlighted
+                        ? isLeft
+                          ? "origin-right -translate-x-3 opacity-100"
+                          : "origin-left translate-x-3 opacity-100"
+                        : "translate-x-0 opacity-95",
                       isLeft
                         ? "lg:col-start-1 lg:pl-5 lg:pr-0 lg:text-right"
                         : "lg:col-start-3 lg:pl-0 lg:pr-5 lg:text-left",
