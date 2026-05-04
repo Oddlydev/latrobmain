@@ -350,7 +350,7 @@ function HowItWorksSection() {
       >
         <div className="relative z-10 mb-10 text-center">
           <p className="eyebrow text-brand-1">How It Works</p>
-          <h2 className="h2 mt-2 text-black">
+          <h2 className="mt-2 text-black">
             From login to care record in minutes
           </h2>
         </div>
@@ -413,9 +413,7 @@ function HowItWorksSection() {
                       <span className="text-base font-light leading-6 tracking-tighter2 text-gray-500 lg:text-xl lg:leading-7">
                         {step.number}
                       </span>
-                      <h3 className="break-words text-2xl font-bold leading-8 tracking-tighter2 text-black">
-                        {step.title}
-                      </h3>
+                      <h4 className="break-words text-black">{step.title}</h4>
                     </div>
 
                     <p className="mt-2 text-base font-normal leading-6 tracking-normal text-gray-500 lg:mt-3 lg:text-lg">

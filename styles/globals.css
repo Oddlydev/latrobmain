@@ -83,8 +83,7 @@
   }
 
   h1 {
-    color: var(--Brand---3, #000);
-    font-family: var(--font-dm-sans);
+    @apply font-display text-black;
     font-size: var(--font-size-text-4xl, 36px);
     font-style: normal;
     font-weight: var(--font-weight-font-black, 900);
@@ -94,8 +93,7 @@
   }
 
   h2 {
-    color: var(--Brand---3, #000);
-    font-family: var(--font-dm-sans);
+    @apply font-display text-black;
     font-size: var(--font-size-text-3xl, 30px);
     font-style: normal;
     font-weight: var(--font-weight-font-bold, 700);
@@ -105,8 +103,7 @@
   }
 
   h3 {
-    color: var(--Brand---3, #000);
-    font-family: var(--font-dm-sans);
+    @apply font-display text-black;
     font-size: var(--font-size-text-2xl, 24px);
     font-style: normal;
     font-weight: var(--font-weight-font-black, 900);
@@ -116,8 +113,7 @@
   }
 
   h4 {
-    color: var(--Brand---3, #000);
-    font-family: var(--font-dm-sans);
+    @apply font-display text-black;
     font-size: var(--font-size-text-xl, 20px);
     font-style: normal;
     font-weight: var(--font-weight-font-bold, 700);
@@ -148,26 +144,6 @@
       font-size: var(--font-size-text-2xl, 24px);
     }
   }
-}
-
-@utility h1 {
-  @apply font-display text-4xl font-black leading-[110%] tracking-normal lg:text-6xl;
-  font-feature-settings: "dlig" on;
-}
-
-@utility h2 {
-  @apply font-display text-[30px] font-bold leading-[110%] tracking-normal lg:text-[36px];
-  font-feature-settings: "dlig" on;
-}
-
-@utility h3 {
-  @apply font-display text-2xl font-black leading-9 tracking-[-0.8px] lg:text-[30px];
-  font-feature-settings: "dlig" on;
-}
-
-@utility h4 {
-  @apply font-display text-xl font-bold leading-8 tracking-[-0.8px] lg:text-2xl;
-  font-feature-settings: "dlig" on;
 }
 
 @utility eyebrow {
@@ -821,64 +797,44 @@
   }
 
   .la-article-shell {
-    width: 100%;
-    max-width: 808px;
-    margin-inline: auto;
-    padding: 40px 24px 80px;
+    @apply mx-auto w-full max-w-[808px] px-4 pt-10 pb-20 sm:px-6 md:pt-10 md:pb-20 lg:pt-14 lg:pb-24;
+  }
+
+  .la-wysiwyg-preview-frame {
+    @apply mx-4 my-6 rounded-xl border border-white sm:mx-auto sm:my-8 sm:w-full sm:max-w-[860px] lg:my-10;
+    background: rgba(0, 0, 0, 0);
+  }
+
+  .la-wysiwyg-preview-frame .la-article-shell {
+    @apply pt-8 pb-5 md:pt-10 md:pb-5 lg:pt-14 lg:pb-5;
   }
 
   .la-article {
-    width: 100%;
+    @apply w-full;
   }
 
   .la-article-header {
-    margin-bottom: 40px;
-    text-align: center;
+    @apply mb-10 text-center md:mb-12;
   }
 
-  .la-article-title {
-    color: var(--Brand---3, #000);
-    text-align: center;
-    font-family: var(--font-dm-sans);
-    font-size: clamp(42px, 7vw, var(--font-size-text-6xl, 60px));
-    font-style: normal;
-    font-weight: var(--font-weight-font-black, 900);
-    line-height: 110%;
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
-    font-feature-settings: normal;
+  .la-article-header h1 {
+    @apply text-center;
   }
 
   .la-article-meta {
-    margin-top: 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: var(--gray-500, #6b7280);
-    font-feature-settings: "dlig" on;
-    font-family: var(--font-dm-sans);
-    font-size: var(--font-size-text-sm, 14px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-normal, 400);
-    line-height: var(--leading-line-height-leading-5, 20px);
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
+    @apply body-sm-400 mt-3 inline-flex items-center justify-center gap-3 text-gray-500;
   }
 
   .la-article-meta-separator {
-    display: inline-block;
-    width: 4px;
-    height: 4px;
-    border-radius: 9999px;
-    background: var(--gray-400, #9ca3af);
+    @apply inline-block h-1 w-1 rounded-full bg-gray-400;
   }
 
   .la-wysiwyg {
-    color: var(--gray-500, #6b7280);
-    font-feature-settings: "dlig" on;
+    @apply text-gray-500;
   }
 
   .la-wysiwyg > :where(h1, h2, h3, h4):not(:first-child) {
-    margin-top: 48px;
+    @apply mt-12 md:mt-14;
   }
 
   .la-wysiwyg
@@ -892,46 +848,27 @@
       .wp-block-quote,
       .wp-block-pullquote
     ):not(:first-child) {
-    margin-top: 24px;
+    @apply mt-6;
   }
 
   .la-wysiwyg > :where(figure, .wp-block-image):not(:first-child) {
-    margin-top: 32px;
+    @apply mt-8;
   }
 
   .la-wysiwyg :where(p, li) {
-    color: var(--gray-500, #6b7280);
-    font-feature-settings: "dlig" on;
-    font-family: var(--font-dm-sans);
-    font-size: var(--font-size-text-base, 16px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-normal, 400);
-    line-height: var(--leading-line-height-leading-7, 28px);
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
+    @apply body-base-400 text-gray-500;
   }
 
   .la-wysiwyg p {
-    margin: 0;
+    @apply m-0;
   }
 
   .la-wysiwyg :where(strong, b) {
-    color: var(--Brand---3, #000);
-    font-family: var(--font-dm-sans);
-    font-size: var(--font-size-text-base, 16px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-semibold, 600);
-    line-height: var(--leading-line-height-leading-7, 28px);
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
+    @apply body-base-600 text-black;
   }
 
   .la-wysiwyg a {
-    color: var(--Brand---1, #e2231b);
-    font-family: var(--font-dm-sans);
-    font-size: var(--font-size-text-base, 16px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-medium, 500);
-    line-height: var(--leading-line-height-leading-7, 28px);
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
+    @apply body-base-500 text-brand-1;
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-skip-ink: none;
@@ -941,55 +878,19 @@
   }
 
   .la-wysiwyg a:hover {
-    color: var(--Brand---1, #e2231b);
-  }
-
-  .la-wysiwyg :where(h1, h2) {
-    color: var(--Brand---3, #000);
-    font-family: var(--font-dm-sans);
-    font-size: clamp(30px, 4vw, var(--font-size-text-4xl, 36px));
-    font-style: normal;
-    font-weight: var(--font-weight-font-bold, 700);
-    line-height: 110%;
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
-    font-feature-settings: normal;
-  }
-
-  .la-wysiwyg h3 {
-    color: var(--Brand---3, #000);
-    font-feature-settings: "dlig" on;
-    font-family: var(--font-dm-sans);
-    font-size: clamp(26px, 3.7vw, var(--font-size-text-3xl, 30px));
-    font-style: normal;
-    font-weight: var(--font-weight-font-black, 900);
-    line-height: var(--leading-line-height-leading-9, 36px);
-    letter-spacing: var(--letter-spacing-tracking-tighter, -0.8px);
-  }
-
-  .la-wysiwyg h4 {
-    color: var(--Brand---3, #000);
-    font-family: var(--font-dm-sans);
-    font-size: var(--font-size-text-2xl, 24px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-bold, 700);
-    line-height: var(--leading-line-height-leading-8, 32px);
-    letter-spacing: var(--letter-spacing-tracking-tighter, -0.8px);
-    font-feature-settings: normal;
+    @apply text-brand-1;
   }
 
   .la-wysiwyg ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    @apply m-0 list-none p-0;
   }
 
   .la-wysiwyg ul li {
-    position: relative;
-    padding-left: 32px;
+    @apply relative pl-8;
   }
 
   .la-wysiwyg ul li + li {
-    margin-top: 16px;
+    @apply mt-4;
   }
 
   .la-wysiwyg ul li::before {
@@ -1006,120 +907,73 @@
   }
 
   .la-wysiwyg ol {
-    margin: 0;
-    padding-left: 24px;
+    @apply m-0 list-decimal pl-7;
   }
 
   .la-wysiwyg ol li {
-    padding-left: 10px;
+    @apply pl-[10px];
   }
 
   .la-wysiwyg ol li + li {
-    margin-top: 12px;
+    @apply mt-3;
   }
 
   .la-wysiwyg ol li::marker {
-    color: var(--Brand---1, #e2231b);
-    font-feature-settings: "dlig" on;
-    font-family: var(--font-dm-sans);
-    font-size: var(--font-size-text-base, 16px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-normal, 400);
-    line-height: var(--leading-line-height-leading-7, 28px);
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
+    @apply text-brand-1;
   }
 
   .la-wysiwyg :where(figure, .wp-block-image) {
-    margin-inline: auto;
+    @apply mx-auto;
   }
 
   .la-wysiwyg :where(img, .wp-block-image img) {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    background: var(--gray-200, #e5e7eb);
+    @apply block h-auto w-full max-w-full rounded-lg bg-gray-200;
   }
 
   .la-wysiwyg figcaption {
-    margin-top: 12px;
-    color: var(--gray-500, #6b7280);
-    text-align: center;
-    font-feature-settings: "dlig" on;
-    font-family: var(--font-dm-sans);
-    font-size: var(--font-size-text-xs, 12px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-normal, 400);
-    line-height: var(--leading-line-height-leading-4, 16px);
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
+    @apply body-xs-400 mt-3 text-center text-gray-500;
   }
 
   .la-wysiwyg :where(blockquote, .wp-block-quote, .wp-block-pullquote) {
-    margin: 0;
+    @apply m-0 flex items-stretch gap-5 bg-transparent p-0;
     border: 0;
-    border-radius: var(--border-radius-rounded-3xl, 24px);
+  }
+
+  .la-wysiwyg :where(blockquote, .wp-block-quote, .wp-block-pullquote)::before {
+    content: "";
+    width: 4px;
+    align-self: stretch;
+    flex: 0 0 4px;
     background: var(--gray-200, #e5e7eb);
-    padding: 24px;
   }
 
   .la-wysiwyg :where(blockquote, .wp-block-quote, .wp-block-pullquote) p {
-    color: var(--Brand---3, #000);
-    font-family: var(--font-dm-sans);
-    font-size: var(--font-size-text-lg, 18px);
-    font-style: italic;
-    font-weight: var(--font-weight-font-medium, 500);
-    line-height: var(--leading-line-height-leading-7, 28px);
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
+    @apply body-base-500 flex-1 text-lg leading-7 text-black italic;
   }
 
   .la-wysiwyg :where(blockquote, .wp-block-quote, .wp-block-pullquote) cite {
-    display: block;
-    margin-top: 12px;
-    color: var(--gray-500, #6b7280);
-    font-family: var(--font-dm-sans);
-    font-size: var(--font-size-text-sm, 14px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-normal, 400);
-    line-height: var(--leading-line-height-leading-5, 20px);
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
+    @apply body-sm-400 mt-3 block text-gray-500;
   }
 
   .la-wysiwyg :where(.aligncenter, .has-text-align-center) {
-    text-align: center;
+    @apply text-center;
   }
 
   .la-wysiwyg .aligncenter {
-    margin-inline: auto;
+    @apply mx-auto;
   }
 
   .la-wysiwyg .alignleft {
-    margin-right: auto;
+    @apply mr-auto;
   }
 
   .la-wysiwyg .alignright {
-    margin-left: auto;
+    @apply ml-auto;
   }
 
   .la-wysiwyg hr {
-    margin: 40px 0;
+    @apply my-10 border-t border-gray-200;
     border: 0;
-    border-top: 1px solid var(--gray-200, #e5e7eb);
-  }
-
-  @media (min-width: 768px) {
-    .la-article-shell {
-      padding-top: 56px;
-      padding-bottom: 96px;
-    }
-
-    .la-article-header {
-      margin-bottom: 48px;
-    }
-
-    .la-wysiwyg > :where(h1, h2, h3, h4):not(:first-child) {
-      margin-top: 56px;
-    }
   }
 
   .la-purple-wrap {
@@ -1202,25 +1056,11 @@
   }
 
   .la-team-card-name {
-    color: var(--Brand---3, #000);
-    font-family: var(--font-dm-sans);
-    font-size: var(--font-size-text-base, 16px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-bold, 700);
-    line-height: var(--leading-line-height-leading-6, 24px);
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
-    font-feature-settings: "dlig" on;
+    @apply body-base-600 font-bold text-black;
   }
 
   .la-card-type-4-email {
-    color: var(--Brand---3, #000);
-    font-family: var(--font-dm-sans);
-    font-size: var(--font-size-text-base, 16px);
-    font-style: normal;
-    font-weight: var(--font-weight-font-medium, 500);
-    line-height: var(--leading-line-height-leading-6, 24px);
-    letter-spacing: var(--letter-spacing-tracking-normal, 0);
-    font-feature-settings: "dlig" on;
+    @apply body-base-500 text-black;
   }
 
   .la-accordion-icon {
@@ -1230,27 +1070,12 @@
   @media (min-width: 768px) and (max-width: 1023.98px) {
     .la-card-type-4 .eyebrow,
     .la-contact-item .eyebrow {
-      color: var(--gray-500, #6b7280);
-      font-family: var(--font-dm-sans);
-      font-size: var(--font-size-text-base, 16px);
-      font-style: normal;
-      font-weight: var(--font-weight-font-semibold, 600);
-      line-height: var(--leading-line-height-leading-6, 24px);
-      letter-spacing: var(--letter-spacing-tracking-wider, 0.8px);
-      text-transform: uppercase;
-      font-feature-settings: "dlig" on;
+      @apply eyebrow text-gray-500;
     }
 
     .la-card-type-4-email,
     .la-contact-item .body-base-500 {
-      color: var(--Brand---3, #000);
-      font-family: var(--font-dm-sans);
-      font-size: var(--font-size-text-base, 16px);
-      font-style: normal;
-      font-weight: var(--font-weight-font-medium, 500);
-      line-height: var(--leading-line-height-leading-6, 24px);
-      letter-spacing: var(--letter-spacing-tracking-normal, 0);
-      font-feature-settings: "dlig" on;
+      @apply body-base-500 text-black;
     }
 
     .la-contact-item {

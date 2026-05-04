@@ -49,7 +49,7 @@ export default function RichTextArticle({
       <article className="la-article">
         {title || formattedDate ? (
           <header className="la-article-header">
-            {title ? <h1 className="la-article-title">{title}</h1> : null}
+            {title ? <h1>{title}</h1> : null}
 
             {formattedDate ? (
               <p className="la-article-meta">

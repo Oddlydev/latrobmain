@@ -32,7 +32,7 @@ const buttonRows = [
 export default function ButtonsSection() {
   return (
     <section className="la-section">
-      <h2 className="h2 text-black">Buttons</h2>
+      <h2 className="text-black">Buttons</h2>
 
       <div className="la-purple-wrap">
         <div className="overflow-hidden rounded-[28px] border border-dashed border-violet-300 bg-white p-5 sm:p-7">

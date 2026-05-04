@@ -8,7 +8,7 @@ const shadowRows = [
 export default function ShadowsSection() {
   return (
     <section className="la-section">
-      <h2 className="h2 text-black">Shadows</h2>
+      <h2 className="text-black">Shadows</h2>
 
       <div className="la-purple-wrap">
         <div className="overflow-hidden rounded-[32px] border border-gray-200 bg-white">

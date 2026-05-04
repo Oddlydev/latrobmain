@@ -70,7 +70,7 @@ function SectionTitle({
   return (
     <h2
       className={[
-        "mt-2 mb-0 font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:leading-[110%] lg:tracking-normal",
+        "mt-2 mb-0 text-black",
         centered ? "text-center" : "",
         className ?? "",
       ]
@@ -963,13 +963,13 @@ function HomeHeroSection() {
 
         <div className="relative z-10 px-2.5 pt-2.5 pb-0 md:px-8 md:pt-10 md:pb-0 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
           <div className="w-full lg:max-w-154">
-            <p className="inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 font-display text-xs font-medium leading-4 tracking-normal text-black shadow-sm">
+            <p className="body-xs-500 inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 text-black shadow-sm">
               <span className="la-hero-status-dot h-2.5 w-2.5 rounded-full bg-green-500" />
               La Trobe Palliative Care Research Programme
             </p>
 
             <div className="mt-5 space-y-5 md:mt-5 md:space-y-5 lg:mt-12 lg:space-y-0">
-              <h1 className="h1 text-black font-bold leading-[110%] tracking-normal md:text-4xl md:font-bold md:leading-[110%] md:tracking-normal">
+              <h1 className="text-black">
                 <span className="block">Palliative Care</span>
                 <span className="mt-1 block text-brand-1 lg:mt-0">
                   Assessment Tool
@@ -1112,7 +1112,7 @@ function AboutSection() {
         <SectionEyebrow className="text-red-600">
           About the project
         </SectionEyebrow>
-        <h2 className="mt-2 mb-5 block max-w-[695px] font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:mb-7 md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:font-bold lg:leading-[110%] lg:tracking-normal">
+        <h2 className="mt-2 mb-5 block max-w-[695px] text-black md:mb-7">
           Identifying palliative care needs - earlier, and with confidence
         </h2>
       </div>
@@ -1129,7 +1129,7 @@ function AboutSection() {
           </SectionLead>
 
           <div className="rounded-xl border border-red-200 bg-white p-6 md:px-6 md:py-6 lg:px-6 lg:py-6">
-            <p className="font-display text-lg font-semibold leading-6 tracking-normal text-black lg:text-xl lg:leading-7">
+            <p className="body-base-600 text-lg text-black lg:text-xl lg:leading-7">
               PCAT is an evidence based palliative care assessment toolkit that
               is designed to flag palliative care needs. Nurses can complete
               assessments, monitor patient health trends over time, review full
@@ -1275,7 +1275,7 @@ function CoreFeaturesSection() {
         <div className="space-y-12">
           <div className="max-w-215 space-y-2">
             <p className="eyebrow text-red-600">Core Features</p>
-            <h2 className="font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-bold md:leading-9 md:tracking-[-0.8px] lg:max-w-xl lg:text-4xl lg:leading-[110%] lg:tracking-normal">
+            <h2 className="text-black lg:max-w-xl">
               Everything nurses need, nothing they don&apos;t
             </h2>
           </div>
@@ -1746,7 +1746,7 @@ function HowItWorksSection() {
       <div className="relative overflow-hidden">
         <div className="relative z-10 mb-5 text-left sm:mb-7 lg:mb-12 lg:text-center">
           <p className="eyebrow text-brand-1">How It Works</p>
-          <h2 className="mt-5 font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black sm:mt-7 md:mt-2 md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:mt-2 lg:text-4xl lg:leading-[110%] lg:tracking-normal">
+          <h2 className="mt-5 text-black sm:mt-7 md:mt-2 lg:mt-2">
             From login to care record in minutes
           </h2>
         </div>
@@ -1809,9 +1809,7 @@ function HowItWorksSection() {
                       <span className="shrink-0 text-right font-display text-xl font-light leading-7 tracking-[-0.8px] text-gray-500">
                         {step.number}
                       </span>
-                      <h3 className="font-display text-xl font-bold leading-7 tracking-[-0.8px] text-black md:text-xl md:leading-7">
-                        {step.title}
-                      </h3>
+                      <h4 className="text-black">{step.title}</h4>
                     </div>
 
                     <p
@@ -1932,9 +1930,7 @@ function SupportSection() {
       <div className="la-container">
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">Funding & Governance</p>
-          <h2 className="mt-2 text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:leading-[110%] lg:tracking-normal">
-            Supported by
-          </h2>
+          <h2 className="mt-2 text-center text-black">Supported by</h2>
           <p className="body-base-400 mx-auto mt-4 max-w-[550px] text-center text-gray-600 md:mt-4 md:text-gray-500">
             PCAT is supported by La Trobe University, Aged Care Research and
             Industry Innovation Australia (ARIIA) and Monash Health.
@@ -2008,9 +2004,7 @@ function FaqSection() {
       <div className="space-y-5 md:space-y-5 lg:space-y-12">
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">FAQ</p>
-          <h2 className="mt-2 text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-black md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:leading-[110%] lg:tracking-normal">
-            Common Questions
-          </h2>
+          <h2 className="mt-2 text-center text-black">Common Questions</h2>
           <SectionLead
             centered
             className="mx-auto mt-4 max-w-4xl text-gray-600 md:mt-4 md:text-gray-500"
@@ -2041,9 +2035,7 @@ function LoginCtaSection() {
     >
       <div className="la-container text-center">
         <div className="space-y-4 md:space-y-4 lg:space-y-1">
-          <h2 className="text-center font-display text-3xl font-black leading-9 tracking-[-0.8px] text-white md:text-[30px] md:font-black md:leading-9 md:tracking-[-0.8px] lg:text-4xl lg:font-bold lg:leading-[110%] lg:tracking-normal">
-            Ready to get started?
-          </h2>
+          <h2 className="text-center text-white">Ready to get started?</h2>
           <p className="body-base-400 text-center text-gray-400">
             Log in to PCAT and take the next step in delivering better
             palliative care.
@@ -2245,11 +2237,9 @@ function ContactSection() {
               <div className="la-contact-ethics-icon">
                 <EthicsIcon />
               </div>
-              <h3 className="body-base-600 font-display text-xl font-bold leading-7 tracking-[-0.8px] text-black uppercase">
-                Ethics & Governance
-              </h3>
+              <h4 className="uppercase text-black">Ethics & Governance</h4>
             </div>
-            <p className="body-base-400 mt-5 font-display text-lg font-medium leading-7 tracking-normal text-black md:mt-8 lg:text-xl">
+            <p className="body-base-500 mt-5 text-lg leading-7 text-black md:mt-8 lg:text-xl">
               This research is conducted in accordance with La Trobe
               University&apos;s Human Research Ethics framework and relevant
               aged care legislation. All data collection and use is subject to

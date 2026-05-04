@@ -1,9 +1,4 @@
-import {
-  ClipboardIcon,
-  DocumentIcon,
-  MailIcon,
-  TargetIcon,
-} from "./icons";
+import { ClipboardIcon, DocumentIcon, MailIcon, TargetIcon } from "./icons";
 import {
   CardType1,
   CardType2,
@@ -13,13 +8,13 @@ import {
 } from "../ui/Card";
 
 function CardTitle({ children }: { children: string }) {
-  return <h3 className="h4 text-center text-gray-500">{children}</h3>;
+  return <h4 className="text-center text-gray-500">{children}</h4>;
 }
 
 export default function CardsSection() {
   return (
     <section className="la-section">
-      <h2 className="h2 text-black">Cards</h2>
+      <h2 className="text-black">Cards</h2>
 
       <div className="la-purple-wrap">
         <div className="grid gap-8 md:grid-cols-2">

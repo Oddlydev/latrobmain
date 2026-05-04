@@ -24,7 +24,7 @@ const accordionItems = [
 export default function AccordionSection() {
   return (
     <section className="la-section">
-      <h2 className="h2 text-black">Accordion</h2>
+      <h2 className="text-black">Accordion</h2>
 
       <div className="la-purple-wrap p-6 sm:p-8">
         <Accordion items={accordionItems} />

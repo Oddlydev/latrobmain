@@ -45,7 +45,7 @@ export default function PostListItem({ post }: PostListItemProps) {
         ) : null}
       </div>
 
-      <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-black">
+      <h4 className="mt-4 text-black">
         <Link
           href={uri || ""}
           title={title}
@@ -53,7 +53,7 @@ export default function PostListItem({ post }: PostListItemProps) {
         >
           {title}
         </Link>
-      </h2>
+      </h4>
 
       <FeaturedImage
         post={post}

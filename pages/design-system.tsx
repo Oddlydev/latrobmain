@@ -236,24 +236,20 @@ export default function DesignSystemPage() {
         <section className="la-hero">
           <div className="la-hero-inner">
             <div className="space-y-3">
-              <p className="inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider2 text-white/80">
+              <p className="body-xs-600 inline-flex rounded-full bg-white/10 px-3 py-1 uppercase tracking-wider2 text-white/80">
                 UI Kit
               </p>
-              <h1 className="font-display text-4xl font-bold tracking-tight text-white sm:text-display-lg">
-                Design System
-              </h1>
+              <h1 className="text-white">Design System</h1>
             </div>
           </div>
         </section>
 
         <section className="la-section">
-          <h2 className="h2 text-black">Colors</h2>
+          <h2 className="text-black">Colors</h2>
           <div className="la-purple-wrap space-y-6">
             {colorGroups.map((group) => (
               <div key={group.label} className="space-y-4">
-                <h3 className="text-xl font-semibold text-black">
-                  {group.label}
-                </h3>
+                <h4 className="text-black">{group.label}</h4>
                 <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                   {group.items.map((item) => (
                     <ColorSwatch key={item.name} {...item} />
@@ -271,9 +267,9 @@ export default function DesignSystemPage() {
                 <p className="text-xs font-medium leading-5 text-white/80">
                   UI KIT for La Trobe University Digital PCAT Web App &amp; Web
                 </p>
-                <h2 className="text-[28px] font-bold leading-9 text-white lg:text-[40px] lg:leading-[48px]">
+                <p className="font-display text-[28px] font-bold leading-9 text-white lg:text-[40px] lg:leading-[48px]">
                   Typography System for PCAT Web Page
-                </h2>
+                </p>
               </div>
               <Image
                 src="/assets/images/la-trobe-university-1.svg"

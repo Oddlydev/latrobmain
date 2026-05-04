@@ -622,7 +622,7 @@ export default function IconographySection() {
 
   return (
     <section className="la-section">
-      <h2 className="h2 text-black">Iconography</h2>
+      <h2 className="text-black">Iconography</h2>
 
       <div className="la-purple-wrap">
         <div className="space-y-8">
