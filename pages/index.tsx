@@ -1768,8 +1768,8 @@ function HowItWorksSection() {
             {steps.map((step, stepIndex) => {
               const isLeft = step.side === "left";
               const isStepFilled = filledSteps[stepIndex] ?? false;
-              const isStepHighlighted =
-                hoveredStepIndex === stepIndex || isStepFilled;
+              const isStepHovered = hoveredStepIndex === stepIndex;
+              const isStepHighlighted = isStepHovered || isStepFilled;
 
               return (
                 <div
@@ -1797,7 +1797,7 @@ function HowItWorksSection() {
                     onMouseLeave={() => setHoveredStepIndex(null)}
                     className={[
                       "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-0 py-0 text-left transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform md:px-0 md:py-0 lg:py-5",
-                      isStepHighlighted
+                      isStepHovered
                         ? isLeft
                           ? "origin-right -translate-x-3 opacity-100"
                           : "origin-left translate-x-3 opacity-100"
