@@ -962,7 +962,7 @@ function HomeHeroSection() {
         />
 
         <div className="relative z-10 px-2.5 pt-2.5 pb-0 md:px-8 md:pt-10 md:pb-0 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
-          <div className="w-full lg:max-w-154">
+          <div className="w-full">
             <p className="lg:body-base-500 md:body-xs-500 body-base-500 inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 text-black shadow-sm">
               <span className="la-hero-status-dot h-2.5 w-2.5 rounded-full bg-green-500" />
               La Trobe Palliative Care Research Programme
