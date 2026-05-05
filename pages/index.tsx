@@ -1316,6 +1316,12 @@ function CoreFeaturesSection() {
                   reduceMotion ||
                   (hasStarted && revealIndex < visibleCardCount);
 
+                const innerRoundedClass = isPrimary
+                  ? "rounded-[19px]"
+                  : isDashboard
+                    ? "rounded-[15px]"
+                    : "rounded-[13px]";
+
                 return (
                   <article
                     key={card.id}
@@ -1323,7 +1329,7 @@ function CoreFeaturesSection() {
                   >
                     <div
                       className={[
-                        "la-core-feature-shell relative h-full w-full overflow-hidden border-[5px] border-white bg-transparent",
+                        "la-core-feature-shell relative h-full w-full overflow-hidden bg-white p-[5px]",
                         isVisible
                           ? "la-core-feature-shell--visible"
                           : "la-core-feature-shell--hidden",
@@ -1336,7 +1342,7 @@ function CoreFeaturesSection() {
                     >
                       <div
                         className={[
-                          "la-core-feature-motion h-full w-full overflow-hidden rounded-[inherit]",
+                          `la-core-feature-motion h-full w-full overflow-hidden ${innerRoundedClass}`,
                           isPrimary
                             ? "la-core-feature-motion--primary"
                             : "la-core-feature-motion--secondary",
@@ -1350,8 +1356,8 @@ function CoreFeaturesSection() {
                           className={[
                             "block h-full w-full",
                             isDashboard
-                              ? "origin-center scale-[1.075] object-cover object-center"
-                              : "object-cover object-center",
+                              ? "la-core-feature-img--dashboard origin-center scale-[1.075] object-cover object-center"
+                              : "la-core-feature-img--photo object-cover object-center",
                           ].join(" ")}
                         />
                       </div>
