@@ -1015,7 +1015,7 @@ function HomeHeroSection() {
           className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white/35 to-transparent md:hidden lg:hidden"
         />
 
-        <div className="relative z-10 px-2.5 pt-2.5 pb-0 md:px-8 md:pt-10 md:pb-0 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
+        <div className="relative z-10 px-2.5 pt-2.5 pb-0 md:px-10 md:pt-10 md:pb-0 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
           <div className="w-full">
             <p className="body-base-500 inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 text-black shadow-sm">
               <span className="la-hero-status-dot h-2.5 w-2.5 rounded-full bg-green-500" />
@@ -1141,7 +1141,7 @@ function AboutSection() {
     valueClassName?: string;
   }) {
     return (
-      <div className="grid grid-cols-[132px_minmax(0,1fr)] items-center gap-5 border-b border-gray-200 px-6 py-6 last:border-b-0 md:grid-cols-[180px_minmax(0,1fr)] md:gap-6 md:px-6 md:py-6 lg:px-8 lg:py-10">
+      <div className="grid grid-cols-[132px_minmax(0,1fr)] items-center gap-5 border-b border-gray-200 px-6 py-6 last:border-b-0 md:grid-cols-[180px_minmax(0,1fr)] md:gap-9 md:px-5 md:py-6 lg:px-8 lg:py-10">
         <p className="body-base-600 text-lg uppercase leading-7 tracking-[-0.8px] text-gray-600 md:text-xl md:leading-8">
           {label}
         </p>
@@ -1171,7 +1171,7 @@ function AboutSection() {
         </h2>
       </div>
 
-      <div className="grid gap-5 md:gap-5 lg:grid-cols-2 lg:gap-12">
+      <div className="grid gap-5 md:gap-7 lg:grid-cols-2 lg:gap-12">
         <div className="la-about-copy-stack">
           <SectionLead className="max-w-[695px]">
             PCAT was developed under Professor Hanan Khalil's initiative at La
@@ -1211,7 +1211,7 @@ function AboutFeatureCardsSection() {
   return (
     <section className="border-b border-black/8 pt-5 pb-10 md:pt-7 md:pb-10 lg:pt-12 lg:pb-20">
       <div className="la-container">
-        <div className="grid gap-5 md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:grid-cols-4 lg:gap-6">
+        <div className="grid gap-5 md:grid-cols-2 md:gap-x-0.5 md:gap-y-20 lg:grid-cols-4 lg:gap-6">
           {ABOUT_FEATURE_CARDS.map((item) => (
             <AboutFeatureTile key={item.title} {...item} />
           ))}
@@ -1346,10 +1346,10 @@ function CoreFeaturesSection() {
   }, [hasStarted, reduceMotion]);
 
   return (
-    <section ref={sectionRef} className="pt-10 pb-10 md:pt-20 md:pb-12">
+    <section ref={sectionRef} className="pt-10 pb-10 md:pt-20 md:pb-7 lg:pb-12">
       <SectionAnchor id="features" />
       <div className="la-container">
-        <div className="space-y-12">
+        <div className="space-y-12 md:space-y-7 lg:space-y-12">
           <div className="space-y-2">
             <p className="eyebrow text-red-600">Core Features</p>
             <h2 className="text-black lg:max-w-xl">
@@ -1913,7 +1913,7 @@ function HowItWorksSection() {
                     onMouseEnter={() => setHoveredStepIndex(stepIndex)}
                     onMouseLeave={() => setHoveredStepIndex(null)}
                     className={[
-                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-0 py-0 text-left transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform md:px-0 md:py-0 lg:py-5",
+                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-0 py-0 text-left transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform md:px-0 md:py-5 lg:py-5",
                       isStepHovered
                         ? isLeft
                           ? "origin-right -translate-x-3 opacity-100"
@@ -2004,22 +2004,24 @@ function TeamSection() {
   ];
 
   return (
-    <section className="la-container border-t border-gray-200 py-10 md:py-10 lg:py-20">
+    <section className="border-t border-gray-200 py-10 md:py-10 lg:py-20">
       <SectionAnchor id="team" />
-      <div className="space-y-5 md:space-y-5 lg:space-y-3">
-        <div className="max-w-2xl">
-          <SectionEyebrow className="text-brand-1">
-            Research team
-          </SectionEyebrow>
-          <SectionTitle className="max-w-[600px]">
-            The people behind PCAT
-          </SectionTitle>
-        </div>
+      <div className="la-container">
+        <div className="space-y-5 md:space-y-5 lg:space-y-3">
+          <div className="max-w-2xl">
+            <SectionEyebrow className="text-brand-1">
+              Research team
+            </SectionEyebrow>
+            <SectionTitle className="max-w-[600px]">
+              The people behind PCAT
+            </SectionTitle>
+          </div>
 
-        <div className="mt-5 grid gap-5 md:mt-7 lg:mt-12 md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:gap-6 xl:grid-cols-3">
-          {teamMembers.map((member) => (
-            <TeamCard key={member.title} {...member} />
-          ))}
+          <div className="mt-5 grid gap-5 md:mt-7 lg:mt-12 md:grid-cols-2 md:gap-x-5 md:gap-y-5 lg:gap-6 xl:grid-cols-3">
+            {teamMembers.map((member) => (
+              <TeamCard key={member.title} {...member} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -2063,7 +2065,7 @@ function SupportSection() {
           </p>
         </div>
 
-        <div className="mt-5 grid gap-5 lg:gap-6 md:mt-7 lg:mt-12 md:grid-cols-2 md:gap-x-5 md:gap-y-5 xl:grid-cols-3">
+        <div className="mt-5 grid gap-5 lg:gap-6 md:mt-7 lg:mt-12 md:grid-cols-2 md:gap-x-5 md:gap-y-20 xl:grid-cols-3">
           {supportCards.map((item) => (
             <article
               key={item.title}
@@ -2127,7 +2129,7 @@ function FaqSection() {
   return (
     <section className="la-container py-10 md:py-10 lg:py-20">
       <SectionAnchor id="faq" />
-      <div className="space-y-5 md:space-y-5 lg:space-y-12">
+      <div className="space-y-5 md:space-y-7 lg:space-y-12">
         <div className="mx-auto max-w-5xl text-center">
           <p className="eyebrow text-red-600">FAQ</p>
           <h2 className="mt-2 text-center text-black">Common Questions</h2>
@@ -2171,6 +2173,7 @@ function LoginCtaSection() {
             target="_blank"
             rel="noreferrer"
             variant="primary-dark-icon-left"
+            className="md:px-5 md:py-3 lg:px-8 lg:py-4"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -2329,8 +2332,8 @@ function ContactSection() {
   return (
     <section className="la-container py-10 md:py-10 lg:py-20">
       <SectionAnchor id="contact" />
-      <div className="space-y-5 md:space-y-5 lg:space-y-12">
-        <div className="max-w-[695px] space-y-0 md:space-y-4 text-left">
+      <div className="space-y-5 md:space-y-7 lg:space-y-12">
+        <div className="max-w-[695px] space-y-0 text-left md:space-y-0 lg:space-y-4">
           <SectionEyebrow className="text-red-600">Get in touch</SectionEyebrow>
           <SectionTitle>Collaborate or Learn More</SectionTitle>
           <SectionLead className="max-w-600 pt-4">
@@ -2341,7 +2344,7 @@ function ContactSection() {
         </div>
 
         <div className="grid gap-5 md:gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.95fr)] lg:items-start lg:gap-12">
-          <div className="space-y-5 md:space-y-5">
+          <div className="space-y-5 md:space-y-4 lg:space-y-5">
             {contactItems.map((item) => (
               <ContactCard
                 key={item.label}
@@ -2362,7 +2365,7 @@ function ContactSection() {
               </div>
               <h4 className="uppercase text-black">Ethics & Governance</h4>
             </div>
-            <p className="body-base-500 mt-5 text-lg leading-7 text-black md:mt-8 lg:text-xl">
+            <p className="body-base-500 mt-5 text-lg leading-7 text-black md:mt-5 lg:mt-8 lg:text-xl">
               This research is conducted in accordance with La Trobe
               University&apos;s Human Research Ethics framework and relevant
               aged care legislation. All data collection and use is subject to
@@ -2385,7 +2388,7 @@ export default function Home() {
         <AboutFeatureCardsSection />
         <CoreFeaturesSection />
         <HowItWorksFeatureCardsSection />
-        <section className="la-how-it-works-section py-20">
+        <section className="la-how-it-works-section py-10 md:py-10 lg:py-20">
           <div className="la-container">
             <HowItWorksSection />
           </div>

@@ -63,7 +63,7 @@ export default function Accordion({
               onClick={() => toggleItem(item.id)}
               aria-expanded={isOpen}
             >
-              <span className="body-base-500 text-left text-black group-hover:underline md:font-bold lg:font-medium">
+              <span className="body-base-500 text-left text-black group-hover:underline lg:font-medium">
                 {item.title}
               </span>
               {isOpen ? (
