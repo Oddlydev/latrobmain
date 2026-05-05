@@ -986,7 +986,7 @@ function HomeHeroSection() {
             </div>
 
             <div className="mt-5 flex flex-wrap gap-4 pb-5 md:mt-5 md:gap-4 md:pb-7 lg:mt-12 lg:gap-4 lg:pb-0">
-              <Button href={LOGIN_URL} variant="primaryIconRight">
+              <Button href={LOGIN_URL} variant="primary-light-icon-right">
                 Access PCAT Tool
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1005,7 +1005,7 @@ function HomeHeroSection() {
                   />
                 </svg>
               </Button>
-              <Button href="#about" variant="secondary">
+              <Button href="#about" variant="secondary-light">
                 Learn more
               </Button>
             </div>
@@ -2052,7 +2052,7 @@ function LoginCtaSection() {
             href={LOGIN_URL}
             target="_blank"
             rel="noreferrer"
-            variant="primaryIconLeft"
+            variant="primary-dark-icon-left"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

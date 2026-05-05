@@ -68,7 +68,7 @@ export default function PostListItem({ post }: PostListItemProps) {
       />
 
       <div className="mt-6">
-        <Button href={uri || ""} title="Read more" variant="secondary">
+        <Button href={uri || ""} title="Read more" variant="secondary-light">
           Read more
         </Button>
       </div>

@@ -2,10 +2,14 @@ import Link from "next/link";
 import React from "react";
 
 type ButtonVariant =
-  | "primary"
-  | "primaryIconRight"
-  | "primaryIconLeft"
-  | "secondary";
+  | "primary-light"
+  | "primary-light-icon-right"
+  | "primary-light-icon-left"
+  | "secondary-light"
+  | "primary-dark"
+  | "primary-dark-icon-right"
+  | "primary-dark-icon-left"
+  | "secondary-dark";
 
 type SharedProps = {
   variant?: ButtonVariant;
@@ -24,10 +28,14 @@ type NativeButtonProps = SharedProps &
   };
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: "la-button-primary",
-  primaryIconRight: "la-button-primary-icon-right",
-  primaryIconLeft: "la-button-primary-icon-left",
-  secondary: "la-button-secondary",
+  "primary-light": "la-button-primary-light",
+  "primary-light-icon-right": "la-button-primary-light-icon-right",
+  "primary-light-icon-left": "la-button-primary-light-icon-left",
+  "secondary-light": "la-button-secondary-light",
+  "primary-dark": "la-button-primary-dark",
+  "primary-dark-icon-right": "la-button-primary-dark-icon-right",
+  "primary-dark-icon-left": "la-button-primary-dark-icon-left",
+  "secondary-dark": "la-button-secondary-dark",
 };
 
 function buttonClassName(variant: ButtonVariant, className?: string) {
@@ -35,7 +43,7 @@ function buttonClassName(variant: ButtonVariant, className?: string) {
 }
 
 export default function Button(props: AnchorButtonProps | NativeButtonProps) {
-  const { variant = "primary", className, children, ...rest } = props;
+  const { variant = "primary-light", className, children, ...rest } = props;
   const classes = buttonClassName(variant, className);
 
   if ("href" in props) {

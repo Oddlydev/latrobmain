@@ -26,6 +26,9 @@ const fallbackMenu = [
   { id: "contact", uri: "/#contact", label: "Contact" },
 ];
 
+const LOGIN_URL =
+  "https://hzb21crtlga4y8d2dror4g9us.js.wpenginepowered.com/login/";
+
 const homeSectionLinks: Record<string, string> = {
   about: "/#about",
   "about-us": "/#about",
@@ -218,7 +221,13 @@ export default function Header({
               ))}
             </nav>
             <span className="h-6 w-px bg-gray-200/80" aria-hidden="true" />
-            <Button href="/" className="la-button-compact whitespace-nowrap">
+            <Button
+              href={LOGIN_URL}
+              target="_blank"
+              rel="noreferrer"
+              variant="primary-dark"
+              className="la-button-compact whitespace-nowrap"
+            >
               Access Tool
             </Button>
           </div>
@@ -245,7 +254,13 @@ export default function Header({
                 ))}
               </nav>
 
-              <Button href="/" className="la-button-compact whitespace-nowrap">
+              <Button
+                href={LOGIN_URL}
+                target="_blank"
+                rel="noreferrer"
+                variant="primary-dark"
+                className="la-button-compact whitespace-nowrap"
+              >
                 Access Tool
               </Button>
             </div>
