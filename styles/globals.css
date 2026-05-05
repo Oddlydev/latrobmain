@@ -186,6 +186,16 @@
     @apply space-y-6;
   }
 
+  .la-how-it-works-section {
+    background: url("/assets/images/how-it-works-mobile.png") 100px 100px repeat;
+  }
+
+  @media (min-width: 768px) {
+    .la-how-it-works-section {
+      background-image: url("/assets/images/how-it-works-desktop.png");
+    }
+  }
+
   .la-section-lead {
     @apply body-base-400 max-w-3xl text-gray-500;
   }
@@ -428,7 +438,6 @@
   .la-core-feature-shell {
     will-change: opacity, transform, box-shadow;
     background-color: transparent;
-    box-shadow: 0 18px 36px -16px rgba(15, 23, 42, 0.16);
     transition:
       opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
       transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -436,21 +445,21 @@
       filter 280ms linear;
   }
 
+  .la-core-feature-shell--large {
+    box-shadow: 0 9px 72px 10px rgba(226, 35, 27, 0.24);
+  }
+
+  .la-core-feature-shell--small {
+    box-shadow: 0 18px 30px -14px rgba(0, 0, 0, 0.18);
+  }
+
   /* Clip + transform on separate nodes; clip-path reinforces rounded crop. */
   .la-core-feature-clip {
     isolation: isolate;
   }
 
-  .la-core-feature-clip--r13 {
-    clip-path: inset(0 round 13px);
-  }
-
-  .la-core-feature-clip--r15 {
-    clip-path: inset(0 round 15px);
-  }
-
-  .la-core-feature-clip--r19 {
-    clip-path: inset(0 round 19px);
+  .la-core-feature-clip--r4 {
+    clip-path: inset(0 round 0);
   }
 
   .la-core-feature-motion {
@@ -469,7 +478,7 @@
   }
 
   .la-core-feature-motion .la-core-feature-img.la-core-feature-img--photo {
-    transform: translate3d(0, 0, 0) scale(1.052);
+    transform: translate3d(0, 0, 0) scale(1.026);
     transform-origin: center;
     backface-visibility: hidden;
   }
@@ -975,49 +984,62 @@
     @apply rounded-xl border-2 border-dashed border-violet-400 p-5;
   }
 
+  .la-card-type-1,
+  .la-card-type-2,
+  .la-card-type-3,
+  .la-card-type-4 {
+    will-change: transform, box-shadow;
+    transition:
+      transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 220ms ease-out;
+  }
+
   .la-card-type-1 {
-    @apply flex translate-y-0 items-center gap-5 rounded-2xl border border-gray-200 bg-white px-5 py-5 transition-[transform,box-shadow,background-color] duration-200 ease-out;
+    @apply flex translate-y-0 items-center gap-5 rounded-2xl border border-gray-200 bg-white px-5 py-5;
   }
 
   .la-card-type-1:hover {
-    @apply -translate-y-0.5 shadow-[inset_0_0_40px_4px_rgba(226,35,27,0.06)];
+    @apply -translate-y-1 shadow-[inset_0_0_40px_4px_rgba(226,35,27,0.06)];
   }
 
   .la-card-type-2 {
-    @apply flex flex-col rounded-2xl border border-gray-200 bg-white/[0.42] p-6 transition-[box-shadow] duration-200 ease-out;
+    @apply flex translate-y-0 flex-col rounded-2xl border border-gray-200 bg-white/[0.42] p-6;
     border-radius: var(--border-radius-rounded-2xl, 16px);
     border-color: var(--gray-200, #e5e7eb);
     background: rgba(255, 255, 255, 0.42);
   }
 
   .la-card-type-2:hover {
-    @apply border-gray-200 bg-white/[0.42] shadow-la-shadow-3;
+    @apply -translate-y-1 border-gray-200 bg-white/[0.42] shadow-la-shadow-3;
     border-radius: var(--border-radius-rounded-2xl, 16px);
     border-color: var(--gray-200, #e5e7eb);
     background: rgba(255, 255, 255, 0.42);
   }
 
   .la-card-type-3 {
-    @apply flex translate-y-0 flex-col rounded-2xl border border-gray-200 bg-white p-6 transition-[transform,box-shadow,background-color] duration-200 ease-out;
+    @apply flex translate-y-0 flex-col rounded-2xl border border-gray-200 bg-white p-6;
     border-radius: var(--border-radius-rounded-2xl, 16px);
     border-color: var(--gray-200, #e5e7eb);
     background: var(--Brand---2, #fff);
   }
 
   .la-card-type-3:hover {
+    @apply -translate-y-1 shadow-la-shadow-4;
     border-radius: var(--border-radius-rounded-2xl, 16px);
     border-color: var(--gray-200, #e5e7eb);
     background: var(--Brand---2, #fff);
   }
 
   .la-card-type-4 {
-    @apply flex w-full min-w-0 translate-y-0 items-center gap-4 rounded-2xl border border-gray-200 bg-white px-4 py-4 transition-[transform,box-shadow,background-color] duration-200 ease-out;
+    @apply flex w-full min-w-0 translate-y-0 items-center gap-4 rounded-2xl border border-gray-200 bg-white px-4 py-4;
     border-radius: var(--border-radius-rounded-2xl, 16px);
     border-color: var(--gray-200, #e5e7eb);
     background: var(--Brand---2, #fff);
   }
 
   .la-card-type-4:hover {
+    @apply -translate-y-1;
     border-radius: var(--border-radius-rounded-2xl, 16px);
     border-color: var(--gray-200, #e5e7eb);
     background: var(--Brand---2, #fff);

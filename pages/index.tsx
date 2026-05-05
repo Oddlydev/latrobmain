@@ -1,4 +1,10 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
 import Layout from "../src/components/Layout";
 import Button from "../components/ui/Button";
 import Accordion from "../components/ui/Accordion";
@@ -176,14 +182,36 @@ const HOW_IT_WORKS_FEATURE_CARDS = [
   },
 ];
 
-const CORE_FEATURE_CARDS = [
+type CoreFeatureCard = {
+  id: string;
+  src: string;
+  alt: string;
+  kind: "dashboard" | "photo";
+  motionDelayMs: number;
+  frame: {
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+  };
+  shadow: "large" | "small";
+  className: string;
+  imageStyle?: CSSProperties;
+};
+
+const CORE_FEATURE_STAGE_WIDTH = 1295;
+const CORE_FEATURE_STAGE_HEIGHT = 718;
+
+const CORE_FEATURE_CARDS: readonly CoreFeatureCard[] = [
   {
     id: "dashboard-primary",
     src: coreFeatureDashboard1.src,
     alt: "PCAT overview dashboard",
     kind: "dashboard",
     motionDelayMs: 0,
-    className: "left-[42.6%] top-[3.1%] z-[8] h-[54.8%] w-[28.2%]",
+    frame: { left: 504, top: 24, width: 350, height: 381 },
+    shadow: "large",
+    className: "z-[9]",
   },
   {
     id: "dashboard-secondary",
@@ -191,7 +219,9 @@ const CORE_FEATURE_CARDS = [
     alt: "PCAT patient list dashboard",
     kind: "dashboard",
     motionDelayMs: 620,
-    className: "left-[11.4%] top-[36.5%] z-[4] h-[61.4%] w-[29.2%]",
+    frame: { left: 147, top: 258, width: 350, height: 416 },
+    shadow: "large",
+    className: "z-[99999]",
   },
   {
     id: "dashboard-tertiary",
@@ -199,7 +229,9 @@ const CORE_FEATURE_CARDS = [
     alt: "PCAT patient profile dashboard",
     kind: "dashboard",
     motionDelayMs: 1180,
-    className: "left-[72.1%] top-[35.8%] z-[4] h-[61.4%] w-[27.3%]",
+    frame: { left: 931, top: 258, width: 350, height: 416 },
+    shadow: "large",
+    className: "z-[4]",
   },
   {
     id: "photo-hug",
@@ -207,7 +239,9 @@ const CORE_FEATURE_CARDS = [
     alt: "Nurse comforting an older patient",
     kind: "photo",
     motionDelayMs: 180,
-    className: "left-[1.5%] top-[3.2%] z-[6] h-[31.8%] w-[21.6%]",
+    frame: { left: 18, top: 18, width: 266, height: 234 },
+    shadow: "small",
+    className: "z-[6]",
   },
   {
     id: "photo-portrait",
@@ -215,7 +249,13 @@ const CORE_FEATURE_CARDS = [
     alt: "Portrait of an older patient",
     kind: "photo",
     motionDelayMs: 1040,
-    className: "left-[0.8%] top-[37.2%] z-[5] h-[55.6%] w-[9.6%]",
+    frame: { left: -69, top: 288, width: 192, height: 381 },
+    shadow: "small",
+    className: "z-[5]",
+    imageStyle: {
+      objectPosition: "68% 50%",
+      transform: "translate3d(0, 0, 0) scale(1.008)",
+    },
   },
   {
     id: "photo-exam",
@@ -223,7 +263,9 @@ const CORE_FEATURE_CARDS = [
     alt: "Nurse checking an older patient",
     kind: "photo",
     motionDelayMs: 320,
-    className: "left-[24.8%] top-[4.6%] z-[6] h-[29.8%] w-[16.2%]",
+    frame: { left: 302, top: 28, width: 211, height: 248 },
+    shadow: "small",
+    className: "z-[-1]",
   },
   {
     id: "photo-bench",
@@ -231,7 +273,9 @@ const CORE_FEATURE_CARDS = [
     alt: "Nurse sitting with an older patient outdoors",
     kind: "photo",
     motionDelayMs: 740,
-    className: "left-[41.6%] top-[63.8%] z-[6] h-[30.8%] w-[14.8%]",
+    frame: { left: 490, top: 393, width: 246, height: 258 },
+    shadow: "small",
+    className: "z-[6]",
   },
   {
     id: "photo-wheelchair",
@@ -239,7 +283,9 @@ const CORE_FEATURE_CARDS = [
     alt: "Care team supporting an older patient in a wheelchair",
     kind: "photo",
     motionDelayMs: 1360,
-    className: "left-[58.3%] top-[63.8%] z-[6] h-[27.0%] w-[12.9%]",
+    frame: { left: 770, top: 443, width: 172, height: 180 },
+    shadow: "small",
+    className: "z-[-1]",
   },
   {
     id: "photo-smile",
@@ -247,7 +293,9 @@ const CORE_FEATURE_CARDS = [
     alt: "Nurse smiling with an older patient",
     kind: "photo",
     motionDelayMs: 920,
-    className: "left-[73.4%] top-[6.4%] z-[6] h-[28.2%] w-[18.9%]",
+    frame: { left: 874, top: 50, width: 317, height: 189 },
+    shadow: "small",
+    className: "z-[5]",
   },
   {
     id: "photo-hands",
@@ -255,7 +303,13 @@ const CORE_FEATURE_CARDS = [
     alt: "Close-up of hands in care support",
     kind: "photo",
     motionDelayMs: 1500,
-    className: "left-[94.2%] top-[2.6%] z-[7] h-[25.4%] w-[5.6%]",
+    frame: { left: 1205, top: -40, width: 100, height: 200 },
+    shadow: "small",
+    className: "z-[7]",
+    imageStyle: {
+      objectPosition: "58% 42%",
+      transform: "translate3d(0, 0, 0) scale(1)",
+    },
   },
 ] as const;
 
@@ -1169,9 +1223,11 @@ function AboutFeatureCardsSection() {
 
 function CoreFeaturesSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const stageViewportRef = useRef<HTMLDivElement | null>(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
   const [visibleCardCount, setVisibleCardCount] = useState(0);
+  const [stageScale, setStageScale] = useState(1);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -1199,6 +1255,31 @@ function CoreFeaturesSection() {
       },
       { threshold: 0.3 },
     );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const element = stageViewportRef.current;
+    if (!element) {
+      return;
+    }
+
+    const updateScale = () => {
+      const nextWidth = element.clientWidth;
+      if (!nextWidth) {
+        return;
+      }
+
+      setStageScale(nextWidth / CORE_FEATURE_STAGE_WIDTH);
+    };
+
+    updateScale();
+
+    const observer = new ResizeObserver(() => {
+      updateScale();
+    });
 
     observer.observe(element);
     return () => observer.disconnect();
@@ -1277,9 +1358,10 @@ function CoreFeaturesSection() {
           </div>
 
           <div
+            ref={stageViewportRef}
             className={[
-              "la-core-feature-stage la-gallery-stage relative mx-auto w-full max-w-[1089px] overflow-hidden rounded-lg border",
-              "aspect-[4/3] sm:aspect-[1089/590]",
+              "la-core-feature-stage la-gallery-stage relative overflow-hidden rounded-lg border",
+              "aspect-[4/3] sm:aspect-[1295/718]",
               reduceMotion ? "la-core-feature-stage--reduced" : "",
             ]
               .filter(Boolean)
@@ -1323,77 +1405,92 @@ function CoreFeaturesSection() {
               }}
             />
 
-            <div className="relative z-[1] h-full overflow-hidden p-[1.25%]">
-              {CORE_FEATURE_CARDS.map((card) => {
-                const isDashboard = card.kind === "dashboard";
-                const isPrimary = card.id === "dashboard-primary";
-                const revealIndex = isPrimary
-                  ? -1
-                  : (CORE_FEATURE_REVEAL_INDEX.get(
-                      card.id as (typeof CORE_FEATURE_REVEAL_ORDER)[number],
-                    ) ?? -1);
-                const isVisible =
-                  isPrimary ||
-                  reduceMotion ||
-                  (hasStarted && revealIndex < visibleCardCount);
+            <div
+              className="absolute left-0 top-0 z-[1] origin-top-left overflow-hidden"
+              style={{
+                width: `${CORE_FEATURE_STAGE_WIDTH}px`,
+                height: `${CORE_FEATURE_STAGE_HEIGHT}px`,
+                transform: `scale(${stageScale})`,
+              }}
+            >
+              <div className="relative h-full overflow-hidden">
+                {CORE_FEATURE_CARDS.map((card) => {
+                  const isDashboard = card.kind === "dashboard";
+                  const isPrimary = card.id === "dashboard-primary";
+                  const revealIndex = isPrimary
+                    ? -1
+                    : (CORE_FEATURE_REVEAL_INDEX.get(
+                        card.id as (typeof CORE_FEATURE_REVEAL_ORDER)[number],
+                      ) ?? -1);
+                  const isVisible =
+                    isPrimary ||
+                    reduceMotion ||
+                    (hasStarted && revealIndex < visibleCardCount);
 
-                const clipShapeClass = isPrimary
-                  ? "rounded-[19px] la-core-feature-clip--r19"
-                  : isDashboard
-                    ? "rounded-[15px] la-core-feature-clip--r15"
-                    : "rounded-[13px] la-core-feature-clip--r13";
+                  const clipShapeClass =
+                    "rounded-[0px] la-core-feature-clip--r4";
+                  const frameStyle: CSSProperties = {
+                    left: `${card.frame.left}px`,
+                    top: `${card.frame.top}px`,
+                    width: `${card.frame.width}px`,
+                    height: `${card.frame.height}px`,
+                  };
 
-                return (
-                  <article
-                    key={card.id}
-                    className={["absolute", card.className].join(" ")}
-                  >
-                    <div
-                      className={[
-                        "la-core-feature-shell relative h-full w-full overflow-hidden border-[5px] border-white bg-transparent",
-                        isVisible
-                          ? "la-core-feature-shell--visible"
-                          : "la-core-feature-shell--hidden",
-                        isPrimary
-                          ? "rounded-[24px]"
-                          : isDashboard
-                            ? "rounded-[20px]"
-                            : "rounded-[18px]",
-                      ].join(" ")}
+                  return (
+                    <article
+                      key={card.id}
+                      className={["absolute", card.className].join(" ")}
+                      style={frameStyle}
                     >
                       <div
                         className={[
-                          "la-core-feature-clip relative h-full min-h-0 w-full min-w-0 overflow-hidden",
-                          clipShapeClass,
+                          "la-core-feature-shell relative h-full w-full overflow-hidden border-[5px] border-white bg-transparent",
+                          card.shadow === "large"
+                            ? "la-core-feature-shell--large"
+                            : "la-core-feature-shell--small",
+                          isVisible
+                            ? "la-core-feature-shell--visible"
+                            : "la-core-feature-shell--hidden",
+                          "rounded-[4px]",
                         ].join(" ")}
                       >
                         <div
                           className={[
-                            "la-core-feature-motion relative h-full w-full",
-                            isPrimary
-                              ? "la-core-feature-motion--primary"
-                              : "la-core-feature-motion--secondary",
+                            "la-core-feature-clip relative h-full min-h-0 w-full min-w-0 overflow-hidden",
+                            clipShapeClass,
                           ].join(" ")}
-                          style={{ animationDelay: `${card.motionDelayMs}ms` }}
                         >
-                          <img
-                            src={card.src}
-                            alt={card.alt}
-                            loading={isPrimary ? "eager" : "lazy"}
+                          <div
                             className={[
-                              "la-core-feature-img pointer-events-none absolute inset-0 z-0 box-border h-full max-h-none min-h-full w-full min-w-full max-w-none object-cover object-center select-none",
-                              isDashboard
-                                ? "la-core-feature-img--dashboard origin-center scale-[1.075]"
-                                : "la-core-feature-img--photo",
+                              "la-core-feature-motion relative h-full w-full",
+                              isPrimary
+                                ? "la-core-feature-motion--primary"
+                                : "la-core-feature-motion--secondary",
                             ].join(" ")}
-                            draggable={false}
-                          />
+                            style={{
+                              animationDelay: `${card.motionDelayMs}ms`,
+                            }}
+                          >
+                            <img
+                              src={card.src}
+                              alt={card.alt}
+                              loading={isPrimary ? "eager" : "lazy"}
+                              style={card.imageStyle}
+                              className={[
+                                "la-core-feature-img pointer-events-none absolute inset-0 z-0 box-border h-full max-h-none min-h-full w-full min-w-full max-w-none object-cover object-center select-none",
+                                isDashboard
+                                  ? "la-core-feature-img--dashboard origin-center scale-[1.075]"
+                                  : "la-core-feature-img--photo",
+                              ].join(" ")}
+                              draggable={false}
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </article>
-                );
-              })}
+                    </article>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -2288,13 +2385,7 @@ export default function Home() {
         <AboutFeatureCardsSection />
         <CoreFeaturesSection />
         <HowItWorksFeatureCardsSection />
-        <section
-          className="border-t border-gray-200 py-20"
-          style={{
-            background:
-              "url('/assets/images/Container.png') lightgray 0% 0% / 100px 100px repeat",
-          }}
-        >
+        <section className="la-how-it-works-section py-20">
           <div className="la-container">
             <HowItWorksSection />
           </div>
