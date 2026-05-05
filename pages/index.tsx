@@ -1171,7 +1171,6 @@ function CoreFeaturesSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
-  const [activeTheme, setActiveTheme] = useState<"warm" | "cool">("warm");
   const [visibleCardCount, setVisibleCardCount] = useState(0);
 
   useEffect(() => {
@@ -1207,13 +1206,11 @@ function CoreFeaturesSection() {
 
   useEffect(() => {
     if (reduceMotion) {
-      setActiveTheme("warm");
       setVisibleCardCount(CORE_FEATURE_REVEAL_ORDER.length);
       return;
     }
 
     if (!hasStarted) {
-      setActiveTheme("warm");
       setVisibleCardCount(0);
       return;
     }
@@ -1234,12 +1231,11 @@ function CoreFeaturesSection() {
       timers.push(timerId);
     };
 
-    const runCycle = (theme: "warm" | "cool") => {
+    const runCycle = () => {
       if (cancelled) {
         return;
       }
 
-      setActiveTheme(theme);
       setVisibleCardCount(0);
 
       queueTimeout(() => {
@@ -1255,12 +1251,12 @@ function CoreFeaturesSection() {
 
         const revealDuration = CORE_FEATURE_REVEAL_ORDER.length * revealStepMs;
         queueTimeout(() => {
-          runCycle(theme === "warm" ? "cool" : "warm");
+          runCycle();
         }, revealDuration + holdMs);
       }, heroOnlyMs);
     };
 
-    runCycle("warm");
+    runCycle();
 
     return () => {
       cancelled = true;
@@ -1282,11 +1278,8 @@ function CoreFeaturesSection() {
 
           <div
             className={[
-              "la-core-feature-stage la-gallery-stage relative mx-auto w-full max-w-[1089px] overflow-hidden rounded-[28px] border",
+              "la-core-feature-stage la-gallery-stage relative mx-auto w-full max-w-[1089px] overflow-hidden rounded-[28px] border la-core-feature-stage--warm",
               "aspect-[4/3] sm:aspect-[1089/590]",
-              activeTheme === "warm"
-                ? "la-core-feature-stage--warm"
-                : "la-core-feature-stage--cool",
               reduceMotion ? "la-core-feature-stage--reduced" : "",
             ]
               .filter(Boolean)
@@ -1302,15 +1295,7 @@ function CoreFeaturesSection() {
             />
             <div
               aria-hidden="true"
-              className="la-core-feature-overlay la-core-feature-overlay--cool"
-            />
-            <div
-              aria-hidden="true"
               className="la-core-feature-orb la-core-feature-orb--warm"
-            />
-            <div
-              aria-hidden="true"
-              className="la-core-feature-orb la-core-feature-orb--cool"
             />
             <div
               aria-hidden="true"

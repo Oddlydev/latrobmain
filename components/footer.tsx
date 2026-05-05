@@ -37,9 +37,9 @@ export default function Footer() {
             <p className="la-footer-built">
               Built by{" "}
               <a
-                href="#"
+                href="https://oddly.global/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="la-footer-oddly"
               >
                 ODDLY
