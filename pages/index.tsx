@@ -1278,7 +1278,7 @@ function CoreFeaturesSection() {
 
           <div
             className={[
-              "la-core-feature-stage la-gallery-stage relative mx-auto w-full max-w-[1089px] overflow-hidden rounded-[28px] border la-core-feature-stage--warm",
+              "la-core-feature-stage la-gallery-stage relative mx-auto w-full max-w-[1089px] overflow-hidden rounded-lg border la-core-feature-stage--warm",
               "aspect-[4/3] sm:aspect-[1089/590]",
               reduceMotion ? "la-core-feature-stage--reduced" : "",
             ]
@@ -1316,11 +1316,11 @@ function CoreFeaturesSection() {
                   reduceMotion ||
                   (hasStarted && revealIndex < visibleCardCount);
 
-                const innerRoundedClass = isPrimary
-                  ? "rounded-[19px]"
+                const clipShapeClass = isPrimary
+                  ? "rounded-[19px] la-core-feature-clip--r19"
                   : isDashboard
-                    ? "rounded-[15px]"
-                    : "rounded-[13px]";
+                    ? "rounded-[15px] la-core-feature-clip--r15"
+                    : "rounded-[13px] la-core-feature-clip--r13";
 
                 return (
                   <article
@@ -1329,7 +1329,7 @@ function CoreFeaturesSection() {
                   >
                     <div
                       className={[
-                        "la-core-feature-shell relative h-full w-full overflow-hidden bg-white p-[5px]",
+                        "la-core-feature-shell relative h-full w-full overflow-hidden border-[5px] border-white bg-transparent",
                         isVisible
                           ? "la-core-feature-shell--visible"
                           : "la-core-feature-shell--hidden",
@@ -1342,24 +1342,32 @@ function CoreFeaturesSection() {
                     >
                       <div
                         className={[
-                          `la-core-feature-motion h-full w-full overflow-hidden ${innerRoundedClass}`,
-                          isPrimary
-                            ? "la-core-feature-motion--primary"
-                            : "la-core-feature-motion--secondary",
+                          "la-core-feature-clip relative h-full min-h-0 w-full min-w-0 overflow-hidden",
+                          clipShapeClass,
                         ].join(" ")}
-                        style={{ animationDelay: `${card.motionDelayMs}ms` }}
                       >
-                        <img
-                          src={card.src}
-                          alt={card.alt}
-                          loading={isPrimary ? "eager" : "lazy"}
+                        <div
                           className={[
-                            "block h-full w-full",
-                            isDashboard
-                              ? "la-core-feature-img--dashboard origin-center scale-[1.075] object-cover object-center"
-                              : "la-core-feature-img--photo object-cover object-center",
+                            "la-core-feature-motion relative h-full w-full",
+                            isPrimary
+                              ? "la-core-feature-motion--primary"
+                              : "la-core-feature-motion--secondary",
                           ].join(" ")}
-                        />
+                          style={{ animationDelay: `${card.motionDelayMs}ms` }}
+                        >
+                          <img
+                            src={card.src}
+                            alt={card.alt}
+                            loading={isPrimary ? "eager" : "lazy"}
+                            className={[
+                              "la-core-feature-img pointer-events-none absolute inset-0 z-0 box-border h-full max-h-none min-h-full w-full min-w-full max-w-none object-cover object-center select-none",
+                              isDashboard
+                                ? "la-core-feature-img--dashboard origin-center scale-[1.075]"
+                                : "la-core-feature-img--photo",
+                            ].join(" ")}
+                            draggable={false}
+                          />
+                        </div>
                       </div>
                     </div>
                   </article>
