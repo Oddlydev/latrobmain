@@ -1278,31 +1278,52 @@ function CoreFeaturesSection() {
 
           <div
             className={[
-              "la-core-feature-stage la-gallery-stage relative mx-auto w-full max-w-[1089px] overflow-hidden rounded-lg border la-core-feature-stage--warm",
+              "la-core-feature-stage la-gallery-stage relative mx-auto w-full max-w-[1089px] overflow-hidden rounded-lg border",
               "aspect-[4/3] sm:aspect-[1089/590]",
               reduceMotion ? "la-core-feature-stage--reduced" : "",
             ]
               .filter(Boolean)
               .join(" ")}
             style={{
-              background:
-                "url('/assets/images/Container.png') lightgray 0% 0% / 100px 100px repeat, #FFF",
+              backgroundColor: "#FFF",
+              borderColor: "rgba(15, 23, 42, 0.08)",
+              boxShadow: "0 32px 90px rgba(15, 23, 42, 0.08)",
             }}
           >
             <div
               aria-hidden="true"
-              className="la-core-feature-overlay la-core-feature-overlay--warm"
+              className="pointer-events-none absolute inset-x-0 top-0 h-20"
+              style={{
+                background:
+                  "linear-gradient(180deg, var(--red-100, #FEE2E2) 0%, rgba(254, 226, 226, 0) 100%)",
+              }}
             />
             <div
               aria-hidden="true"
-              className="la-core-feature-orb la-core-feature-orb--warm"
+              className="pointer-events-none absolute inset-y-0 right-0 w-20"
+              style={{
+                background:
+                  "linear-gradient(270deg, var(--red-100, #FEE2E2) 0%, rgba(254, 226, 226, 0) 100%)",
+              }}
             />
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.32),transparent_60%)]"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-20"
+              style={{
+                background:
+                  "linear-gradient(0deg, var(--red-100, #FEE2E2) 0%, rgba(254, 226, 226, 0) 100%)",
+              }}
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 left-0 w-20"
+              style={{
+                background:
+                  "linear-gradient(90deg, var(--red-100, #FEE2E2) 0%, rgba(254, 226, 226, 0) 100%)",
+              }}
             />
 
-            <div className="relative h-full overflow-hidden p-[1.25%]">
+            <div className="relative z-[1] h-full overflow-hidden p-[1.25%]">
               {CORE_FEATURE_CARDS.map((card) => {
                 const isDashboard = card.kind === "dashboard";
                 const isPrimary = card.id === "dashboard-primary";
