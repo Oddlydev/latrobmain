@@ -4,8 +4,8 @@
 @layer base {
   :root {
     color-scheme: light;
-    --font-dm-sans-body: "DM Sans Variable", "DM Sans", sans-serif;
-    --font-dm-sans-display: "DM Sans", sans-serif;
+    --font-dm-sans-body: "DM Sans";
+    --font-dm-sans-display: "DM Sans";
     --Brand---1: #e2231b;
     --Brand---2: #fff;
     --Brand---3: #000;

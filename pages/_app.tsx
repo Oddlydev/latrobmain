@@ -3,8 +3,6 @@ import React from "react";
 import { useRouter } from "next/router";
 import { AppProps } from "next/app"; // Import AppProps
 import { FaustProvider } from "@faustwp/core";
-import "@fontsource-variable/dm-sans/wght.css";
-import "@fontsource-variable/dm-sans/wght-italic.css";
 import "@fontsource/dm-sans/latin-400.css";
 import "@fontsource/dm-sans/latin-500.css";
 import "@fontsource/dm-sans/latin-600.css";

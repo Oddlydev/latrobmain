@@ -59,7 +59,7 @@ export default function Accordion({
           >
             <button
               type="button"
-              className="la-accordion-trigger group relative flex w-full items-center justify-start px-6 py-5 text-left md:px-5 md:py-5 lg:px-6 lg:py-5"
+              className="la-accordion-trigger group relative flex w-full items-center justify-start px-5 py-5 text-left md:px-5 md:py-5 lg:px-6 lg:py-5"
               onClick={() => toggleItem(item.id)}
               aria-expanded={isOpen}
             >
@@ -150,7 +150,7 @@ export default function Accordion({
                 .join(" ")}
             >
               <div className="overflow-hidden">
-                <div className="body-base-400 pl-5 pr-10 pb-5 text-left text-gray-600 md:pl-5 md:pr-10 md:pb-5 lg:pl-6 lg:pr-10 lg:pb-5">
+                <div className="body-base-400 pl-5 pr-5 pb-5 text-left text-gray-600 md:pl-5 md:pr-10 md:pb-5 lg:pl-6 lg:pr-10 lg:pb-5">
                   {item.content}
                 </div>
               </div>

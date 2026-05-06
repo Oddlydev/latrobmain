@@ -81,7 +81,12 @@ export function CardType1({
   className,
 }: CardVariantProps) {
   return (
-    <article className={joinClassNames("la-card-type-1", className)}>
+    <article
+      className={joinClassNames(
+        "la-card-type-1 p-5",
+        className,
+      )}
+    >
       {icon ? <div className="la-feature-icon">{icon}</div> : null}
       <div>
         <p className="body-base-600 text-black">{title}</p>
@@ -104,7 +109,7 @@ export function CardType2({
       {icon ? <div className="la-feature-icon mb-4">{icon}</div> : null}
       <h3 className="body-base-600 text-black">{title}</h3>
       {description ? (
-        <p className="body-base-400 mt-2 text-gray-500 leading-[26px] md:leading-6">
+        <p className="body-base-400 mt-2 text-gray-500 md:leading-6">
           {description}
         </p>
       ) : null}
@@ -141,7 +146,7 @@ export function TeamCard({
   className,
 }: TeamCardProps) {
   return (
-    <article className={joinClassNames("la-team-card", className)}>
+    <article className={joinClassNames("la-team-card p-6", className)}>
       <div className="la-team-header">
         <p className="eyebrow text-brand-1">{eyebrow}</p>
         <p className="la-team-card-name">{title}</p>
@@ -185,7 +190,12 @@ export function ContactCard({
   );
 
   return (
-    <article className={joinClassNames("la-contact-item", className)}>
+    <article
+      className={joinClassNames(
+        "la-contact-item gap-4 px-4 py-4",
+        className,
+      )}
+    >
       <div className="la-contact-item-icon">{icon}</div>
       <div>
         <p className="eyebrow text-gray-500">{label}</p>
