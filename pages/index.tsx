@@ -1024,8 +1024,8 @@ function HomeHeroSection() {
 
             <div className="mt-5 space-y-4 md:mt-5 md:space-y-5 lg:mt-12 lg:space-y-0">
               <h1 className="font-display text-4xl font-bold leading-[110%] tracking-normal text-black md:font-black lg:text-[60px] lg:font-black">
-                <span className="block md:inline">Palliative Care</span>
-                <span className="mt-1 block text-brand-1 md:mt-0 md:ml-2 md:inline lg:mt-0">
+                <span className="block md:inline lg:block">Palliative Care</span>
+                <span className="mt-1 block text-brand-1 md:mt-0 md:ml-2 md:inline lg:ml-0 lg:block">
                   Assessment Tool
                 </span>
               </h1>
@@ -1149,7 +1149,7 @@ function AboutSection() {
     valueClassName?: string;
   }) {
     return (
-      <div className="grid grid-cols-[132px_minmax(0,1fr)] items-center gap-9 border-b border-gray-200 px-5 py-6 last:border-b-0 md:grid-cols-[180px_minmax(0,1fr)] md:gap-9 md:px-5 md:py-6 lg:px-8 lg:py-10">
+      <div className="grid grid-cols-[132px_minmax(0,1fr)] items-center gap-9 border-b border-gray-200 px-5 py-6 last:border-b-0 md:grid-cols-[180px_minmax(0,1fr)] md:gap-9 md:px-5 md:py-6 lg:grid-cols-[140px_minmax(0,1fr)] lg:gap-6 lg:px-8 lg:py-10">
         <p className="body-base-600 text-lg uppercase leading-7 tracking-tighter text-gray-600 md:text-xl md:leading-8 lg:text-xl lg:leading-8">
           {label}
         </p>
@@ -1206,7 +1206,7 @@ function AboutSection() {
           <StatRow
             label="Funding"
             value="The Aged Care Research and Industry Innovation Australia fund (ARIIA)"
-            valueClassName="md:max-w-[420px]"
+            valueClassName="md:max-w-[420px] lg:max-w-[760px]"
           />
           <StatRow label="Institution" value="La Trobe University" />
         </div>
