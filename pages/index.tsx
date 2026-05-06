@@ -1872,7 +1872,7 @@ function HowItWorksSection() {
         <div className="relative z-10">
           <div
             ref={trackRef}
-            className="absolute top-6 bottom-6 left-6 w-0.5 rounded-full bg-red-100 md:left-5 lg:left-1/2 lg:w-1 lg:-translate-x-1/2"
+            className="absolute top-6 bottom-6 left-6 w-0.5 rounded-full bg-red-100 md:top-5 md:bottom-5 md:left-5 lg:left-1/2 lg:top-6 lg:bottom-6 lg:w-1 lg:-translate-x-1/2"
             aria-hidden="true"
           >
             <div
@@ -1891,7 +1891,7 @@ function HowItWorksSection() {
               return (
                 <div
                   key={step.id}
-                  className="relative grid grid-cols-[auto_1fr] items-start gap-x-5 lg:mx-auto lg:w-fit lg:grid-cols-[462px_168px_462px] lg:items-center lg:gap-0"
+                  className="relative grid grid-cols-[auto_1fr] items-center gap-x-5 lg:mx-auto lg:w-fit lg:grid-cols-[462px_168px_462px] lg:items-center lg:gap-0"
                 >
                   <div
                     ref={(element) => {
@@ -1913,7 +1913,7 @@ function HowItWorksSection() {
                     onMouseEnter={() => setHoveredStepIndex(stepIndex)}
                     onMouseLeave={() => setHoveredStepIndex(null)}
                     className={[
-                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-0 py-5 text-left transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform md:px-0 md:py-5 lg:py-5",
+                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-0 py-0 text-left transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform md:px-0 md:py-0 lg:py-5",
                       isStepHovered
                         ? isLeft
                           ? "origin-right -translate-x-3 opacity-100"
