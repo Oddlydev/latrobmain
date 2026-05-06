@@ -1149,7 +1149,7 @@ function AboutSection() {
     valueClassName?: string;
   }) {
     return (
-      <div className="grid grid-cols-[132px_minmax(0,1fr)] items-center gap-9 border-b border-gray-200 px-5 py-6 last:border-b-0 md:grid-cols-[180px_minmax(0,1fr)] md:gap-9 md:px-5 md:py-6 lg:grid-cols-[140px_minmax(0,1fr)] lg:gap-6 lg:px-8 lg:py-10">
+      <div className="grid grid-cols-[132px_minmax(0,1fr)] items-center gap-9 border-b border-gray-200 px-5 py-6 last:border-b-0 md:grid-cols-[180px_minmax(0,1fr)] md:gap-9 md:px-5 md:py-6 lg:grid-cols-[auto_minmax(0,1fr)] lg:gap-9 lg:px-8 lg:py-10">
         <p className="body-base-600 text-lg uppercase leading-7 tracking-tighter text-gray-600 md:text-xl md:leading-8 lg:text-xl lg:leading-8">
           {label}
         </p>
@@ -1190,7 +1190,7 @@ function AboutSection() {
             evidence-based digital workflow.
           </SectionLead>
 
-          <div className="rounded-xl border border-red-200 bg-transparent lg:bg-white p-6">
+          <div className="rounded-xl border border-red-200 bg-transparent p-6 lg:bg-white">
             <p className="body-base-600 text-lg text-black lg:text-xl lg:leading-7">
               PCAT is an evidence based palliative care assessment toolkit that
               is designed to flag palliative care needs. Nurses can complete
@@ -1354,7 +1354,7 @@ function CoreFeaturesSection() {
   }, [hasStarted, reduceMotion]);
 
   return (
-    <section ref={sectionRef} className="pt-10 pb-5 md:pt-20 md:pb-7 lg:pb-12">
+    <section ref={sectionRef} className="pt-10 pb-5 md:pt-20 md:pb-7 lg:pt-20 lg:pb-20">
       <SectionAnchor id="features" />
       <div className="la-container">
         <div className="space-y-5 md:space-y-7 lg:space-y-12">
@@ -1889,7 +1889,7 @@ function HowItWorksSection() {
             />
           </div>
 
-          <div className="space-y-10 lg:space-y-4">
+          <div className="space-y-10 lg:space-y-16">
             {steps.map((step, stepIndex) => {
               const isLeft = step.side === "left";
               const isStepFilled = filledSteps[stepIndex] ?? false;
@@ -2352,7 +2352,7 @@ function ContactSection() {
         <div className="max-w-[695px] space-y-0 text-left md:space-y-0 lg:space-y-4">
           <SectionEyebrow className="text-red-600">Get in touch</SectionEyebrow>
           <SectionTitle>Collaborate or Learn More</SectionTitle>
-          <SectionLead className="max-w-600 pt-4">
+          <SectionLead className="max-w-[600px] pt-4">
             We welcome enquiries from aged care providers, clinicians,
             researchers, consumer advocates, and organisations interested in
             partnering with the PCAT project.
