@@ -150,7 +150,7 @@ export default function Accordion({
                 .join(" ")}
             >
               <div className="overflow-hidden">
-                <div className="body-base-400 pl-6 pr-10 pb-5 text-left text-gray-600 md:pl-5 md:pr-10 md:pb-5 lg:pl-6 lg:pr-10 lg:pb-5">
+                <div className="body-base-400 pl-5 pr-10 pb-5 text-left text-gray-600 md:pl-5 md:pr-10 md:pb-5 lg:pl-6 lg:pr-10 lg:pb-5">
                   {item.content}
                 </div>
               </div>

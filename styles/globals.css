@@ -187,12 +187,18 @@
   }
 
   .la-how-it-works-section {
-    background: url("/assets/images/how-it-works-mobile.png") 100px 100px repeat;
+    background: url("/assets/images/how-it-works-mobile.svg") 100px 100px repeat;
   }
 
   @media (min-width: 768px) {
     .la-how-it-works-section {
-      background-image: url("/assets/images/how-it-works-desktop.png");
+      background-image: url("/assets/images/how-it-works-tablet.svg");
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .la-how-it-works-section {
+      background-image: url("/assets/images/hhow-it-works-desktop.png");
     }
   }
 

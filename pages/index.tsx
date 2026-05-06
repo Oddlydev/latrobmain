@@ -1015,14 +1015,14 @@ function HomeHeroSection() {
           className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white/35 to-transparent md:hidden lg:hidden"
         />
 
-        <div className="relative z-10 px-2.5 pt-2.5 pb-0 md:px-10 md:pt-10 md:pb-0 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
+        <div className="relative z-10 px-6 pt-10 pb-0 md:px-10 md:pt-10 md:pb-0 lg:pl-37.5 lg:pr-10 lg:pt-44.25 lg:pb-44.25">
           <div className="w-full">
             <p className="body-base-500 inline-flex max-w-full items-center gap-2 whitespace-normal rounded-full border border-gray-300 bg-white px-4 py-2 text-black shadow-sm">
               <span className="la-hero-status-dot h-2.5 w-2.5 rounded-full bg-green-500" />
               La Trobe Palliative Care Research Programme
             </p>
 
-            <div className="mt-5 space-y-5 md:mt-5 md:space-y-5 lg:mt-12 lg:space-y-0">
+            <div className="mt-5 space-y-4 md:mt-5 md:space-y-5 lg:mt-12 lg:space-y-0">
               <h1 className="text-black">
                 <span className="block">Palliative Care</span>
                 <span className="mt-1 block text-brand-1 lg:mt-0">
@@ -1141,7 +1141,7 @@ function AboutSection() {
     valueClassName?: string;
   }) {
     return (
-      <div className="grid grid-cols-[132px_minmax(0,1fr)] items-center gap-5 border-b border-gray-200 px-6 py-6 last:border-b-0 md:grid-cols-[180px_minmax(0,1fr)] md:gap-9 md:px-5 md:py-6 lg:px-8 lg:py-10">
+      <div className="grid grid-cols-[132px_minmax(0,1fr)] items-center gap-9 border-b border-gray-200 px-6 py-6 last:border-b-0 md:grid-cols-[180px_minmax(0,1fr)] md:gap-9 md:px-5 md:py-6 lg:px-8 lg:py-10">
         <p className="body-base-600 text-lg uppercase leading-7 tracking-[-0.8px] text-gray-600 md:text-xl md:leading-8">
           {label}
         </p>
@@ -1209,9 +1209,9 @@ function AboutSection() {
 
 function AboutFeatureCardsSection() {
   return (
-    <section className="border-b border-black/8 pt-5 pb-10 md:pt-7 md:pb-10 lg:pt-12 lg:pb-20">
+    <section className="border-b border-black/8 pt-5 pb-0 md:pt-7 md:pb-10 lg:pt-12 lg:pb-20">
       <div className="la-container">
-        <div className="grid gap-5 md:grid-cols-2 md:gap-x-0.5 md:gap-y-20 lg:grid-cols-4 lg:gap-6">
+        <div className="grid gap-5 md:grid-cols-2 md:gap-5 lg:grid-cols-4 lg:gap-6">
           {ABOUT_FEATURE_CARDS.map((item) => (
             <AboutFeatureTile key={item.title} {...item} />
           ))}
@@ -1346,10 +1346,10 @@ function CoreFeaturesSection() {
   }, [hasStarted, reduceMotion]);
 
   return (
-    <section ref={sectionRef} className="pt-10 pb-10 md:pt-20 md:pb-7 lg:pb-12">
+    <section ref={sectionRef} className="pt-10 pb-5 md:pt-20 md:pb-7 lg:pb-12">
       <SectionAnchor id="features" />
       <div className="la-container">
-        <div className="space-y-12 md:space-y-7 lg:space-y-12">
+        <div className="space-y-5 md:space-y-7 lg:space-y-12">
           <div className="space-y-2">
             <p className="eyebrow text-red-600">Core Features</p>
             <h2 className="text-black lg:max-w-xl">
@@ -1501,7 +1501,7 @@ function CoreFeaturesSection() {
 
 function HowItWorksFeatureCardsSection() {
   return (
-    <section className="border-b border-black/8 pb-10 md:pb-20">
+    <section className="border-b border-black/8 pb-0 md:pb-20">
       <div className="la-container">
         <div className="grid gap-5 lg:gap-6 md:grid-cols-2 xl:grid-cols-3">
           {HOW_IT_WORKS_FEATURE_CARDS.map((item) => (
@@ -1864,7 +1864,7 @@ function HowItWorksSection() {
       <div className="relative overflow-hidden">
         <div className="relative z-10 mb-5 text-left sm:mb-7 lg:mb-12 lg:text-center">
           <p className="eyebrow text-brand-1">How It Works</p>
-          <h2 className="mt-5 text-black sm:mt-7 md:mt-2 lg:mt-2">
+          <h2 className="mt-2 text-black md:mt-2 lg:mt-2">
             From login to care record in minutes
           </h2>
         </div>
@@ -1913,7 +1913,7 @@ function HowItWorksSection() {
                     onMouseEnter={() => setHoveredStepIndex(stepIndex)}
                     onMouseLeave={() => setHoveredStepIndex(null)}
                     className={[
-                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-0 py-0 text-left transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform md:px-0 md:py-5 lg:py-5",
+                      "col-start-2 row-start-1 min-w-0 w-full rounded-lg px-0 py-5 text-left transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform md:px-0 md:py-5 lg:py-5",
                       isStepHovered
                         ? isLeft
                           ? "origin-right -translate-x-3 opacity-100"
@@ -2007,7 +2007,7 @@ function TeamSection() {
     <section className="border-t border-gray-200 py-10 md:py-10 lg:py-20">
       <SectionAnchor id="team" />
       <div className="la-container">
-        <div className="space-y-5 md:space-y-5 lg:space-y-3">
+        <div className="space-y-0">
           <div className="max-w-2xl">
             <SectionEyebrow className="text-brand-1">
               Research team
@@ -2069,9 +2069,9 @@ function SupportSection() {
           {supportCards.map((item) => (
             <article
               key={item.title}
-              className="group flex flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white/70 py-[47px] text-center md:gap-0"
+              className="group flex flex-col items-center gap-0 rounded-2xl border border-gray-200 bg-white/70 py-[47px] text-center md:gap-0"
             >
-              <div className="flex h-20 items-center justify-center md:pb-[30px]">
+              <div className="flex h-20 items-center justify-center pb-[30px] md:pb-[30px]">
                 <img
                   src={item.logo}
                   alt={item.logoAlt}
@@ -2344,7 +2344,7 @@ function ContactSection() {
         </div>
 
         <div className="grid gap-5 md:gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.95fr)] lg:items-start lg:gap-12">
-          <div className="space-y-5 md:space-y-4 lg:space-y-5">
+          <div className="space-y-4 md:space-y-4 lg:space-y-5">
             {contactItems.map((item) => (
               <ContactCard
                 key={item.label}
@@ -2388,7 +2388,7 @@ export default function Home() {
         <AboutFeatureCardsSection />
         <CoreFeaturesSection />
         <HowItWorksFeatureCardsSection />
-        <section className="la-how-it-works-section py-10 md:py-10 lg:py-20">
+        <section className="la-how-it-works-section pt-10 pb-0 md:py-10 lg:py-20">
           <div className="la-container">
             <HowItWorksSection />
           </div>
