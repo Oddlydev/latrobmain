@@ -179,7 +179,7 @@ export default function Header({
 
   return (
     <header className="border-b border-gray-200 bg-gradient-1 text-white shadow-md">
-      <div className="px-4 py-4 lg:px-12">
+      <div className="px-4 py-4 lg:px-12 lg:py-3">
         <div className="flex items-center justify-between gap-4 lg:hidden">
           <Link
             href="/"
@@ -207,7 +207,7 @@ export default function Header({
             <SiteBrand subtitle="Palliative Care Assessment Tool" />
           </Link>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center lg:gap-2">
             <nav className="flex items-center gap-6">
               {navItems.map((item) => (
                 <Link
@@ -220,7 +220,10 @@ export default function Header({
                 </Link>
               ))}
             </nav>
-            <span className="h-6 w-px bg-gray-200/80" aria-hidden="true" />
+            <span
+              className="h-6 w-px bg-gray-200/80 lg:ml-4"
+              aria-hidden="true"
+            />
             <Button
               href={LOGIN_URL}
               target="_blank"

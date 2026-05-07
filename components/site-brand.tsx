@@ -33,7 +33,7 @@ export default function SiteBrand({
   const subtitleFontClass = useDisplayFont ? "font-display" : "";
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-4 lg:gap-3">
       <img
         src="/assets/images/logo-light.svg"
         alt="La Trobe University"

@@ -5,9 +5,9 @@ export default function Footer() {
 
   return (
     <footer className="la-footer">
-      <div className="lg:px-12 lg:py-12 px-6 py-12">
-        <div className="flex flex-col lg:gap-8 md:gap-8 gap-8">
-          <div className="flex flex-col items-center lg:gap-5 md:gap-12 gap-10 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
+      <div className="px-6 py-12 lg:px-12 lg:py-12">
+        <div className="flex flex-col gap-8 md:gap-8 lg:gap-8">
+          <div className="flex flex-col items-center gap-10 text-center md:gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-5 lg:text-left">
             <SiteBrand
               title="La Trobe University"
               subtitle="PCAT Research Programme"
@@ -20,7 +20,7 @@ export default function Footer() {
                 <a
                   key={link}
                   href="#"
-                  className="la-footer-link w-full py-0 text-center md:w-auto"
+                  className="la-footer-link w-full py-0 text-center md:w-auto lg:body-base-500 lg:text-zinc-200"
                 >
                   {link}
                 </a>
@@ -28,13 +28,13 @@ export default function Footer() {
             </nav>
           </div>
 
-          <div className="flex flex-col lg:gap-3 gap-4 border-t border-white/10 lg:pt-8 pt-6 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
-            <p className="la-footer-bottom">
+          <div className="flex flex-col gap-4 border-t border-white/10 pt-6 text-center lg:flex-row lg:items-center lg:justify-between lg:gap-3 lg:pt-8 lg:text-left">
+            <p className="la-footer-bottom lg:body-base-500 lg:text-zinc-200">
               &copy; {new Date().getFullYear()} La Trobe University - PCAT -
               Palliative Care Assessment Tool
             </p>
 
-            <p className="la-footer-built">
+            <p className="la-footer-built lg:body-base-500 lg:text-zinc-200">
               Built by{" "}
               <a
                 href="https://oddly.global/"
